@@ -5,7 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://megastate.group'),
+  metadataBase: new URL('https://megastate-site.vercel.app'),
   title: {
     default: 'МЕГАСТЕЙТ — долгосрочная аренда и управление стрит-ритейлом в Москве',
     template: '%s — МЕГАСТЕЙТ',
