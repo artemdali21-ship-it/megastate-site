@@ -14,6 +14,7 @@ export default function ConnectCTA() {
 
       {/* Floating cube — decorative, right side */}
       <div
+        className="cta-3d-decor"
         style={{
           position: 'absolute',
           right: 'clamp(20px, 4vw, 80px)',

@@ -362,12 +362,22 @@ h3 {
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: '16px';
+    gap: 16px;
   }
 
   /* Approach section with 3D image — stack, hide image on very small */
   .approach-img-mobile {
     display: none;
+  }
+
+  /* ConnectCTA 3D decor — hide on mobile so it doesn't overlap text */
+  .cta-3d-decor {
+    display: none;
+  }
+
+  /* Stats grid — single column on phones */
+  .stats-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 

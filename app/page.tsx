@@ -114,6 +114,7 @@ export default function HomePage() {
       <section style={{ background: 'var(--bg)', borderBottom: '1px solid var(--line)' }}>
         <div className="container-main" style={{ paddingBlock: 'clamp(40px, 5vw, 72px)' }}>
           <div
+            className="stats-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
