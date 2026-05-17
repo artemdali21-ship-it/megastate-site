@@ -52,7 +52,7 @@ export default function HomePage() {
             <Logo height={30} />
           </div>
           <MotionFadeUp>
-            <h1 style={{ maxWidth: '720px' }}>
+            <h1 style={{ maxWidth: '760px', fontSize: 'clamp(28px, 3.2vw, 48px)' }}>
               Превращаем коммерческие помещения в управляемые арендные объекты
             </h1>
             <span className="hero-line" />
