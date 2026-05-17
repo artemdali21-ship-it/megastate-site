@@ -93,6 +93,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
+          className="footer-bottom"
           style={{
             marginTop: '40px',
             paddingTop: '20px',
@@ -100,14 +101,14 @@ export default function Footer() {
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '12px',
+            alignItems: 'flex-start',
+            gap: '16px',
           }}
         >
-          <p style={{ fontSize: '13px', color: 'rgba(250,248,243,0.35)' }}>
+          <p style={{ fontSize: '13px', color: 'rgba(250,248,243,0.35)', flexShrink: 0 }}>
             &copy; 2026 ООО «МЕГАСТЕЙТ» · ИНН 9710153625
           </p>
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '12px 20px', flexWrap: 'wrap', maxWidth: '480px' }}>
             {[
               { href: '/legal/privacy/', label: 'Политика персональных данных' },
               { href: '/legal/cookie/', label: 'Cookie' },

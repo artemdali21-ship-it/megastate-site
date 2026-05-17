@@ -175,10 +175,8 @@ export default function HomePage() {
             ].map((stat, i) => (
               <MotionFadeUp key={stat.num} delay={i * 0.12}>
                 <div
-                  style={{
-                    padding: 'clamp(20px, 3vw, 32px)',
-                    borderLeft: i > 0 ? '1px solid var(--line)' : 'none',
-                  }}
+                  className="stat-cell"
+                  style={{ padding: 'clamp(20px, 3vw, 32px)' }}
                 >
                   <div
                     style={{
@@ -292,7 +290,7 @@ export default function HomePage() {
                   <ArrowRight size={15} strokeWidth={1.5} />
                 </Link>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <div className="approach-img-mobile" style={{ display: 'flex', justifyContent: 'center' }}>
                 <Image
                   src="/_images/3d-element-chart-growth-abstract.png"
                   alt=""

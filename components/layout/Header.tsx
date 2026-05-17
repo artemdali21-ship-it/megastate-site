@@ -58,7 +58,7 @@ export default function Header() {
           <nav
             aria-label="Основная навигация"
             className="hidden lg:flex"
-            style={{ display: 'flex', gap: '4px', alignItems: 'center' }}
+            style={{ gap: '4px', alignItems: 'center' }}
           >
             {NAV_LINKS.map((link) => {
               const isActive =
@@ -114,7 +114,6 @@ export default function Header() {
                 fontWeight: 600,
                 textDecoration: 'none',
                 whiteSpace: 'nowrap',
-                display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
               }}

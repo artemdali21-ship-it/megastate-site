@@ -18,7 +18,7 @@ export default function ParallaxLogo() {
         fill="currentColor"
         aria-label="МЕГАСТЕЙТ"
         style={{
-          width: 'min(54vw, 560px)',
+          width: 'clamp(200px, 54vw, 560px)',
           height: 'auto',
           color: 'var(--accent)',
           display: 'block',

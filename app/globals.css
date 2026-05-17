@@ -328,3 +328,53 @@ h3 {
   color: var(--text);
   font-weight: 600;
 }
+
+/* ─── Stats row — mobile separator fix ─── */
+.stat-cell + .stat-cell {
+  border-left: 1px solid var(--line);
+}
+@media (max-width: 599px) {
+  .stat-cell + .stat-cell {
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+}
+
+/* ─── Mobile global tweaks ─── */
+@media (max-width: 767px) {
+  /* Reduce section spacing on small screens */
+  .section-gap {
+    padding-block: clamp(48px, 10vw, 80px);
+  }
+
+  /* Hero centered text — left-align on very small screens */
+  .hero-centered-mobile {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  /* Feature card grid — ensure 1 column on narrow */
+  .feature-grid-auto {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer bottom bar — stack on mobile */
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: '16px';
+  }
+
+  /* Approach section with 3D image — stack, hide image on very small */
+  .approach-img-mobile {
+    display: none;
+  }
+}
+
+/* ─── ParallaxLogo — adjust size on mobile ─── */
+@media (max-width: 599px) {
+  /* Let Tailwind's hidden work — override any accidental display:none conflicts */
+  .lg\:hidden {
+    display: block;
+  }
+}
