@@ -9,11 +9,12 @@ import FeatureCard from '@/components/ui/FeatureCard';
 import MarqueeStrip from '@/components/ui/Marquee';
 import WordReveal from '@/components/ui/WordReveal';
 import ParallaxLogo from '@/components/ui/ParallaxLogo';
+import HeroDepthWrapper from '@/components/ui/HeroDepthWrapper';
 import { ShaderAnimation } from '@/components/ui/ShaderAnimation';
 import { TELEGRAM_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Долгосрочная аренда и управление стрит-ритейлом в Москве — МЕГАСТЕЙТ',
+  title: 'Превращаем коммерческие помещения в управляемые арендные объекты — МЕГАСТЕЙТ',
   description:
     'МЕГАСТЕЙТ — долгосрочная аренда и операторское управление стрит-ритейлом в Москве. Проверяем экономику до сделки, делим площадь, заселяем арендаторами.',
 };
@@ -21,30 +22,24 @@ export const metadata: Metadata = {
 const MARQUEE_ITEMS = [
   'Аптеки',
   'Продуктовая розница',
-  'Бытовая химия',
-  'Медицинские кабинеты',
-  'Точки маркетплейсов',
-  'Столовые',
+  'Медицина',
   'Услуги для жителей',
+  'Пункты выдачи',
+  'Бытовые сервисы',
+  'Общепит',
   'Детские занятия',
-  'Бытовые мастерские',
-  'Ателье и ремонт',
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* ─── Hero ─── */}
+      {/* ─── Hero — размер как на /contacts ─── */}
       <section
         style={{
           background: 'var(--bg)',
           borderBottom: '1px solid var(--line)',
           position: 'relative',
           overflow: 'hidden',
-          minHeight: '100svh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
         }}
         className="grain"
       >
@@ -53,114 +48,111 @@ export default function HomePage() {
         <div
           className="container-main"
           style={{
-            paddingBlock: 'clamp(80px, 12vw, 140px)',
+            paddingBlock: 'clamp(64px, 10vw, 140px)',
             position: 'relative',
             zIndex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            textAlign: 'center',
           }}
         >
-          {/* Parallax logo */}
-          <div style={{ marginBottom: 'clamp(40px, 6vw, 80px)' }}>
-            <ParallaxLogo />
-          </div>
-
-          {/* Word-reveal H1 */}
-          <WordReveal
-            text="Превращаем коммерческие помещения в управляемые арендные объекты"
-            style={{
-              maxWidth: '760px',
-              marginBottom: 0,
-              fontSize: 'clamp(26px, 3.8vw, 50px)',
-            }}
-            stagger={0.05}
-          />
-
-          {/* Divider */}
-          <MotionFadeUp delay={0.22}>
-            <span className="hero-line" style={{ display: 'block', margin: '28px auto' }} />
-          </MotionFadeUp>
-
-          {/* Subtitle */}
-          <MotionFadeUp delay={0.28}>
-            <p
+          <HeroDepthWrapper>
+            <div
               style={{
-                fontSize: '18px',
-                color: 'var(--text-muted)',
-                lineHeight: 1.65,
-                maxWidth: '620px',
-                marginBottom: '40px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
               }}
             >
-              МЕГАСТЕЙТ берёт на себя расчёт, деление площади, заселение арендаторами и дальнейшее
-              управление. Для собственника это один основной договор, один ответственный оператор и
-              понятный график платежей.
-            </p>
-          </MotionFadeUp>
+              {/* Parallax logo */}
+              <div style={{ marginBottom: 'clamp(32px, 5vw, 64px)' }}>
+                <ParallaxLogo />
+              </div>
 
-          {/* CTAs */}
-          <MotionFadeUp delay={0.35}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
-              <Link
-                href="/#connect"
-                className="btn-arrow btn-primary"
+              {/* Word-reveal H1 */}
+              <WordReveal
+                text="Превращаем коммерческие помещения в управляемые арендные объекты"
                 style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 24px',
-                  borderRadius: '8px',
-                  background: 'var(--accent)',
-                  color: 'var(--surface)',
-                  fontWeight: 600,
-                  fontSize: '15px',
-                  textDecoration: 'none',
+                  maxWidth: '760px',
+                  marginBottom: 0,
+                  fontSize: 'clamp(26px, 3.8vw, 50px)',
                 }}
-              >
-                Связаться по объекту
-                <ArrowRight size={16} strokeWidth={1.5} />
-              </Link>
-              <Link
-                href="/how/"
-                className="btn-arrow"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 24px',
-                  borderRadius: '8px',
-                  border: '1px solid var(--line)',
-                  color: 'var(--accent)',
-                  fontWeight: 600,
-                  fontSize: '15px',
-                  textDecoration: 'none',
-                  transition: 'background 200ms ease',
-                }}
-              >
-                Как мы работаем
-                <ArrowRight size={16} strokeWidth={1.5} />
-              </Link>
+                stagger={0.05}
+              />
+
+              {/* Divider */}
+              <span className="hero-line" style={{ display: 'block', margin: '28px auto' }} />
+
+              {/* Subtitle */}
+              <MotionFadeUp delay={0.3}>
+                <p
+                  style={{
+                    fontSize: '18px',
+                    color: 'var(--text-muted)',
+                    lineHeight: 1.65,
+                    maxWidth: '600px',
+                    marginBottom: '40px',
+                  }}
+                >
+                  МЕГАСТЕЙТ берёт на себя расчёт, деление площади, заселение арендаторами и дальнейшее
+                  управление. Для собственника это один основной договор, один ответственный оператор и
+                  понятный график платежей.
+                </p>
+              </MotionFadeUp>
+
+              {/* CTAs */}
+              <MotionFadeUp delay={0.38}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
+                  <Link
+                    href="/#connect"
+                    className="btn-arrow btn-primary"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 24px',
+                      borderRadius: '8px',
+                      background: 'var(--accent)',
+                      color: 'var(--surface)',
+                      fontWeight: 600,
+                      fontSize: '15px',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    Связаться по объекту
+                    <ArrowRight size={16} strokeWidth={1.5} />
+                  </Link>
+                  <Link
+                    href="/how/"
+                    className="btn-arrow"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 24px',
+                      borderRadius: '8px',
+                      border: '1px solid var(--line)',
+                      color: 'var(--accent)',
+                      fontWeight: 600,
+                      fontSize: '15px',
+                      textDecoration: 'none',
+                      transition: 'background 200ms ease',
+                    }}
+                  >
+                    Как мы работаем
+                    <ArrowRight size={16} strokeWidth={1.5} />
+                  </Link>
+                </div>
+              </MotionFadeUp>
             </div>
-          </MotionFadeUp>
+          </HeroDepthWrapper>
         </div>
       </section>
 
       {/* ─── Marquee strip ─── */}
-      <MarqueeStrip items={MARQUEE_ITEMS} duration={55} />
+      <MarqueeStrip items={MARQUEE_ITEMS} duration={60} />
 
       {/* ─── Stats row ─── */}
-      <section
-        style={{
-          background: 'var(--bg)',
-          borderBottom: '1px solid var(--line)',
-        }}
-      >
-        <div
-          className="container-main"
-          style={{ paddingBlock: 'clamp(40px, 5vw, 72px)' }}
-        >
+      <section style={{ background: 'var(--bg)', borderBottom: '1px solid var(--line)' }}>
+        <div className="container-main" style={{ paddingBlock: 'clamp(40px, 5vw, 72px)' }}>
           <div
             style={{
               display: 'grid',
@@ -171,16 +163,13 @@ export default function HomePage() {
             {[
               { num: '7–10 лет', label: 'срок основного договора' },
               { num: '4 сегмента', label: 'эконом · комфорт · бизнес · премиум' },
-              { num: '23 категории', label: 'арендаторов с проверенной устойчивостью' },
+              { num: '23 рыночные категории', label: 'анализируем при отборе арендаторов' },
             ].map((stat, i) => (
               <MotionFadeUp key={stat.num} delay={i * 0.12}>
-                <div
-                  className="stat-cell"
-                  style={{ padding: 'clamp(20px, 3vw, 32px)' }}
-                >
+                <div className="stat-cell" style={{ padding: 'clamp(20px, 3vw, 32px)' }}>
                   <div
                     style={{
-                      fontSize: 'clamp(28px, 3.5vw, 44px)',
+                      fontSize: 'clamp(24px, 3vw, 40px)',
                       fontWeight: 600,
                       color: 'var(--accent)',
                       letterSpacing: '-0.02em',
@@ -189,14 +178,7 @@ export default function HomePage() {
                   >
                     {stat.num}
                   </div>
-                  <div
-                    style={{
-                      marginTop: '6px',
-                      fontSize: '13px',
-                      color: 'var(--text-muted)',
-                      letterSpacing: '0.03em',
-                    }}
-                  >
+                  <div style={{ marginTop: '6px', fontSize: '13px', color: 'var(--text-muted)', letterSpacing: '0.03em' }}>
                     {stat.label}
                   </div>
                 </div>
@@ -258,8 +240,7 @@ export default function HomePage() {
               }}
             >
               Компания работает не как посредник, а как оператор: сама становится
-              арендатором по основному договору и отвечает за объект перед
-              собственником.
+              арендатором по основному договору и отвечает за объект перед собственником.
             </p>
           </MotionFadeUp>
         </div>
@@ -297,10 +278,7 @@ export default function HomePage() {
                   width={240}
                   height={240}
                   unoptimized
-                  style={{
-                    objectFit: 'contain',
-                    filter: 'drop-shadow(0 20px 40px rgba(30,51,40,0.14))',
-                  }}
+                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 20px 40px rgba(30,51,40,0.14))' }}
                 />
               </div>
             </div>
@@ -364,21 +342,12 @@ export default function HomePage() {
 }
 
 function AudienceCard({
-  title,
-  text,
-  href,
-  linkLabel,
+  title, text, href, linkLabel,
 }: {
-  title: string;
-  text: string;
-  href: string;
-  linkLabel: string;
+  title: string; text: string; href: string; linkLabel: string;
 }) {
   return (
-    <div
-      className="feature-card"
-      style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}
-    >
+    <div className="feature-card" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
       <h3 style={{ fontSize: '20px' }}>{title}</h3>
       <p style={{ color: 'var(--text-muted)', fontSize: '16px', flex: 1 }}>{text}</p>
       <Link href={href} className="underline-link btn-arrow">

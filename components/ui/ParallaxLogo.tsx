@@ -7,11 +7,10 @@ const PATH =
 export default function ParallaxLogo() {
   const prefersReduced = useReducedMotion();
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], prefersReduced ? [0, 0] : [0, -70]);
-  const opacity = useTransform(scrollY, [0, 320], [1, 0.15]);
+  const y = useTransform(scrollY, [0, 500], prefersReduced ? [0, 0] : [0, -40]);
 
   return (
-    <motion.div style={{ y, opacity, willChange: 'transform, opacity' }}>
+    <motion.div style={{ y, willChange: 'transform' }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1085 247"

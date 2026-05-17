@@ -17,7 +17,7 @@ export default function ConnectCTA() {
       >
         <MotionFadeUp>
           <h2 style={{ color: 'var(--surface)' }}>
-            Проверим экономику вашего объекта
+            Проверим, подходит ли объект под нашу модель
           </h2>
           <p
             style={{

@@ -60,22 +60,21 @@ export default function HowPage() {
         }}
         className="grain"
       >
-        {/* Фоновое изображение схемы */}
+        {/* Фоновое изображение — чистое, без замутнения */}
         <Image
           src="/_images/6steps.png"
           alt=""
           fill
           unoptimized
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center top', opacity: 0.12 }}
+          style={{ objectFit: 'cover', objectPosition: 'center top' }}
         />
-        {/* Градиент — текст читается слева, изображение проступает справа */}
+        {/* Лёгкий оверлей только для читаемости текста слева */}
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            background:
-              'linear-gradient(to right, rgba(250,248,243,0.96) 40%, rgba(250,248,243,0.75) 65%, rgba(250,248,243,0.3) 100%)',
+            background: 'linear-gradient(to right, rgba(244,241,234,0.82) 30%, rgba(244,241,234,0.3) 60%, transparent 100%)',
           }}
         />
 

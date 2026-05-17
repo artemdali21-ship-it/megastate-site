@@ -52,9 +52,9 @@ export default function Footer() {
                 lineHeight: 1.55,
               }}
             >
-              Долгосрочная аренда и управление
+              Оператор коммерческих помещений
               <br />
-              стрит-ритейлом в Москве
+              в Москве и ближнем Подмосковье
             </p>
             <p style={{ marginTop: '16px', fontSize: '13px', color: 'rgba(250,248,243,0.35)' }}>
               {ADDRESS_SHORT}
@@ -113,7 +113,6 @@ export default function Footer() {
               { href: '/legal/privacy/', label: 'Политика персональных данных' },
               { href: '/legal/cookie/', label: 'Cookie' },
               { href: '/legal/terms/', label: 'Условия использования' },
-              { href: '/legal/offer/', label: 'Публичная оферта' },
             ].map((l) => (
               <Link
                 key={l.href}
