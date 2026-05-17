@@ -16,8 +16,9 @@ export default function ConnectCTA() {
       <div
         style={{
           position: 'absolute',
-          right: 'clamp(-120px, -4vw, -40px)',
-          bottom: '-60px',
+          right: 'clamp(20px, 4vw, 80px)',
+          top: '50%',
+          transform: 'translateY(-55%)',
           zIndex: 0,
           pointerEvents: 'none',
           opacity: 0.55,
