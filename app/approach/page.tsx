@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 import ConnectCTA from '@/components/sections/ConnectCTA';
+import SectionLabel from '@/components/ui/SectionLabel';
+import FeatureCard from '@/components/ui/FeatureCard';
 
 export const metadata: Metadata = {
   title: 'Подход к объектам',
@@ -23,7 +26,7 @@ const principles = [
   {
     num: '03',
     title: 'Категории арендаторов с разной устойчивостью',
-    text: 'Мы держим в работе понятный набор категорий: аптеки, продуктовая розница, точки сетевых маркетплейсов, бытовая химия, медицинские кабинеты, столовые, услуги для жителей жилого комплекса, детские развивающие занятия, бытовые мастерские. Это категории повседневного спроса, которые обычно устойчивее к рыночным колебаниям, чем случайная розница и импульсные форматы.',
+    text: 'Мы держим в работе понятный набор категорий: аптеки, продуктовая розница, точки сетевых маркетплейсов, бытовая химия, медицинские кабинеты, столовые, услуги для жителей жилого комплекса, детские развивающие занятия, бытовые мастерские.',
   },
   {
     num: '04',
@@ -45,90 +48,73 @@ const principles = [
 export default function ApproachPage() {
   return (
     <>
-      {/* Hero с картинкой */}
       <section
-        style={{
-          background: 'var(--bg)',
-          borderBottom: '1px solid var(--line)',
-          position: 'relative',
-          overflow: 'hidden',
-          minHeight: '420px',
-          display: 'flex',
-          alignItems: 'center',
-        }}
+        style={{ background: 'var(--bg)', position: 'relative', overflow: 'hidden' }}
+        className="grain"
       >
-        <div
-          className="container-main"
-          style={{ paddingBlock: 'clamp(80px, 12vw, 160px)', position: 'relative', zIndex: 1 }}
-        >
-          <div style={{ maxWidth: '620px' }}>
-            <h1>Принципы, по которым решаем, входить или нет.</h1>
-            <p
-              style={{
-                marginTop: '24px',
-                fontSize: '18px',
-                color: 'var(--text-muted)',
-                maxWidth: '560px',
-              }}
-            >
-              Эти правила определяют, какие объекты подходят под долгосрочную
-              аренду, деление и дальнейшее управление. Они помогают не входить
-              в помещения, где экономика держится только на оптимистичном
-              сценарии.
-            </p>
+        <div className="split-hero">
+          <div
+            className="container-main"
+            style={{
+              paddingTop: 'clamp(48px, 8vw, 100px)',
+              paddingBottom: 'clamp(48px, 8vw, 100px)',
+              position: 'relative',
+              zIndex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            <nav className="breadcrumb">
+              <Link href="/">Главная</Link>
+              <span className="breadcrumb-sep">/</span>
+              <span>Подход</span>
+            </nav>
+            <SectionLabel num="02" text="Принципы отбора" />
+            <MotionFadeUp>
+              <h1 style={{ marginBottom: '0' }}>
+                Принципы, по которым решаем, входить или нет
+              </h1>
+              <span className="hero-line" />
+              <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '480px' }}>
+                Эти правила определяют, какие объекты подходят под долгосрочную
+                аренду, деление и дальнейшее управление.
+              </p>
+            </MotionFadeUp>
           </div>
-        </div>
-        <div
-          className="hidden lg:block"
-          style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '38%' }}
-        >
-          <Image
-            src="/_images/approach_hero.png"
-            alt=""
-            fill
-            unoptimized
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
+
+          <div
+            className="split-hero-media img-tint"
+            style={{ position: 'relative', overflow: 'hidden', minHeight: '420px' }}
+          >
+            <Image
+              src="/_images/approach_hero.png"
+              alt=""
+              fill
+              unoptimized
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
+          </div>
         </div>
       </section>
 
-      {/* Принципы */}
-      <section style={{ background: 'var(--surface)' }}>
+      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-              gap: '0 48px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '20px',
             }}
           >
             {principles.map((p, i) => (
-              <MotionFadeUp key={p.num} delay={Math.min(i * 0.1, 0.4)}>
-                <div
-                  style={{
-                    borderTop: '1px solid var(--line)',
-                    paddingTop: '32px',
-                    paddingBottom: '48px',
-                  }}
-                >
-                  <span
-                    style={{
-                      display: 'block',
-                      fontSize: 'clamp(48px, 6vw, 96px)',
-                      fontWeight: 600,
-                      color: 'var(--accent-soft)',
-                      lineHeight: 1,
-                      marginBottom: '16px',
-                    }}
-                  >
-                    {p.num}
-                  </span>
-                  <h3 style={{ marginBottom: '12px' }}>{p.title}</h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '17px' }}>
-                    {p.text}
-                  </p>
-                </div>
-              </MotionFadeUp>
+              <FeatureCard
+                key={p.num}
+                num={p.num}
+                title={p.title}
+                text={p.text}
+                delay={Math.min(i * 0.08, 0.4)}
+              />
             ))}
           </div>
         </div>

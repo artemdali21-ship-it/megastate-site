@@ -1,10 +1,14 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Send, Mail } from 'lucide-react';
+import { ArrowRight, Send } from 'lucide-react';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 import ConnectCTA from '@/components/sections/ConnectCTA';
-import { TELEGRAM_URL, MAILTO } from '@/lib/constants';
+import SectionLabel from '@/components/ui/SectionLabel';
+import FeatureCard from '@/components/ui/FeatureCard';
+import MarqueeStrip from '@/components/ui/Marquee';
+import WordReveal from '@/components/ui/WordReveal';
+import { TELEGRAM_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Долгосрочная аренда и управление стрит-ритейлом в Москве — МЕГАСТЕЙТ',
@@ -12,58 +16,95 @@ export const metadata: Metadata = {
     'МЕГАСТЕЙТ — долгосрочная аренда и операторское управление стрит-ритейлом в Москве. Проверяем экономику до сделки, делим площадь, заселяем арендаторами.',
 };
 
+const MARQUEE_ITEMS = [
+  'Аптеки',
+  'Продуктовая розница',
+  'Бытовая химия',
+  'Медицинские кабинеты',
+  'Точки маркетплейсов',
+  'Столовые',
+  'Услуги для жителей',
+  'Детские занятия',
+  'Бытовые мастерские',
+  'Ателье и ремонт',
+];
+
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
+      {/* ─── Hero ─── */}
       <section
         style={{
           background: 'var(--bg)',
           position: 'relative',
           overflow: 'hidden',
         }}
+        className="grain"
       >
-        <div
-          className="container-main"
-          style={{
-            paddingBlock: 'clamp(80px, 12vw, 160px)',
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            position: 'relative',
-            zIndex: 1,
-          }}
-        >
-          <div style={{ maxWidth: '620px' }}>
-            <h1 style={{ color: 'var(--text)', marginBottom: '24px' }}>
-              Долгосрочная аренда
-              <span className="hidden lg:inline">
-                <br />
-              </span>{' '}
-              и управление стрит-ритейлом в Москве
-            </h1>
+        {/* Subtle aurora */}
+        <div className="aurora-bg" />
 
-            <MotionFadeUp delay={0.15}>
+        <div className="split-hero">
+          {/* Left: text */}
+          <div
+            className="container-main"
+            style={{
+              paddingTop: 'clamp(64px, 10vw, 120px)',
+              paddingBottom: 'clamp(48px, 7vw, 96px)',
+              position: 'relative',
+              zIndex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            {/* Eyebrow label */}
+            <MotionFadeUp delay={0}>
+              <div
+                style={{
+                  fontSize: '12px',
+                  letterSpacing: '0.15em',
+                  color: 'var(--text-muted)',
+                  textTransform: 'uppercase',
+                  marginBottom: '20px',
+                }}
+              >
+                СТРИТ-РИТЕЙЛ · МОСКВА · 2026
+              </div>
+            </MotionFadeUp>
+
+            {/* Word-reveal H1 */}
+            <WordReveal
+              text="Долгосрочная аренда и управление стрит-ритейлом в Москве"
+              style={{ color: 'var(--text)', marginBottom: '0' }}
+            />
+
+            {/* Divider line */}
+            <MotionFadeUp delay={0.2}>
+              <span className="hero-line" />
+            </MotionFadeUp>
+
+            <MotionFadeUp delay={0.25}>
               <p
                 style={{
                   fontSize: '18px',
                   color: 'var(--text-muted)',
                   lineHeight: 1.6,
-                  maxWidth: '580px',
+                  maxWidth: '520px',
                   marginBottom: '32px',
                 }}
               >
-                МЕГАСТЕЙТ берёт коммерческие помещения на первых этажах жилых
-                домов в долгосрочную аренду, проверяет экономику до сделки,
-                делит площадь на рабочие блоки и управляет объектом по
-                условиям основного договора.
+                МЕГАСТЕЙТ берёт коммерческие помещения в долгосрочную аренду,
+                проверяет экономику до сделки и управляет объектом по условиям
+                основного договора.
               </p>
             </MotionFadeUp>
 
-            <MotionFadeUp delay={0.25}>
+            <MotionFadeUp delay={0.32}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
                 <Link
                   href="/#connect"
-                  className="btn-arrow"
+                  className="btn-arrow btn-primary"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -75,7 +116,6 @@ export default function HomePage() {
                     fontWeight: 600,
                     fontSize: '15px',
                     textDecoration: 'none',
-                    transition: 'background 200ms ease',
                   }}
                 >
                   Связаться по объекту
@@ -104,130 +144,150 @@ export default function HomePage() {
               </div>
             </MotionFadeUp>
           </div>
-        </div>
 
-        {/* Desktop: right-side image */}
-        <div
-          className="hidden lg:block"
-          style={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            bottom: 0,
-            width: '42%',
-          }}
-        >
-          <Image
-            src="/_images/hero_main.png"
-            alt=""
-            fill
-            priority
-            unoptimized
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
+          {/* Right: image */}
+          <div
+            className="split-hero-media"
+            style={{ position: 'relative', overflow: 'hidden', minHeight: '480px' }}
+          >
+            <div className="img-tint" style={{ position: 'absolute', inset: 0, zIndex: 1 }} />
+            <Image
+              src="/_images/tenants_hero.png"
+              alt=""
+              fill
+              priority
+              unoptimized
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
+          </div>
         </div>
       </section>
 
-      {/* Mobile: image below hero text */}
-      <div
-        className="block lg:hidden container-main"
-        style={{ paddingBottom: 'clamp(32px, 6vw, 64px)' }}
-      >
-        <div
-          style={{
-            aspectRatio: '3/2',
-            borderRadius: '12px',
-            overflow: 'hidden',
-            position: 'relative',
-          }}
-        >
-          <Image
-            src="/_images/hero_main.png"
-            alt=""
-            fill
-            unoptimized
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
-        </div>
-      </div>
+      {/* ─── Marquee strip (21st.dev marquee pattern) ─── */}
+      <MarqueeStrip items={MARQUEE_ITEMS} duration={55} />
 
-      {/* Блок 2: Что делаем */}
+      {/* ─── Stats row ─── */}
       <section
         style={{
-          background: 'var(--surface)',
-          borderTop: '1px solid var(--line)',
+          background: 'var(--bg)',
+          borderBottom: '1px solid var(--line)',
         }}
+      >
+        <div
+          className="container-main"
+          style={{ paddingBlock: 'clamp(40px, 5vw, 72px)' }}
+        >
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: '0',
+            }}
+          >
+            {[
+              { num: '5–10 лет', label: 'срок основного договора' },
+              { num: '4 сегмента', label: 'эконом · комфорт · бизнес · премиум' },
+              { num: '23 категории', label: 'арендаторов с проверенной устойчивостью' },
+            ].map((stat, i) => (
+              <MotionFadeUp key={stat.num} delay={i * 0.12}>
+                <div
+                  style={{
+                    padding: 'clamp(20px, 3vw, 32px)',
+                    borderLeft: i > 0 ? '1px solid var(--line)' : 'none',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: 'clamp(28px, 3.5vw, 44px)',
+                      fontWeight: 600,
+                      color: 'var(--accent)',
+                      letterSpacing: '-0.02em',
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    {stat.num}
+                  </div>
+                  <div
+                    style={{
+                      marginTop: '6px',
+                      fontSize: '13px',
+                      color: 'var(--text-muted)',
+                      letterSpacing: '0.03em',
+                    }}
+                  >
+                    {stat.label}
+                  </div>
+                </div>
+              </MotionFadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Что делает МЕГАСТЕЙТ (glassmorphism cards) ─── */}
+      <section
+        style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)', position: 'relative' }}
+        className="grain"
       >
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <h2 style={{ marginBottom: '48px' }}>Что делает МЕГАСТЕЙТ</h2>
+            <SectionLabel num="01" text="Что делает МЕГАСТЕЙТ" />
+            <h2 style={{ marginBottom: '48px' }}>Считаем. Делим. Ведём.</h2>
           </MotionFadeUp>
 
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '48px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '24px',
             }}
           >
-            {[
-              {
-                num: '01',
-                text: 'Берём помещение в долгосрочную аренду у собственника.',
-              },
-              {
-                num: '02',
-                text: 'Проверяем, какие блоки и категории арендаторов выдержит объект.',
-              },
-              {
-                num: '03',
-                text: 'Делим площадь, заселяем арендаторами и ведём дальнейшее управление.',
-              },
-            ].map((item, i) => (
-              <MotionFadeUp key={item.num} delay={i * 0.08}>
-                <div style={{ borderTop: '1px solid var(--line)', paddingTop: '24px' }}>
-                  <span
-                    style={{
-                      display: 'block',
-                      fontSize: 'clamp(40px, 5vw, 72px)',
-                      fontWeight: 600,
-                      color: 'var(--accent-soft)',
-                      lineHeight: 1,
-                      marginBottom: '16px',
-                    }}
-                  >
-                    {item.num}
-                  </span>
-                  <p style={{ color: 'var(--text)', fontSize: '17px' }}>{item.text}</p>
-                </div>
-              </MotionFadeUp>
-            ))}
+            <FeatureCard
+              num="01"
+              title="Считаем"
+              text="Проверяем экономику объекта до подписания договора. Если запас прочности недостаточный, не входим."
+              delay={0}
+            />
+            <FeatureCard
+              num="02"
+              title="Делим"
+              text="Проектируем нарезку площади под подтверждённых арендаторов и под гибкую перестройку в будущем."
+              delay={0.08}
+            />
+            <FeatureCard
+              num="03"
+              title="Ведём"
+              text="После запуска ведём коммуникацию с арендаторами, контролируем платежи, индексируем ставки."
+              delay={0.16}
+            />
           </div>
 
           <MotionFadeUp delay={0.24}>
             <p
               style={{
-                marginTop: '48px',
-                padding: '24px 32px',
+                marginTop: '40px',
+                padding: '24px 28px',
                 background: 'var(--surface-muted)',
                 borderRadius: '12px',
-                color: 'var(--text)',
-                fontSize: '17px',
-                maxWidth: '760px',
+                color: 'var(--text-muted)',
+                fontSize: '16px',
+                maxWidth: '720px',
+                borderLeft: '2px solid var(--accent-soft)',
               }}
             >
-              Компания работает не как посредник, а как оператор: сама
-              становится арендатором по основному договору и отвечает за
-              объект перед собственником.
+              Компания работает не как посредник, а как оператор: сама становится
+              арендатором по основному договору и отвечает за объект перед
+              собственником.
             </p>
           </MotionFadeUp>
         </div>
       </section>
 
-      {/* Блок 3: Дисциплина */}
+      {/* ─── Дисциплина ─── */}
       <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
+            <SectionLabel num="02" text="Подход" />
             <div style={{ maxWidth: '640px' }}>
               <h2 style={{ marginBottom: '24px' }}>Сначала расчёт, потом договор</h2>
               <p
@@ -237,11 +297,11 @@ export default function HomePage() {
                   marginBottom: '32px',
                 }}
               >
-                Перед договором мы проверяем ставку, трафик, видимость,
-                инженерию, ликвидность будущих блоков и спрос со стороны
-                арендаторов. Если запас прочности недостаточный, мы не входим.
+                Перед договором мы проверяем ставку, трафик, видимость, инженерию,
+                ликвидность будущих блоков и спрос со стороны арендаторов. Если
+                запас прочности недостаточный, мы не входим.
               </p>
-              <Link href="/approach/" className="underline-link">
+              <Link href="/approach/" className="underline-link btn-arrow">
                 Подробнее о подходе
                 <ArrowRight size={15} strokeWidth={1.5} />
               </Link>
@@ -250,14 +310,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Блок 4: Для кого */}
-      <section
-        style={{
-          background: 'var(--surface)',
-          borderTop: '1px solid var(--line)',
-        }}
-      >
+      {/* ─── Для кого ─── */}
+      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
+          <MotionFadeUp>
+            <SectionLabel num="03" text="Для кого" />
+          </MotionFadeUp>
           <div
             style={{
               display: 'grid',
@@ -265,7 +323,7 @@ export default function HomePage() {
               gap: '24px',
             }}
           >
-            <MotionFadeUp>
+            <MotionFadeUp delay={0.04}>
               <AudienceCard
                 title="Собственникам помещений"
                 text="Один основной договор, один контрагент и понятный график платежей. МЕГАСТЕЙТ берёт на себя деление, заселение и управление объектом."
@@ -273,7 +331,7 @@ export default function HomePage() {
                 linkLabel="Подробнее"
               />
             </MotionFadeUp>
-            <MotionFadeUp delay={0.08}>
+            <MotionFadeUp delay={0.12}>
               <AudienceCard
                 title="Арендаторам"
                 text="Готовые блоки в проходных локациях Москвы и ближнего Подмосковья. Понятная конфигурация, условия входа и формат договора."
@@ -281,29 +339,17 @@ export default function HomePage() {
                 linkLabel="Подробнее"
               />
             </MotionFadeUp>
-            <MotionFadeUp delay={0.16}>
-              <div
-                style={{
-                  background: 'var(--surface-muted)',
-                  border: '1px solid var(--line)',
-                  borderRadius: '12px',
-                  padding: '32px',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '16px',
-                }}
-              >
-                <h3>Партнёрские проекты</h3>
-                <p style={{ color: 'var(--text-muted)', flex: 1 }}>
-                  Рассматриваются индивидуально после анализа объекта и
-                  юридической структуры.
+            <MotionFadeUp delay={0.2}>
+              <div className="feature-card">
+                <h3 style={{ fontSize: '20px', marginBottom: '12px' }}>Партнёрские проекты</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '16px', flex: 1, marginBottom: '24px' }}>
+                  Рассматриваются индивидуально после анализа объекта и юридической структуры.
                 </p>
                 <a
                   href={TELEGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline-link"
+                  className="underline-link btn-arrow"
                 >
                   Написать в Telegram
                   <ArrowRight size={15} strokeWidth={1.5} />
@@ -314,7 +360,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ConnectCTA */}
       <ConnectCTA />
     </>
   );
@@ -333,20 +378,12 @@ function AudienceCard({
 }) {
   return (
     <div
-      style={{
-        background: 'var(--surface-muted)',
-        border: '1px solid var(--line)',
-        borderRadius: '12px',
-        padding: '32px',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '16px',
-      }}
+      className="feature-card"
+      style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}
     >
-      <h3>{title}</h3>
-      <p style={{ color: 'var(--text-muted)', flex: 1 }}>{text}</p>
-      <Link href={href} className="underline-link">
+      <h3 style={{ fontSize: '20px' }}>{title}</h3>
+      <p style={{ color: 'var(--text-muted)', fontSize: '16px', flex: 1 }}>{text}</p>
+      <Link href={href} className="underline-link btn-arrow">
         {linkLabel}
         <ArrowRight size={15} strokeWidth={1.5} />
       </Link>

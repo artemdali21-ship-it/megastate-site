@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 import ConnectCTA from '@/components/sections/ConnectCTA';
+import SectionLabel from '@/components/ui/SectionLabel';
 
 export const metadata: Metadata = {
   title: 'Компания',
@@ -19,161 +21,122 @@ const principles = [
 export default function CompanyPage() {
   return (
     <>
-      {/* Hero */}
+      {/* ─── Hero (split grid) ─── */}
       <section
-        style={{
-          background: 'var(--bg)',
-          borderBottom: '1px solid var(--line)',
-          position: 'relative',
-          overflow: 'hidden',
-          minHeight: '400px',
-          display: 'flex',
-          alignItems: 'center',
-        }}
+        style={{ background: 'var(--bg)', position: 'relative', overflow: 'hidden' }}
+        className="grain"
       >
-        <div
-          className="container-main"
-          style={{ paddingBlock: 'clamp(80px, 12vw, 160px)', position: 'relative', zIndex: 1 }}
-        >
-          <div style={{ maxWidth: '580px' }}>
-            <h1>О МЕГАСТЕЙТ</h1>
-            <p
-              style={{
-                marginTop: '24px',
-                fontSize: '18px',
-                color: 'var(--text-muted)',
-                maxWidth: '540px',
-              }}
-            >
-              МЕГАСТЕЙТ работает как независимый оператор стрит-ритейла в
-              Москве и ближнем Подмосковье. Компания берёт коммерческие
-              помещения в долгосрочную аренду, делит площадь на рабочие
-              блоки, заселяет арендаторами и ведёт дальнейшее управление
-              объектом.
-            </p>
+        <div className="split-hero">
+          <div
+            className="container-main"
+            style={{
+              paddingTop: 'clamp(48px, 8vw, 100px)',
+              paddingBottom: 'clamp(48px, 8vw, 100px)',
+              position: 'relative',
+              zIndex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            <nav className="breadcrumb">
+              <Link href="/">Главная</Link>
+              <span className="breadcrumb-sep">/</span>
+              <span>Компания</span>
+            </nav>
+            <SectionLabel num="06" text="О компании" />
+            <MotionFadeUp>
+              <h1 style={{ marginBottom: '0' }}>О МЕГАСТЕЙТ</h1>
+              <span className="hero-line" />
+              <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '480px' }}>
+                МЕГАСТЕЙТ работает как независимый оператор стрит-ритейла в
+                Москве и ближнем Подмосковье. Компания берёт коммерческие
+                помещения в долгосрочную аренду, делит площадь на рабочие
+                блоки, заселяет арендаторами и ведёт дальнейшее управление
+                объектом.
+              </p>
+            </MotionFadeUp>
+          </div>
+
+          <div
+            className="split-hero-media img-tint"
+            style={{ position: 'relative', overflow: 'hidden', minHeight: '420px' }}
+          >
+            <Image
+              src="/_images/company_hero.png"
+              alt=""
+              fill
+              unoptimized
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
           </div>
         </div>
-        <div
-          className="hidden lg:block"
-          style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '38%' }}
-        >
-          <Image
-            src="/_images/company_hero.png"
-            alt=""
-            fill
-            unoptimized
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
-        </div>
       </section>
 
-      {/* Фокус */}
-      <section style={{ background: 'var(--surface)' }}>
+      {/* ─── Фокус ─── */}
+      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
+            <SectionLabel num="01" text="Фокус" />
             <div style={{ maxWidth: '720px' }}>
               <h2 style={{ marginBottom: '24px' }}>Фокус</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '20px' }}>
+              <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7 }}>
                 Стрит-ритейл в жилых комплексах эконом-, комфорт-, бизнес- и
-                премиум-класса, а также качественный старый фонд при
-                подходящих параметрах трафика, ставки и инженерии.
-              </p>
-              <p style={{ color: 'var(--text-muted)', fontSize: '17px' }}>
-                Компания не работает с торговыми центрами, складами и
-                офисными площадями. Это другие форматы недвижимости,
-                требующие другой модели управления.
+                премиум-класса, а также качественный старый фонд при подходящих
+                параметрах трафика, ставки и инженерии.
               </p>
             </div>
           </MotionFadeUp>
         </div>
       </section>
 
-      {/* Класс объекта */}
+      {/* ─── Модель ─── */}
       <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
+            <SectionLabel num="02" text="Модель" />
             <div style={{ maxWidth: '720px' }}>
-              <h2 style={{ marginBottom: '24px' }}>Класс объекта как первый фильтр</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '17px' }}>
-                Эконом, комфорт, бизнес и премиум могут давать разную
-                экономику в зависимости от трафика, видимости, ставки,
-                инженерии и фактического спроса. Поэтому каждый объект
-                считается отдельно, и решение об аренде принимается на
-                основе расчёта, а не на основе класса жилого комплекса.
+              <h2 style={{ marginBottom: '24px' }}>Модель работы</h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>
+                МЕГАСТЕЙТ берёт помещение в долгосрочную аренду у собственника
+                — обычно на 5–10 лет — и становится основным арендатором по
+                договору. Площадь делится на блоки, которые сдаются
+                арендаторам-операторам.
+              </p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7 }}>
+                Собственник работает с одним контрагентом. МЕГАСТЕЙТ берёт
+                на себя риск заселения, управления и замены арендаторов.
               </p>
             </div>
           </MotionFadeUp>
         </div>
       </section>
 
-      {/* Как организована работа */}
+      {/* ─── Принципы ─── */}
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <div style={{ maxWidth: '720px' }}>
-              <h2 style={{ marginBottom: '24px' }}>Как организована работа</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '20px' }}>
-                Каждый объект проходит через финансовую модель, переговоры
-                с собственником, предварительное подтверждение спроса и
-                дальнейшее операторское управление. Компания не входит в
-                помещения, где экономика не подтверждена до подписания
-                договора.
-              </p>
-              <p style={{ color: 'var(--text-muted)', fontSize: '17px' }}>
-                Часть технических задач выполняется силами компании. Для
-                отдельных работ привлекаются проверенные подрядчики:
-                проектировщики, ремонтные команды, специалисты по поиску
-                арендаторов, юристы и специалисты по эксплуатации.
-                Ответственность перед собственником и арендатором по
-                основному договору остаётся на МЕГАСТЕЙТ.
-              </p>
-            </div>
-          </MotionFadeUp>
-        </div>
-      </section>
-
-      {/* Партнёрские проекты */}
-      <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
-        <div className="container-main section-gap">
-          <MotionFadeUp>
-            <div style={{ maxWidth: '720px' }}>
-              <h2 style={{ marginBottom: '24px' }}>Партнёрские проекты</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '17px' }}>
-                Компания рассматривает совместные проекты с владельцами
-                помещений, девелоперами и профильными партнёрами. Формат
-                участия определяется индивидуально после анализа объекта
-                и юридической структуры.
-              </p>
-            </div>
-          </MotionFadeUp>
-        </div>
-      </section>
-
-      {/* Принципы работы */}
-      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
-        <div className="container-main section-gap">
-          <MotionFadeUp>
-            <h2 style={{ marginBottom: '40px' }}>Принципы работы</h2>
+            <SectionLabel num="03" text="Принципы" />
+            <h2 style={{ marginBottom: '32px' }}>Принципы работы</h2>
           </MotionFadeUp>
           <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '640px' }}>
             {principles.map((item, i) => (
-              <MotionFadeUp key={i} delay={Math.min(i * 0.08, 0.4)}>
+              <MotionFadeUp key={i} delay={i * 0.08}>
                 <div
                   style={{
                     display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '20px',
-                    paddingBlock: '20px',
+                    gap: '16px',
+                    padding: '20px 0',
                     borderBottom: '1px solid var(--line)',
                   }}
                 >
                   <span
                     style={{
+                      color: 'var(--accent-soft)',
                       fontSize: '13px',
                       fontWeight: 600,
-                      color: 'var(--accent-soft)',
                       flexShrink: 0,
-                      paddingTop: '3px',
+                      paddingTop: '2px',
                     }}
                   >
                     {String(i + 1).padStart(2, '0')}

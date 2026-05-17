@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 import ConnectCTA from '@/components/sections/ConnectCTA';
+import SectionLabel from '@/components/ui/SectionLabel';
 
 export const metadata: Metadata = {
   title: 'Как мы работаем',
@@ -44,25 +46,21 @@ const steps = [
 export default function HowPage() {
   return (
     <>
-      {/* Hero */}
       <section
-        style={{
-          background: 'var(--bg)',
-          borderBottom: '1px solid var(--line)',
-          paddingBlock: 'clamp(96px, 14vw, 200px)',
-        }}
+        style={{ background: 'var(--bg)', borderBottom: '1px solid var(--line)', position: 'relative' }}
+        className="grain"
       >
-        <div className="container-main">
+        <div className="container-main" style={{ paddingBlock: 'clamp(64px, 10vw, 120px)' }}>
+          <nav className="breadcrumb">
+            <Link href="/">Главная</Link>
+            <span className="breadcrumb-sep">/</span>
+            <span>Как мы работаем</span>
+          </nav>
+          <SectionLabel num="01" text="Процесс" />
           <MotionFadeUp>
-            <h1>Шесть шагов от помещения до управления.</h1>
-            <p
-              style={{
-                marginTop: '24px',
-                fontSize: '18px',
-                color: 'var(--text-muted)',
-                maxWidth: '600px',
-              }}
-            >
+            <h1>Шесть шагов от помещения до управления</h1>
+            <span className="hero-line" />
+            <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '560px' }}>
               От первичного отбора до запуска объекта обычно проходит от 3 до
               8 месяцев. Ниже порядок работы на каждом этапе.
             </p>
@@ -70,10 +68,9 @@ export default function HowPage() {
         </div>
       </section>
 
-      {/* Steps */}
       <section style={{ background: 'var(--surface)' }}>
         <div className="container-main section-gap">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             {steps.map((step, i) => (
               <MotionFadeUp key={step.num} delay={Math.min(i * 0.08, 0.4)}>
                 <div
@@ -92,15 +89,14 @@ export default function HowPage() {
                       fontWeight: 600,
                       color: 'var(--accent-soft)',
                       lineHeight: 1,
+                      opacity: 0.6,
                     }}
                   >
                     {step.num}
                   </span>
                   <div>
                     <h3 style={{ marginBottom: '12px' }}>{step.title}</h3>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '17px' }}>
-                      {step.text}
-                    </p>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '17px' }}>{step.text}</p>
                   </div>
                 </div>
               </MotionFadeUp>

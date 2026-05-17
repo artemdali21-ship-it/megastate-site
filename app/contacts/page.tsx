@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Send, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
+import SectionLabel from '@/components/ui/SectionLabel';
 import { TELEGRAM_URL, MAILTO, EMAIL, PHONE, PHONE_TEL, ADDRESS } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -11,25 +13,22 @@ export const metadata: Metadata = {
 export default function ContactsPage() {
   return (
     <>
-      {/* Hero */}
+      {/* ─── Hero ─── */}
       <section
-        style={{
-          background: 'var(--bg)',
-          borderBottom: '1px solid var(--line)',
-          paddingBlock: 'clamp(96px, 14vw, 200px)',
-        }}
+        style={{ background: 'var(--bg)', borderBottom: '1px solid var(--line)', position: 'relative' }}
+        className="grain"
       >
-        <div className="container-main">
+        <div className="container-main" style={{ paddingBlock: 'clamp(64px, 10vw, 120px)' }}>
+          <nav className="breadcrumb">
+            <Link href="/">Главная</Link>
+            <span className="breadcrumb-sep">/</span>
+            <span>Контакты</span>
+          </nav>
+          <SectionLabel num="07" text="Контакты" />
           <MotionFadeUp>
             <h1>Связаться с МЕГАСТЕЙТ</h1>
-            <p
-              style={{
-                marginTop: '24px',
-                fontSize: '18px',
-                color: 'var(--text-muted)',
-                maxWidth: '560px',
-              }}
-            >
+            <span className="hero-line" />
+            <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '560px' }}>
               По вопросам помещений, аренды и партнёрских проектов напишите
               нам в Telegram или на почту.
             </p>
@@ -37,7 +36,7 @@ export default function ContactsPage() {
         </div>
       </section>
 
-      {/* Контакты */}
+      {/* ─── Контакты ─── */}
       <section style={{ background: 'var(--surface)' }}>
         <div className="container-main section-gap">
           <div
@@ -49,31 +48,28 @@ export default function ContactsPage() {
           >
             <MotionFadeUp>
               <div>
-                <h2 style={{ marginBottom: '32px', fontSize: 'clamp(20px, 2.5vw, 32px)' }}>
-                  Напишите нам
-                </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <SectionLabel num="01" text="Написать" />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px' }}>
                   <a
                     href={TELEGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-arrow"
+                    className="btn-arrow btn-primary"
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '12px',
-                      padding: '14px 24px',
+                      gap: '8px',
+                      padding: '12px 24px',
                       borderRadius: '8px',
                       background: 'var(--accent)',
                       color: 'var(--surface)',
                       fontWeight: 600,
                       fontSize: '15px',
                       textDecoration: 'none',
-                      transition: 'background 200ms ease',
                     }}
                   >
-                    <Send size={18} strokeWidth={1.5} />
-                    @MEGASTATE_GROUP
+                    <Send size={16} strokeWidth={1.5} />
+                    Написать в Telegram
                   </a>
                   <a
                     href={MAILTO}
@@ -81,8 +77,8 @@ export default function ContactsPage() {
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '12px',
-                      padding: '14px 24px',
+                      gap: '8px',
+                      padding: '12px 24px',
                       borderRadius: '8px',
                       border: '1px solid var(--line)',
                       color: 'var(--accent)',
@@ -92,8 +88,8 @@ export default function ContactsPage() {
                       transition: 'background 200ms ease',
                     }}
                   >
-                    <Mail size={18} strokeWidth={1.5} />
-                    {EMAIL}
+                    <Mail size={16} strokeWidth={1.5} />
+                    Написать на почту
                   </a>
                 </div>
               </div>
@@ -101,62 +97,33 @@ export default function ContactsPage() {
 
             <MotionFadeUp delay={0.1}>
               <div>
-                <h2 style={{ marginBottom: '32px', fontSize: 'clamp(20px, 2.5vw, 32px)' }}>
-                  Реквизиты связи
-                </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <SectionLabel num="02" text="Реквизиты" />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <Phone
-                      size={18}
-                      strokeWidth={1.5}
-                      style={{ color: 'var(--accent-soft)', flexShrink: 0, marginTop: '2px' }}
-                    />
-                    <div>
-                      <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '4px' }}>
-                        Телефон
-                      </p>
-                      <a
-                        href={PHONE_TEL}
-                        style={{
-                          color: 'var(--text)',
-                          fontWeight: 500,
-                          fontSize: '17px',
-                          textDecoration: 'none',
-                        }}
-                      >
-                        {PHONE}
-                      </a>
-                    </div>
+                    <Phone size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />
+                    <a
+                      href={`tel:${PHONE_TEL}`}
+                      style={{ color: 'var(--text)', textDecoration: 'none', fontSize: '16px' }}
+                    >
+                      {PHONE}
+                    </a>
                   </div>
-
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <MapPin
-                      size={18}
-                      strokeWidth={1.5}
-                      style={{ color: 'var(--accent-soft)', flexShrink: 0, marginTop: '2px' }}
-                    />
-                    <div>
-                      <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '4px' }}>
-                        Адрес офиса
-                      </p>
-                      <p style={{ color: 'var(--text)', fontSize: '17px' }}>{ADDRESS}</p>
-                    </div>
+                    <Mail size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />
+                    <a
+                      href={MAILTO}
+                      style={{ color: 'var(--text)', textDecoration: 'none', fontSize: '16px' }}
+                    >
+                      {EMAIL}
+                    </a>
                   </div>
-
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <Clock
-                      size={18}
-                      strokeWidth={1.5}
-                      style={{ color: 'var(--accent-soft)', flexShrink: 0, marginTop: '2px' }}
-                    />
-                    <div>
-                      <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '4px' }}>
-                        Часы работы
-                      </p>
-                      <p style={{ color: 'var(--text)', fontSize: '17px' }}>
-                        понедельник–пятница, 10:00–19:00
-                      </p>
-                    </div>
+                    <MapPin size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />
+                    <p style={{ color: 'var(--text-muted)', fontSize: '16px', lineHeight: 1.5 }}>{ADDRESS}</p>
+                  </div>
+                  <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                    <Clock size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />
+                    <p style={{ color: 'var(--text-muted)', fontSize: '16px' }}>Пн–Пт, 10:00–19:00</p>
                   </div>
                 </div>
               </div>

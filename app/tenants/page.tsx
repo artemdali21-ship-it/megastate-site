@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Send, Mail } from 'lucide-react';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 import ConnectCTA from '@/components/sections/ConnectCTA';
+import SectionLabel from '@/components/ui/SectionLabel';
+import FeatureCard from '@/components/ui/FeatureCard';
 import { TELEGRAM_URL, MAILTO } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -12,155 +15,144 @@ export const metadata: Metadata = {
 };
 
 const categories = [
-  'Аптеки',
-  'Продуктовая розница',
-  'Точки сетевых маркетплейсов',
-  'Бытовая химия',
-  'Медицинские кабинеты',
-  'Столовые и точки общепита',
-  'Услуги для жителей жилого комплекса',
-  'Детские развивающие занятия',
-  'Бытовые мастерские',
-  'Ателье и ремонт',
+  'Аптеки', 'Продуктовая розница', 'Точки сетевых маркетплейсов',
+  'Бытовая химия', 'Медицинские кабинеты', 'Столовые и точки общепита',
+  'Услуги для жителей жилого комплекса', 'Детские развивающие занятия',
+  'Бытовые мастерские', 'Ателье и ремонт',
 ];
 
 const offers = [
-  'Договор на 11 месяцев с пролонгацией или долгосрочный договор с фиксированной индексацией',
-  'Депозит один месяц',
-  'Готовая площадь под отделку или с базовым ремонтом',
-  'Возможность согласовать конфигурацию блока под ваш формат',
-  'Прозрачные условия по входу, срокам, платежам и выходу из договора',
+  { title: 'Договор аренды', text: '11 месяцев с пролонгацией или долгосрочный с фиксированной индексацией' },
+  { title: 'Депозит', text: 'Один месяц' },
+  { title: 'Помещение', text: 'Готовая площадь под отделку или с базовым ремонтом' },
+  { title: 'Конфигурация', text: 'Возможность согласовать конфигурацию блока под ваш формат' },
+  { title: 'Прозрачные условия', text: 'Понятные условия по входу, срокам, платежам и выходу из договора' },
 ];
 
 export default function TenantsPage() {
   return (
     <>
-      {/* Hero */}
       <section
-        style={{
-          background: 'var(--bg)',
-          borderBottom: '1px solid var(--line)',
-          position: 'relative',
-          overflow: 'hidden',
-          minHeight: '400px',
-          display: 'flex',
-          alignItems: 'center',
-        }}
+        style={{ background: 'var(--bg)', position: 'relative', overflow: 'hidden' }}
+        className="grain"
       >
-        <div
-          className="container-main"
-          style={{ paddingBlock: 'clamp(80px, 12vw, 160px)', position: 'relative', zIndex: 1 }}
-        >
-          <div style={{ maxWidth: '580px' }}>
-            <h1>Готовые блоки в проходных локациях</h1>
-            <p
-              style={{
-                marginTop: '24px',
-                fontSize: '18px',
-                color: 'var(--text-muted)',
-                maxWidth: '540px',
-              }}
-            >
-              Если вы развиваете сеть, открываете точку или ищете помещение
-              под существующий бизнес, мы можем предложить блоки в
-              подготовленных объектах с понятной экономикой.
-            </p>
+        <div className="split-hero">
+          <div
+            className="container-main"
+            style={{
+              paddingTop: 'clamp(48px, 8vw, 100px)',
+              paddingBottom: 'clamp(48px, 8vw, 100px)',
+              position: 'relative',
+              zIndex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            <nav className="breadcrumb">
+              <Link href="/">Главная</Link>
+              <span className="breadcrumb-sep">/</span>
+              <span>Арендаторам</span>
+            </nav>
+            <SectionLabel num="05" text="Для арендаторов" />
+            <MotionFadeUp>
+              <h1 style={{ marginBottom: '0' }}>
+                Готовые блоки в проходных локациях
+              </h1>
+              <span className="hero-line" />
+              <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '480px' }}>
+                Если вы развиваете сеть, открываете точку или ищете помещение
+                под существующий бизнес, мы можем предложить блоки в
+                подготовленных объектах с понятной экономикой.
+              </p>
+            </MotionFadeUp>
           </div>
-        </div>
-        <div
-          className="hidden lg:block"
-          style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '38%' }}
-        >
-          <Image
-            src="/_images/tenants_hero.png"
-            alt=""
-            fill
-            unoptimized
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
+
+          <div
+            className="split-hero-media img-tint"
+            style={{ position: 'relative', overflow: 'hidden', minHeight: '420px' }}
+          >
+            <Image
+              src="/_images/tenants_hero.png"
+              alt=""
+              fill
+              unoptimized
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
+          </div>
         </div>
       </section>
 
-      {/* Категории */}
-      <section style={{ background: 'var(--surface)' }}>
+      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <h2 style={{ marginBottom: '32px' }}>С какими категориями работаем</h2>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-              {categories.map((cat) => (
+            <SectionLabel num="01" text="Категории" />
+            <h2 style={{ marginBottom: '32px' }}>С кем мы работаем</h2>
+          </MotionFadeUp>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+            {categories.map((cat, i) => (
+              <MotionFadeUp key={cat} delay={Math.min(i * 0.04, 0.24)}>
                 <span
-                  key={cat}
                   style={{
+                    display: 'inline-block',
+                    padding: '6px 14px',
                     border: '1px solid var(--line)',
-                    padding: '6px 12px',
-                    borderRadius: '8px',
+                    borderRadius: '6px',
                     fontSize: '14px',
-                    color: 'var(--text-muted)',
+                    color: 'var(--text)',
+                    background: 'var(--surface)',
                   }}
                 >
                   {cat}
                 </span>
-              ))}
-            </div>
-          </MotionFadeUp>
-        </div>
-      </section>
-
-      {/* Что предлагаем */}
-      <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
-        <div className="container-main section-gap">
-          <MotionFadeUp>
-            <h2 style={{ marginBottom: '40px' }}>Что мы предлагаем</h2>
-          </MotionFadeUp>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {offers.map((item, i) => (
-              <MotionFadeUp key={i} delay={Math.min(i * 0.08, 0.4)}>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '20px',
-                    paddingBlock: '20px',
-                    borderBottom: '1px solid var(--line)',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: '13px',
-                      fontWeight: 600,
-                      color: 'var(--accent-soft)',
-                      flexShrink: 0,
-                      paddingTop: '3px',
-                    }}
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <p style={{ color: 'var(--text)', fontSize: '17px' }}>{item}</p>
-                </div>
               </MotionFadeUp>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Как получить предложение */}
+      <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
+        <div className="container-main section-gap">
+          <MotionFadeUp>
+            <SectionLabel num="02" text="Что мы предлагаем" />
+            <h2 style={{ marginBottom: '40px' }}>Что мы предлагаем</h2>
+          </MotionFadeUp>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gap: '20px',
+            }}
+          >
+            {offers.map((offer, i) => (
+              <FeatureCard
+                key={offer.title}
+                num={String(i + 1).padStart(2, '0')}
+                title={offer.title}
+                text={offer.text}
+                delay={Math.min(i * 0.08, 0.32)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <div style={{ maxWidth: '640px' }}>
-              <h2 style={{ marginBottom: '24px' }}>Как получить предложение</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '28px' }}>
-                Напишите нам в Telegram или на почту. В сообщении укажите
-                формат бизнеса, желаемую площадь и предпочтительные районы.
-                Мы ответим, есть ли подходящие варианты под ваш формат, и
-                покажем условия по ним.
+            <SectionLabel num="03" text="Контакт" />
+            <div style={{ maxWidth: '560px' }}>
+              <h2 style={{ marginBottom: '20px' }}>Как написать</h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '32px' }}>
+                Напишите в Telegram или на почту. Укажите формат бизнеса,
+                желаемую площадь, локацию и ориентировочный бюджет на аренду.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
                 <a
                   href={TELEGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-arrow"
+                  className="btn-arrow btn-primary"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -172,7 +164,6 @@ export default function TenantsPage() {
                     fontWeight: 600,
                     fontSize: '15px',
                     textDecoration: 'none',
-                    transition: 'background 200ms ease',
                   }}
                 >
                   <Send size={16} strokeWidth={1.5} />

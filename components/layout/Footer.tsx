@@ -4,15 +4,22 @@ import { NAV_LINKS, EMAIL, ADDRESS_SHORT } from '@/lib/constants';
 
 export default function Footer() {
   return (
-    <footer
-      style={{
-        borderTop: '1px solid var(--line)',
-        background: 'var(--surface)',
-      }}
-    >
+    <footer style={{ background: 'var(--accent)', color: 'var(--surface)' }}>
+      {/* Brand mark */}
+      <div
+        style={{
+          paddingTop: 'clamp(48px, 6vw, 80px)',
+          paddingBottom: '0',
+          overflow: 'hidden',
+        }}
+      >
+        <span className="brand-mark">МЕГАСТЕЙТ</span>
+      </div>
+
+      {/* Footer content */}
       <div
         className="container-main"
-        style={{ paddingBlock: 'clamp(48px, 6vw, 80px)' }}
+        style={{ paddingBlock: 'clamp(40px, 5vw, 64px)' }}
       >
         <div
           style={{
@@ -22,14 +29,14 @@ export default function Footer() {
           }}
         >
           <div>
-            <div style={{ color: 'var(--accent)' }}>
+            <div style={{ color: 'var(--surface)' }}>
               <Logo height={20} />
             </div>
             <p
               style={{
                 marginTop: '12px',
                 fontSize: '14px',
-                color: 'var(--text-muted)',
+                color: 'rgba(250,248,243,0.55)',
                 lineHeight: 1.5,
               }}
             >
@@ -56,11 +63,11 @@ export default function Footer() {
                     href={link.href}
                     style={{
                       fontSize: '14px',
-                      color: 'var(--text-muted)',
+                      color: 'rgba(250,248,243,0.55)',
                       textDecoration: 'none',
                       transition: 'color 150ms ease',
                     }}
-                    className="hover:text-[var(--text)]"
+                    className="hover:text-[var(--surface)]"
                   >
                     {link.label}
                   </Link>
@@ -71,11 +78,11 @@ export default function Footer() {
                   href="/legal/"
                   style={{
                     fontSize: '14px',
-                    color: 'var(--text-muted)',
+                    color: 'rgba(250,248,243,0.55)',
                     textDecoration: 'none',
                     transition: 'color 150ms ease',
                   }}
-                  className="hover:text-[var(--text)]"
+                  className="hover:text-[var(--surface)]"
                 >
                   Реквизиты
                 </Link>
@@ -84,13 +91,7 @@ export default function Footer() {
           </nav>
 
           <div>
-            <p
-              style={{
-                fontSize: '14px',
-                color: 'var(--text-muted)',
-                lineHeight: 1.6,
-              }}
-            >
+            <p style={{ fontSize: '14px', color: 'rgba(250,248,243,0.55)', lineHeight: 1.6 }}>
               {ADDRESS_SHORT}
             </p>
             <a
@@ -99,11 +100,11 @@ export default function Footer() {
                 display: 'block',
                 marginTop: '8px',
                 fontSize: '14px',
-                color: 'var(--text-muted)',
+                color: 'rgba(250,248,243,0.55)',
                 textDecoration: 'none',
                 transition: 'color 150ms ease',
               }}
-              className="hover:text-[var(--text)]"
+              className="hover:text-[var(--surface)]"
             >
               {EMAIL}
             </a>
@@ -112,9 +113,9 @@ export default function Footer() {
 
         <div
           style={{
-            marginTop: '48px',
-            paddingTop: '24px',
-            borderTop: '1px solid var(--line)',
+            marginTop: '40px',
+            paddingTop: '20px',
+            borderTop: '1px solid rgba(250,248,243,0.1)',
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
@@ -122,40 +123,29 @@ export default function Footer() {
             gap: '12px',
           }}
         >
-          <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
+          <p style={{ fontSize: '13px', color: 'rgba(250,248,243,0.4)' }}>
             &copy; 2026 ООО «МЕГАСТЕЙТ» · ИНН 9710153625
           </p>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <Link
-              href="/legal/#privacy"
-              style={{
-                fontSize: '13px',
-                color: 'var(--text-muted)',
-                textDecoration: 'none',
-              }}
-            >
-              Политика обработки персональных данных
-            </Link>
-            <Link
-              href="/legal/#cookie"
-              style={{
-                fontSize: '13px',
-                color: 'var(--text-muted)',
-                textDecoration: 'none',
-              }}
-            >
-              Cookie
-            </Link>
-            <Link
-              href="/legal/#terms"
-              style={{
-                fontSize: '13px',
-                color: 'var(--text-muted)',
-                textDecoration: 'none',
-              }}
-            >
-              Условия использования сайта
-            </Link>
+            {[
+              { href: '/legal/#privacy', label: 'Политика персональных данных' },
+              { href: '/legal/#cookie', label: 'Cookie' },
+              { href: '/legal/#terms', label: 'Условия использования' },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                style={{
+                  fontSize: '13px',
+                  color: 'rgba(250,248,243,0.4)',
+                  textDecoration: 'none',
+                  transition: 'color 150ms ease',
+                }}
+                className="hover:text-[rgba(250,248,243,0.7)]"
+              >
+                {l.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

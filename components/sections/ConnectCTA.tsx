@@ -5,12 +5,15 @@ import { TELEGRAM_URL, MAILTO } from '@/lib/constants';
 export default function ConnectCTA() {
   return (
     <section
-      style={{ background: 'var(--accent)', color: 'var(--surface)' }}
+      style={{ background: 'var(--accent)', color: 'var(--surface)', position: 'relative', overflow: 'hidden' }}
       id="connect"
     >
+      {/* Aurora background */}
+      <div className="aurora-dark" />
+
       <div
-        className="container-main"
-        style={{ paddingBlock: 'clamp(64px, 10vw, 128px)' }}
+        className="container-main grain"
+        style={{ paddingBlock: 'clamp(64px, 10vw, 128px)', position: 'relative', zIndex: 1 }}
       >
         <MotionFadeUp>
           <h2 style={{ color: 'var(--surface)' }}>
@@ -19,9 +22,10 @@ export default function ConnectCTA() {
           <p
             style={{
               color: 'var(--surface)',
-              opacity: 0.8,
+              opacity: 0.7,
               marginTop: '16px',
-              maxWidth: '600px',
+              maxWidth: '560px',
+              fontSize: '17px',
             }}
           >
             Если у вас есть коммерческое помещение или вы рассматриваете покупку
@@ -36,11 +40,12 @@ export default function ConnectCTA() {
               marginTop: '32px',
             }}
           >
+            {/* Primary: surface bg + accent text */}
             <a
               href={TELEGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-arrow"
+              className="btn-arrow btn-primary"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -51,13 +56,13 @@ export default function ConnectCTA() {
                 color: 'var(--accent)',
                 fontWeight: 600,
                 fontSize: '15px',
-                transition: 'background 200ms ease',
                 textDecoration: 'none',
               }}
             >
               <Send size={16} strokeWidth={1.5} />
               Написать в Telegram
             </a>
+            {/* Secondary: transparent + surface border */}
             <a
               href={MAILTO}
               className="btn-arrow"
@@ -67,12 +72,12 @@ export default function ConnectCTA() {
                 gap: '8px',
                 padding: '12px 24px',
                 borderRadius: '8px',
-                border: '1px solid rgba(250,248,243,0.3)',
+                border: '1px solid rgba(250,248,243,0.35)',
                 color: 'var(--surface)',
                 fontWeight: 600,
                 fontSize: '15px',
-                transition: 'border-color 200ms ease',
                 textDecoration: 'none',
+                transition: 'border-color 200ms ease',
               }}
             >
               <Mail size={16} strokeWidth={1.5} />
