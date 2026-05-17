@@ -378,3 +378,30 @@ h3 {
     display: block;
   }
 }
+
+/* ─── Floating 3D objects ─── */
+@keyframes float-3d {
+  0%   { transform: translateY(0px) rotate3d(0.2, 1, 0.1, 0deg); }
+  33%  { transform: translateY(-14px) rotate3d(0.2, 1, 0.1, 2deg); }
+  66%  { transform: translateY(-7px) rotate3d(0.2, 1, 0.1, -1deg); }
+  100% { transform: translateY(0px) rotate3d(0.2, 1, 0.1, 0deg); }
+}
+
+.float-3d {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .float-3d {
+    animation: float-3d 7s ease-in-out infinite;
+    will-change: transform;
+  }
+  .float-3d-delay {
+    animation: float-3d 7s ease-in-out 1.5s infinite;
+    will-change: transform;
+  }
+  .float-3d-delay2 {
+    animation: float-3d 7s ease-in-out 3s infinite;
+    will-change: transform;
+  }
+}

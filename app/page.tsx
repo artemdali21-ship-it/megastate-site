@@ -7,9 +7,7 @@ import ConnectCTA from '@/components/sections/ConnectCTA';
 import SectionLabel from '@/components/ui/SectionLabel';
 import FeatureCard from '@/components/ui/FeatureCard';
 import MarqueeStrip from '@/components/ui/Marquee';
-import WordReveal from '@/components/ui/WordReveal';
-import ParallaxLogo from '@/components/ui/ParallaxLogo';
-import HeroDepthWrapper from '@/components/ui/HeroDepthWrapper';
+import Logo from '@/components/ui/Logo';
 import { ShaderAnimation } from '@/components/ui/ShaderAnimation';
 import { TELEGRAM_URL } from '@/lib/constants';
 
@@ -33,7 +31,7 @@ const MARQUEE_ITEMS = [
 export default function HomePage() {
   return (
     <>
-      {/* ─── Hero — размер как на /contacts ─── */}
+      {/* ─── Hero — 1 в 1 как /contacts ─── */}
       <section
         style={{
           background: 'var(--bg)',
@@ -47,103 +45,65 @@ export default function HomePage() {
 
         <div
           className="container-main"
-          style={{
-            paddingBlock: 'clamp(64px, 10vw, 140px)',
-            position: 'relative',
-            zIndex: 1,
-          }}
+          style={{ paddingBlock: 'clamp(64px, 10vw, 140px)', position: 'relative', zIndex: 1 }}
         >
-          <HeroDepthWrapper>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center',
-              }}
-            >
-              {/* Parallax logo */}
-              <div style={{ marginBottom: 'clamp(32px, 5vw, 64px)' }}>
-                <ParallaxLogo />
-              </div>
-
-              {/* Word-reveal H1 */}
-              <WordReveal
-                text="Превращаем коммерческие помещения в управляемые арендные объекты"
+          {/* Small logo — left-aligned brand mark */}
+          <div style={{ marginBottom: '28px', color: 'var(--accent)' }}>
+            <Logo height={30} />
+          </div>
+          <MotionFadeUp>
+            <h1 style={{ maxWidth: '720px' }}>
+              Превращаем коммерческие помещения в управляемые арендные объекты
+            </h1>
+            <span className="hero-line" />
+            <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '560px', marginBottom: '32px' }}>
+              Долгосрочная аренда и операторское управление стрит-ритейлом в Москве.
+              Один договор, один оператор, понятный график платежей.
+            </p>
+          </MotionFadeUp>
+          <MotionFadeUp delay={0.15}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+              <Link
+                href="/#connect"
+                className="btn-arrow btn-primary"
                 style={{
-                  maxWidth: '760px',
-                  marginBottom: 0,
-                  fontSize: 'clamp(26px, 3.8vw, 50px)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '12px 24px',
+                  borderRadius: '8px',
+                  background: 'var(--accent)',
+                  color: 'var(--surface)',
+                  fontWeight: 600,
+                  fontSize: '15px',
+                  textDecoration: 'none',
                 }}
-                stagger={0.05}
-              />
-
-              {/* Divider */}
-              <span className="hero-line" style={{ display: 'block', margin: '28px auto' }} />
-
-              {/* Subtitle */}
-              <MotionFadeUp delay={0.3}>
-                <p
-                  style={{
-                    fontSize: '18px',
-                    color: 'var(--text-muted)',
-                    lineHeight: 1.65,
-                    maxWidth: '600px',
-                    marginBottom: '40px',
-                  }}
-                >
-                  МЕГАСТЕЙТ берёт на себя расчёт, деление площади, заселение арендаторами и дальнейшее
-                  управление. Для собственника это один основной договор, один ответственный оператор и
-                  понятный график платежей.
-                </p>
-              </MotionFadeUp>
-
-              {/* CTAs */}
-              <MotionFadeUp delay={0.38}>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
-                  <Link
-                    href="/#connect"
-                    className="btn-arrow btn-primary"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      padding: '12px 24px',
-                      borderRadius: '8px',
-                      background: 'var(--accent)',
-                      color: 'var(--surface)',
-                      fontWeight: 600,
-                      fontSize: '15px',
-                      textDecoration: 'none',
-                    }}
-                  >
-                    Связаться по объекту
-                    <ArrowRight size={16} strokeWidth={1.5} />
-                  </Link>
-                  <Link
-                    href="/how/"
-                    className="btn-arrow"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      padding: '12px 24px',
-                      borderRadius: '8px',
-                      border: '1px solid var(--line)',
-                      color: 'var(--accent)',
-                      fontWeight: 600,
-                      fontSize: '15px',
-                      textDecoration: 'none',
-                      transition: 'background 200ms ease',
-                    }}
-                  >
-                    Как мы работаем
-                    <ArrowRight size={16} strokeWidth={1.5} />
-                  </Link>
-                </div>
-              </MotionFadeUp>
+              >
+                Связаться по объекту
+                <ArrowRight size={16} strokeWidth={1.5} />
+              </Link>
+              <Link
+                href="/how/"
+                className="btn-arrow"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '12px 24px',
+                  borderRadius: '8px',
+                  border: '1px solid var(--line)',
+                  color: 'var(--accent)',
+                  fontWeight: 600,
+                  fontSize: '15px',
+                  textDecoration: 'none',
+                  transition: 'background 200ms ease',
+                }}
+              >
+                Как мы работаем
+                <ArrowRight size={16} strokeWidth={1.5} />
+              </Link>
             </div>
-          </HeroDepthWrapper>
+          </MotionFadeUp>
         </div>
       </section>
 
@@ -156,21 +116,29 @@ export default function HomePage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-              gap: '0',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '16px',
             }}
           >
             {[
               { num: '7–10 лет', label: 'срок основного договора' },
               { num: '4 сегмента', label: 'эконом · комфорт · бизнес · премиум' },
-              { num: '23 рыночные категории', label: 'анализируем при отборе арендаторов' },
+              { num: '23 категории', label: 'анализируем при отборе арендаторов' },
             ].map((stat, i) => (
-              <MotionFadeUp key={stat.num} delay={i * 0.12}>
-                <div className="stat-cell" style={{ padding: 'clamp(20px, 3vw, 32px)' }}>
+              <MotionFadeUp key={stat.num} delay={i * 0.1}>
+                <div
+                  style={{
+                    padding: 'clamp(20px, 2.5vw, 28px)',
+                    background: 'var(--surface)',
+                    border: '1px solid var(--line)',
+                    borderRadius: '12px',
+                    height: '100%',
+                  }}
+                >
                   <div
                     style={{
-                      fontSize: 'clamp(24px, 3vw, 40px)',
-                      fontWeight: 600,
+                      fontSize: 'clamp(26px, 3vw, 40px)',
+                      fontWeight: 700,
                       color: 'var(--accent)',
                       letterSpacing: '-0.02em',
                       lineHeight: 1.1,
@@ -178,7 +146,7 @@ export default function HomePage() {
                   >
                     {stat.num}
                   </div>
-                  <div style={{ marginTop: '6px', fontSize: '13px', color: 'var(--text-muted)', letterSpacing: '0.03em' }}>
+                  <div style={{ marginTop: '8px', fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.5 }}>
                     {stat.label}
                   </div>
                 </div>
@@ -275,10 +243,11 @@ export default function HomePage() {
                 <Image
                   src="/_images/3d-element-chart-growth-abstract.png"
                   alt=""
-                  width={240}
-                  height={240}
+                  width={340}
+                  height={340}
                   unoptimized
-                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 20px 40px rgba(30,51,40,0.14))' }}
+                  className="float-3d"
+                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 24px 48px rgba(30,51,40,0.18))' }}
                 />
               </div>
             </div>

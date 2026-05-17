@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Send, Mail } from 'lucide-react';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 import { TELEGRAM_URL, MAILTO } from '@/lib/constants';
@@ -10,6 +11,31 @@ export default function ConnectCTA() {
     >
       {/* Aurora background */}
       <div className="aurora-dark" />
+
+      {/* Floating cube — decorative, right side */}
+      <div
+        style={{
+          position: 'absolute',
+          right: 'clamp(-120px, -4vw, -40px)',
+          bottom: '-60px',
+          zIndex: 0,
+          pointerEvents: 'none',
+          opacity: 0.55,
+        }}
+      >
+        <Image
+          src="/_images/3d-element-city-block-abstract.png"
+          alt=""
+          width={500}
+          height={500}
+          unoptimized
+          className="float-3d"
+          style={{
+            objectFit: 'contain',
+            filter: 'drop-shadow(0 32px 64px rgba(0,0,0,0.4)) brightness(1.15)',
+          }}
+        />
+      </div>
 
       <div
         className="container-main grain"

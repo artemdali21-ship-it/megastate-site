@@ -98,10 +98,11 @@ export default function CompanyPage() {
                 <Image
                   src="/_images/3d-element-location-pin-luxury.png"
                   alt=""
-                  width={200}
-                  height={200}
+                  width={300}
+                  height={300}
                   unoptimized
-                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 16px 32px rgba(30,51,40,0.12))' }}
+                  className="float-3d"
+                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 24px 48px rgba(30,51,40,0.16))' }}
                 />
               </div>
             </div>
@@ -126,10 +127,11 @@ export default function CompanyPage() {
                 <Image
                   src="/_images/3d-element-city-block-abstract.png"
                   alt=""
-                  width={200}
-                  height={200}
+                  width={300}
+                  height={300}
                   unoptimized
-                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 16px 32px rgba(30,51,40,0.12))' }}
+                  className="float-3d-delay"
+                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 24px 48px rgba(30,51,40,0.16))' }}
                 />
               </div>
               <div>
@@ -196,10 +198,11 @@ export default function CompanyPage() {
                 <Image
                   src="/_images/3d-element-key-modern.png"
                   alt=""
-                  width={200}
-                  height={200}
+                  width={300}
+                  height={300}
                   unoptimized
-                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 16px 32px rgba(30,51,40,0.12))' }}
+                  className="float-3d-delay2"
+                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 24px 48px rgba(30,51,40,0.16))' }}
                 />
               </div>
             </div>
