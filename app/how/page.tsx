@@ -47,12 +47,42 @@ const steps = [
 export default function HowPage() {
   return (
     <>
-      {/* ─── Hero ─── */}
+      {/* ─── Hero с фоновой схемой ─── */}
       <section
-        style={{ background: 'var(--bg)', borderBottom: '1px solid var(--line)', position: 'relative' }}
+        style={{
+          background: 'var(--bg)',
+          borderBottom: '1px solid var(--line)',
+          position: 'relative',
+          overflow: 'hidden',
+          minHeight: 'clamp(480px, 62vh, 680px)',
+          display: 'flex',
+          alignItems: 'center',
+        }}
         className="grain"
       >
-        <div className="container-main" style={{ paddingBlock: 'clamp(64px, 10vw, 120px)' }}>
+        {/* Фоновое изображение схемы */}
+        <Image
+          src="/_images/6steps.png"
+          alt=""
+          fill
+          unoptimized
+          priority
+          style={{ objectFit: 'cover', objectPosition: 'center top', opacity: 0.12 }}
+        />
+        {/* Градиент — текст читается слева, изображение проступает справа */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(to right, rgba(250,248,243,0.96) 40%, rgba(250,248,243,0.75) 65%, rgba(250,248,243,0.3) 100%)',
+          }}
+        />
+
+        <div
+          className="container-main"
+          style={{ paddingBlock: 'clamp(64px, 10vw, 120px)', position: 'relative', zIndex: 1 }}
+        >
           <nav className="breadcrumb">
             <Link href="/">Главная</Link>
             <span className="breadcrumb-sep">/</span>
@@ -68,21 +98,6 @@ export default function HowPage() {
             </p>
           </MotionFadeUp>
         </div>
-      </section>
-
-      {/* ─── Visual schema ─── */}
-      <section style={{ background: 'var(--surface)', borderBottom: '1px solid var(--line)' }}>
-        <MotionFadeUp>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/7', maxHeight: '480px', overflow: 'hidden' }}>
-            <Image
-              src="/_images/6steps.png"
-              alt="Схема 6 шагов"
-              fill
-              unoptimized
-              style={{ objectFit: 'cover', objectPosition: 'top' }}
-            />
-          </div>
-        </MotionFadeUp>
       </section>
 
       {/* ─── Steps ─── */}

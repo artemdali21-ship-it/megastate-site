@@ -109,9 +109,10 @@ export default function Footer() {
           </p>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             {[
-              { href: '/legal/#privacy', label: 'Политика персональных данных' },
-              { href: '/legal/#cookie', label: 'Cookie' },
-              { href: '/legal/#terms', label: 'Условия использования' },
+              { href: '/legal/privacy/', label: 'Политика персональных данных' },
+              { href: '/legal/cookie/', label: 'Cookie' },
+              { href: '/legal/terms/', label: 'Условия использования' },
+              { href: '/legal/offer/', label: 'Публичная оферта' },
             ].map((l) => (
               <Link
                 key={l.href}

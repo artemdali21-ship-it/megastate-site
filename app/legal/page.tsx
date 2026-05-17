@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 
 export const metadata: Metadata = {
@@ -18,6 +20,13 @@ const requisites = [
     label: 'Юридический адрес',
     value: 'Москва, улица Садовая-Триумфальная, 16, строение 3, помещение 2А/1',
   },
+];
+
+const docs = [
+  { href: '/legal/privacy/', label: 'Политика обработки персональных данных', id: 'privacy' },
+  { href: '/legal/cookie/', label: 'Политика использования Cookie', id: 'cookie' },
+  { href: '/legal/terms/', label: 'Условия использования сайта', id: 'terms' },
+  { href: '/legal/offer/', label: 'Публичная оферта', id: 'offer' },
 ];
 
 export default function LegalPage() {
@@ -49,7 +58,6 @@ export default function LegalPage() {
                 gap: '0',
                 maxWidth: '720px',
               }}
-              className="legal-dl"
             >
               {requisites.map((r, i) => (
                 [
@@ -91,11 +99,7 @@ export default function LegalPage() {
           <MotionFadeUp>
             <h2 style={{ marginBottom: '32px' }}>Документы</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0', maxWidth: '600px' }}>
-              {[
-                { id: 'privacy', label: 'Политика обработки персональных данных' },
-                { id: 'terms', label: 'Условия использования сайта' },
-                { id: 'cookie', label: 'Использование файлов cookie' },
-              ].map((doc) => (
+              {docs.map((doc) => (
                 <div
                   key={doc.id}
                   id={doc.id}
@@ -109,18 +113,25 @@ export default function LegalPage() {
                   }}
                 >
                   <p style={{ color: 'var(--text)', fontSize: '16px' }}>{doc.label}</p>
-                  <span
+                  <Link
+                    href={doc.href}
                     style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
                       fontSize: '13px',
-                      color: 'var(--text-muted)',
+                      color: 'var(--accent)',
+                      textDecoration: 'none',
                       flexShrink: 0,
                       border: '1px solid var(--line)',
                       padding: '4px 10px',
                       borderRadius: '6px',
+                      transition: 'background 150ms ease',
                     }}
                   >
-                    заглушка
-                  </span>
+                    Читать
+                    <ArrowRight size={12} strokeWidth={1.5} />
+                  </Link>
                 </div>
               ))}
             </div>

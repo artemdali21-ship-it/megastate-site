@@ -291,3 +291,40 @@ h3 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+/* ─── Legal article typography ─── */
+.legal-article h2 {
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 48px;
+  margin-bottom: 14px;
+}
+.legal-article h2:first-child {
+  margin-top: 0;
+}
+.legal-article p {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+.legal-article ul {
+  margin: 0 0 14px 0;
+  padding-left: 24px;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+.legal-article li {
+  margin-bottom: 6px;
+}
+.legal-article a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.legal-article strong {
+  color: var(--text);
+  font-weight: 600;
+}
