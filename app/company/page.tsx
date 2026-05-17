@@ -73,79 +73,137 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      {/* ─── Фокус ─── */}
+      {/* ─── Фокус (с 3D навигатором) ─── */}
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
             <SectionLabel num="01" text="Фокус" />
-            <div style={{ maxWidth: '720px' }}>
-              <h2 style={{ marginBottom: '24px' }}>Фокус</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7 }}>
-                Стрит-ритейл в жилых комплексах эконом-, комфорт-, бизнес- и
-                премиум-класса, а также качественный старый фонд при подходящих
-                параметрах трафика, ставки и инженерии.
-              </p>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '48px',
+                alignItems: 'center',
+              }}
+            >
+              <div>
+                <h2 style={{ marginBottom: '24px' }}>Фокус</h2>
+                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7 }}>
+                  Стрит-ритейл в жилых комплексах эконом-, комфорт-, бизнес- и
+                  премиум-класса, а также качественный старый фонд при подходящих
+                  параметрах трафика, ставки и инженерии.
+                </p>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Image
+                  src="/_images/3d-element-location-pin-luxury.png"
+                  alt=""
+                  width={200}
+                  height={200}
+                  unoptimized
+                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 16px 32px rgba(30,51,40,0.12))' }}
+                />
+              </div>
             </div>
           </MotionFadeUp>
         </div>
       </section>
 
-      {/* ─── Модель ─── */}
+      {/* ─── Модель работы (с 3D кварталом) ─── */}
       <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
             <SectionLabel num="02" text="Модель" />
-            <div style={{ maxWidth: '720px' }}>
-              <h2 style={{ marginBottom: '24px' }}>Модель работы</h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>
-                МЕГАСТЕЙТ берёт помещение в долгосрочную аренду у собственника
-                — обычно на 5–10 лет — и становится основным арендатором по
-                договору. Площадь делится на блоки, которые сдаются
-                арендаторам-операторам.
-              </p>
-              <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7 }}>
-                Собственник работает с одним контрагентом. МЕГАСТЕЙТ берёт
-                на себя риск заселения, управления и замены арендаторов.
-              </p>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '48px',
+                alignItems: 'center',
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'center', order: -1 }}>
+                <Image
+                  src="/_images/3d-element-city-block-abstract.png"
+                  alt=""
+                  width={200}
+                  height={200}
+                  unoptimized
+                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 16px 32px rgba(30,51,40,0.12))' }}
+                />
+              </div>
+              <div>
+                <h2 style={{ marginBottom: '24px' }}>Модель работы</h2>
+                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>
+                  МЕГАСТЕЙТ берёт помещение в долгосрочную аренду у собственника
+                  — обычно на 7–10 лет — и становится основным арендатором по
+                  договору. Площадь делится на блоки, которые сдаются
+                  арендаторам-операторам.
+                </p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7 }}>
+                  Собственник работает с одним контрагентом. МЕГАСТЕЙТ берёт
+                  на себя риск заселения, управления и замены арендаторов.
+                </p>
+              </div>
             </div>
           </MotionFadeUp>
         </div>
       </section>
 
-      {/* ─── Принципы ─── */}
+      {/* ─── Принципы работы (с 3D ключом) ─── */}
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
             <SectionLabel num="03" text="Принципы" />
-            <h2 style={{ marginBottom: '32px' }}>Принципы работы</h2>
-          </MotionFadeUp>
-          <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '640px' }}>
-            {principles.map((item, i) => (
-              <MotionFadeUp key={i} delay={i * 0.08}>
-                <div
-                  style={{
-                    display: 'flex',
-                    gap: '16px',
-                    padding: '20px 0',
-                    borderBottom: '1px solid var(--line)',
-                  }}
-                >
-                  <span
-                    style={{
-                      color: 'var(--accent-soft)',
-                      fontSize: '13px',
-                      fontWeight: 600,
-                      flexShrink: 0,
-                      paddingTop: '2px',
-                    }}
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <p style={{ color: 'var(--text)', fontSize: '17px' }}>{item}</p>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '48px',
+                alignItems: 'center',
+              }}
+            >
+              <div>
+                <h2 style={{ marginBottom: '32px' }}>Принципы работы</h2>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  {principles.map((item, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: 'flex',
+                        gap: '16px',
+                        padding: '20px 0',
+                        borderBottom: '1px solid var(--line)',
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: 'var(--accent-soft)',
+                          fontSize: '13px',
+                          fontWeight: 600,
+                          flexShrink: 0,
+                          paddingTop: '2px',
+                        }}
+                      >
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <p style={{ color: 'var(--text)', fontSize: '17px' }}>{item}</p>
+                    </div>
+                  ))}
                 </div>
-              </MotionFadeUp>
-            ))}
-          </div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Image
+                  src="/_images/3d-element-key-modern.png"
+                  alt=""
+                  width={200}
+                  height={200}
+                  unoptimized
+                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 16px 32px rgba(30,51,40,0.12))' }}
+                />
+              </div>
+            </div>
+          </MotionFadeUp>
         </div>
       </section>
 

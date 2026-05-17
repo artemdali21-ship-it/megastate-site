@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Send, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 import SectionLabel from '@/components/ui/SectionLabel';
+import { ShaderAnimation } from '@/components/ui/ShaderAnimation';
 import { TELEGRAM_URL, MAILTO, EMAIL, PHONE, PHONE_TEL, ADDRESS } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -13,12 +14,23 @@ export const metadata: Metadata = {
 export default function ContactsPage() {
   return (
     <>
-      {/* ─── Hero ─── */}
+      {/* ─── Hero с шейдером ─── */}
       <section
-        style={{ background: 'var(--bg)', borderBottom: '1px solid var(--line)', position: 'relative' }}
+        style={{
+          background: 'var(--bg)',
+          borderBottom: '1px solid var(--line)',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
         className="grain"
       >
-        <div className="container-main" style={{ paddingBlock: 'clamp(64px, 10vw, 120px)' }}>
+        {/* Shader animation — overlay с олива-тонами, multiply blend */}
+        <ShaderAnimation />
+
+        <div
+          className="container-main"
+          style={{ paddingBlock: 'clamp(64px, 10vw, 140px)', position: 'relative', zIndex: 1 }}
+        >
           <nav className="breadcrumb">
             <Link href="/">Главная</Link>
             <span className="breadcrumb-sep">/</span>
@@ -101,19 +113,13 @@ export default function ContactsPage() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                     <Phone size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />
-                    <a
-                      href={`tel:${PHONE_TEL}`}
-                      style={{ color: 'var(--text)', textDecoration: 'none', fontSize: '16px' }}
-                    >
+                    <a href={`tel:${PHONE_TEL}`} style={{ color: 'var(--text)', textDecoration: 'none', fontSize: '16px' }}>
                       {PHONE}
                     </a>
                   </div>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                     <Mail size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />
-                    <a
-                      href={MAILTO}
-                      style={{ color: 'var(--text)', textDecoration: 'none', fontSize: '16px' }}
-                    >
+                    <a href={MAILTO} style={{ color: 'var(--text)', textDecoration: 'none', fontSize: '16px' }}>
                       {EMAIL}
                     </a>
                   </div>

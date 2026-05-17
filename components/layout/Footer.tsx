@@ -1,18 +1,29 @@
 import Link from 'next/link';
 import Logo from '@/components/ui/Logo';
-import { NAV_LINKS, EMAIL, ADDRESS_SHORT } from '@/lib/constants';
+import { EMAIL, ADDRESS_SHORT } from '@/lib/constants';
+
+const NAV_COL1 = [
+  { href: '/', label: 'Главная' },
+  { href: '/how/', label: 'Как мы работаем' },
+  { href: '/approach/', label: 'Подход' },
+];
+
+const NAV_COL2 = [
+  { href: '/owners/', label: 'Собственникам' },
+  { href: '/tenants/', label: 'Арендаторам' },
+  { href: '/company/', label: 'Компания' },
+];
+
+const NAV_COL3 = [
+  { href: '/contacts/', label: 'Контакты' },
+  { href: '/legal/', label: 'Реквизиты' },
+];
 
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--accent)', color: 'var(--surface)' }}>
       {/* Brand mark */}
-      <div
-        style={{
-          paddingTop: 'clamp(48px, 6vw, 80px)',
-          paddingBottom: '0',
-          overflow: 'hidden',
-        }}
-      >
+      <div style={{ paddingTop: 'clamp(48px, 6vw, 80px)', overflow: 'hidden' }}>
         <span className="brand-mark">МЕГАСТЕЙТ</span>
       </div>
 
@@ -24,11 +35,12 @@ export default function Footer() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '48px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+            gap: '40px',
           }}
         >
-          <div>
+          {/* Brand col */}
+          <div style={{ gridColumn: 'span 1' }}>
             <div style={{ color: 'var(--surface)' }}>
               <Logo height={20} />
             </div>
@@ -36,81 +48,50 @@ export default function Footer() {
               style={{
                 marginTop: '12px',
                 fontSize: '14px',
-                color: 'rgba(250,248,243,0.55)',
-                lineHeight: 1.5,
+                color: 'rgba(250,248,243,0.5)',
+                lineHeight: 1.55,
               }}
             >
               Долгосрочная аренда и управление
               <br />
               стрит-ритейлом в Москве
             </p>
-          </div>
-
-          <nav aria-label="Навигация в футере">
-            <ul
-              style={{
-                listStyle: 'none',
-                margin: 0,
-                padding: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '8px',
-              }}
-            >
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    style={{
-                      fontSize: '14px',
-                      color: 'rgba(250,248,243,0.55)',
-                      textDecoration: 'none',
-                      transition: 'color 150ms ease',
-                    }}
-                    className="hover:text-[var(--surface)]"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/legal/"
-                  style={{
-                    fontSize: '14px',
-                    color: 'rgba(250,248,243,0.55)',
-                    textDecoration: 'none',
-                    transition: 'color 150ms ease',
-                  }}
-                  className="hover:text-[var(--surface)]"
-                >
-                  Реквизиты
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          <div>
-            <p style={{ fontSize: '14px', color: 'rgba(250,248,243,0.55)', lineHeight: 1.6 }}>
+            <p style={{ marginTop: '16px', fontSize: '13px', color: 'rgba(250,248,243,0.35)' }}>
               {ADDRESS_SHORT}
             </p>
             <a
               href={`mailto:${EMAIL}`}
               style={{
                 display: 'block',
-                marginTop: '8px',
-                fontSize: '14px',
-                color: 'rgba(250,248,243,0.55)',
+                marginTop: '6px',
+                fontSize: '13px',
+                color: 'rgba(250,248,243,0.35)',
                 textDecoration: 'none',
                 transition: 'color 150ms ease',
               }}
-              className="hover:text-[var(--surface)]"
+              className="hover:text-[rgba(250,248,243,0.7)]"
             >
               {EMAIL}
             </a>
           </div>
+
+          {/* Nav col 1 */}
+          <nav aria-label="Навигация">
+            <NavList items={NAV_COL1} />
+          </nav>
+
+          {/* Nav col 2 */}
+          <nav>
+            <NavList items={NAV_COL2} />
+          </nav>
+
+          {/* Nav col 3 */}
+          <nav>
+            <NavList items={NAV_COL3} />
+          </nav>
         </div>
 
+        {/* Bottom bar */}
         <div
           style={{
             marginTop: '40px',
@@ -123,7 +104,7 @@ export default function Footer() {
             gap: '12px',
           }}
         >
-          <p style={{ fontSize: '13px', color: 'rgba(250,248,243,0.4)' }}>
+          <p style={{ fontSize: '13px', color: 'rgba(250,248,243,0.35)' }}>
             &copy; 2026 ООО «МЕГАСТЕЙТ» · ИНН 9710153625
           </p>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -137,11 +118,11 @@ export default function Footer() {
                 href={l.href}
                 style={{
                   fontSize: '13px',
-                  color: 'rgba(250,248,243,0.4)',
+                  color: 'rgba(250,248,243,0.35)',
                   textDecoration: 'none',
                   transition: 'color 150ms ease',
                 }}
-                className="hover:text-[rgba(250,248,243,0.7)]"
+                className="hover:text-[rgba(250,248,243,0.65)]"
               >
                 {l.label}
               </Link>
@@ -150,5 +131,28 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function NavList({ items }: { items: { href: string; label: string }[] }) {
+  return (
+    <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      {items.map((link) => (
+        <li key={link.href}>
+          <Link
+            href={link.href}
+            style={{
+              fontSize: '14px',
+              color: 'rgba(250,248,243,0.55)',
+              textDecoration: 'none',
+              transition: 'color 150ms ease',
+            }}
+            className="hover:text-[var(--surface)]"
+          >
+            {link.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }

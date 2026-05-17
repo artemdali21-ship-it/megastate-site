@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 import ConnectCTA from '@/components/sections/ConnectCTA';
@@ -46,6 +47,7 @@ const steps = [
 export default function HowPage() {
   return (
     <>
+      {/* ─── Hero ─── */}
       <section
         style={{ background: 'var(--bg)', borderBottom: '1px solid var(--line)', position: 'relative' }}
         className="grain"
@@ -68,6 +70,22 @@ export default function HowPage() {
         </div>
       </section>
 
+      {/* ─── Visual schema ─── */}
+      <section style={{ background: 'var(--surface)', borderBottom: '1px solid var(--line)' }}>
+        <MotionFadeUp>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/7', maxHeight: '480px', overflow: 'hidden' }}>
+            <Image
+              src="/_images/6steps.png"
+              alt="Схема 6 шагов"
+              fill
+              unoptimized
+              style={{ objectFit: 'cover', objectPosition: 'top' }}
+            />
+          </div>
+        </MotionFadeUp>
+      </section>
+
+      {/* ─── Steps ─── */}
       <section style={{ background: 'var(--surface)' }}>
         <div className="container-main section-gap">
           <div style={{ display: 'flex', flexDirection: 'column' }}>
