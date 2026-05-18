@@ -35,14 +35,14 @@ export default function HeroPlanOverlay() {
         />
 
         {/* LAYER 2 — block dividers
-             Widths derived from areas ÷ depth (8.0 М):
-             A=80÷8=10.0M → 257u  B=65÷8=8.1M → 208u  C=70÷8=8.75M → 225u  D=55÷8=6.9M → 178u
-             Total: 257+208+225+178=868u = outer rect width ✓
-             Dividers: 556+257=813 | 813+208=1021 | 1021+225=1246 */}
+             Depth=10.0М: A=8.0×10=80  B=6.5×10=65  C=7.0×10=70  D=5.5×10=55  Total=27.0×10=270М² ✓
+             Scale: 868u/27.0М=32.15u/М
+             A=8.0×32.15=257u  B=6.5×32.15=209u  C=7.0×32.15=225u  D=5.5×32.15=177u  Σ=868u ✓
+             Dividers: 556+257=813 | 813+209=1022 | 1022+225=1247 */}
         <g stroke="rgba(250,248,243,1)" strokeWidth="1">
           <line className="plan-vline plan-vline-1" x1="813" y1="55" x2="813" y2="725" />
-          <line className="plan-vline plan-vline-2" x1="1021" y1="55" x2="1021" y2="725" />
-          <line className="plan-vline plan-vline-3" x1="1246" y1="55" x2="1246" y2="725" />
+          <line className="plan-vline plan-vline-2" x1="1022" y1="55" x2="1022" y2="725" />
+          <line className="plan-vline plan-vline-3" x1="1247" y1="55" x2="1247" y2="725" />
         </g>
 
         {/* LAYER 3 — storefront separator */}
@@ -53,7 +53,7 @@ export default function HeroPlanOverlay() {
           strokeWidth="1"
         />
 
-        {/* LAYER 4 — dimension line top: total width 34.0 М */}
+        {/* LAYER 4 — dimension line top: total width 27.0 М */}
         <line
           className="plan-dim-top"
           x1="556" y1="27" x2="1424" y2="27"
@@ -71,10 +71,10 @@ export default function HeroPlanOverlay() {
           textAnchor="middle"
           fontWeight="400"
         >
-          34.0 М
+          27.0 М
         </text>
 
-        {/* LAYER 5 — dimension line right: depth 8.0 М */}
+        {/* LAYER 5 — dimension line right: depth 10.0 М */}
         <line
           className="plan-dim-right"
           x1="1452" y1="51" x2="1452" y2="729"
@@ -93,15 +93,15 @@ export default function HeroPlanOverlay() {
           fontWeight="400"
           transform="rotate(-90, 1472, 390)"
         >
-          8.0 М
+          10.0 М
         </text>
 
         {/* LAYER 6 — block labels (centers of each block) */}
         {[
-          { x: 685,  label: 'БЛОК A', area: '80 М²' },
-          { x: 917,  label: 'БЛОК B', area: '65 М²' },
-          { x: 1134, label: 'БЛОК C', area: '70 М²' },
-          { x: 1335, label: 'БЛОК D', area: '55 М²' },
+          { x: 685,  label: 'БЛОК A', area: '80 М²' },  // (556+813)/2
+          { x: 918,  label: 'БЛОК B', area: '65 М²' },  // (813+1022)/2
+          { x: 1135, label: 'БЛОК C', area: '70 М²' },  // (1022+1247)/2
+          { x: 1336, label: 'БЛОК D', area: '55 М²' },  // (1247+1424)/2
         ].map(({ x, label, area }, i) => (
           <g key={label} className={`plan-label-group plan-label-${i + 1}`}>
             <text
