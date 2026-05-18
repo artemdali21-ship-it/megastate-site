@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const principles = [
-  'Один контур ответственности по каждому объекту',
-  'Все расчёты ведутся в письменной форме',
-  'Договоры с собственниками и арендаторами фиксируют понятные условия',
-  'Долгий горизонт важнее быстрой сделки',
+  { num: '01', text: 'Один контур ответственности по каждому объекту' },
+  { num: '02', text: 'Все расчёты ведутся в письменной форме' },
+  { num: '03', text: 'Договоры с собственниками и арендаторами фиксируют понятные условия' },
+  { num: '04', text: 'Долгий горизонт важнее быстрой сделки' },
 ];
 
 export default function CompanyPage() {
@@ -73,8 +73,8 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      {/* ─── Фокус (с 3D навигатором) ─── */}
-      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
+      {/* ─── Фокус ─── */}
+      <section className="split-section" style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
             <SectionLabel num="01" text="Фокус" />
@@ -94,14 +94,14 @@ export default function CompanyPage() {
                   параметрах трафика, ставки и инженерии.
                 </p>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <div className="media-card">
                 <Image
                   src="/_images/focus.png"
                   alt=""
                   width={400}
                   height={299}
                   unoptimized
-                  style={{ objectFit: 'contain' }}
+                  style={{ objectFit: 'contain', maxWidth: '100%', maxHeight: '100%' }}
                 />
               </div>
             </div>
@@ -109,8 +109,8 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      {/* ─── Модель работы (с 3D кварталом) ─── */}
-      <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
+      {/* ─── Модель работы ─── */}
+      <section className="split-section" style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
             <SectionLabel num="02" text="Модель" />
@@ -122,14 +122,14 @@ export default function CompanyPage() {
                 alignItems: 'center',
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'center', order: -1 }}>
+              <div className="media-card" style={{ order: -1 }}>
                 <Image
                   src="/_images/models.png"
                   alt=""
                   width={400}
                   height={299}
                   unoptimized
-                  style={{ objectFit: 'contain' }}
+                  style={{ objectFit: 'contain', maxWidth: '100%', maxHeight: '100%' }}
                 />
               </div>
               <div>
@@ -150,60 +150,23 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      {/* ─── Принципы работы (с 3D ключом) ─── */}
+      {/* ─── Принципы работы — glassmorphism 2×2 ─── */}
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
             <SectionLabel num="03" text="Принципы" />
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                gap: '48px',
-                alignItems: 'center',
-              }}
-            >
-              <div>
-                <h2 style={{ marginBottom: '32px' }}>Принципы работы</h2>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  {principles.map((item, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        display: 'flex',
-                        gap: '16px',
-                        padding: '20px 0',
-                        borderBottom: '1px solid var(--line)',
-                      }}
-                    >
-                      <span
-                        style={{
-                          color: 'var(--accent-soft)',
-                          fontSize: '13px',
-                          fontWeight: 600,
-                          flexShrink: 0,
-                          paddingTop: '2px',
-                        }}
-                      >
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      <p style={{ color: 'var(--text)', fontSize: '17px' }}>{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Image
-                  src="/_images/principles.png"
-                  alt=""
-                  width={400}
-                  height={299}
-                  unoptimized
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-            </div>
+            <h2 style={{ marginBottom: '48px' }}>Принципы работы</h2>
           </MotionFadeUp>
+          <div className="principles-grid">
+            {principles.map(({ num, text }, i) => (
+              <MotionFadeUp key={num} delay={i * 0.08}>
+                <div className="principle-card">
+                  <span className="principle-num">{num}</span>
+                  <p className="principle-text">{text}</p>
+                </div>
+              </MotionFadeUp>
+            ))}
+          </div>
         </div>
       </section>
 

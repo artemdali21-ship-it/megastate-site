@@ -12,28 +12,39 @@ export default function ConnectCTA() {
       {/* Aurora background */}
       <div className="aurora-dark" />
 
-      {/* Floating cube — decorative, right side */}
+      {/* Building — anchored to bottom-right */}
       <div
         className="cta-3d-decor"
         style={{
           position: 'absolute',
           right: 'clamp(20px, 4vw, 80px)',
-          top: '50%',
-          transform: 'translateY(-55%)',
+          bottom: 0,
           zIndex: 0,
           pointerEvents: 'none',
-          opacity: 1,
         }}
       >
+        {/* Shadow ellipse under building */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '80%',
+            height: '24px',
+            background: 'radial-gradient(ellipse 50% 100% at 50% 100%, rgba(0,0,0,0.28), transparent)',
+            pointerEvents: 'none',
+          }}
+        />
         <Image
           src="/_images/object_green.png"
           alt=""
-          width={500}
-          height={500}
+          width={460}
+          height={460}
           unoptimized
           style={{
             objectFit: 'contain',
-            filter: 'none',
+            display: 'block',
           }}
         />
       </div>
