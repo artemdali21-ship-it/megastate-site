@@ -74,80 +74,81 @@ export default function HomePage() {
           className="container-main"
           style={{ paddingBlock: 'clamp(64px, 10vw, 120px)', position: 'relative', zIndex: 3, width: '100%' }}
         >
-          {/* Small logo — белый на тёмном фоне */}
-          <div style={{ marginBottom: '28px', color: 'var(--surface)' }}>
-            <Logo height={30} />
-          </div>
-          <MotionFadeUp>
-            <h1
-              style={{
-                maxWidth: '540px',
-                fontSize: 'clamp(28px, 3.2vw, 50px)',
-                color: 'var(--surface)',
-                lineHeight: 1.1,
-              }}
-            >
-              Превращаем коммерческие помещения в управляемые арендные объекты
-            </h1>
-            <span className="hero-line" style={{ borderColor: 'rgba(250,248,243,0.3)' }} />
-            <p
-              style={{
-                fontSize: '17px',
-                color: 'rgba(250,248,243,0.7)',
-                maxWidth: '460px',
-                marginBottom: '32px',
-                lineHeight: 1.6,
-              }}
-            >
-              Долгосрочная аренда и операторское управление стрит-ритейлом в Москве.
-              Один договор, один оператор, понятный график платежей.
-            </p>
-          </MotionFadeUp>
-          <MotionFadeUp delay={0.15}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-              <Link
-                href="/#connect"
-                className="btn-arrow btn-primary"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 24px',
-                  borderRadius: '8px',
-                  background: 'var(--accent)',
-                  color: 'var(--surface)',
-                  fontWeight: 600,
-                  fontSize: '15px',
-                  textDecoration: 'none',
-                }}
-              >
-                Связаться по объекту
-                <ArrowRight size={16} strokeWidth={1.5} />
-              </Link>
-              <Link
-                href="/how/"
-                className="btn-arrow"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 24px',
-                  borderRadius: '8px',
-                  background: 'rgba(244,241,234,0.75)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(29,29,27,0.12)',
-                  color: 'var(--accent)',
-                  fontWeight: 600,
-                  fontSize: '15px',
-                  textDecoration: 'none',
-                  transition: 'background 200ms ease',
-                }}
-              >
-                Как мы работаем
-                <ArrowRight size={16} strokeWidth={1.5} />
-              </Link>
+          {/* Content column — capped width so it never overlaps the SVG plan */}
+          <div className="hero-v3-content">
+            {/* Small logo — белый на тёмном фоне */}
+            <div style={{ marginBottom: '28px', color: 'var(--surface)' }}>
+              <Logo height={30} />
             </div>
-          </MotionFadeUp>
+            <MotionFadeUp>
+              <h1
+                style={{
+                  fontSize: 'clamp(28px, 3.2vw, 50px)',
+                  color: 'var(--surface)',
+                  lineHeight: 1.1,
+                }}
+              >
+                Превращаем коммерческие помещения в управляемые арендные объекты
+              </h1>
+              <span className="hero-line" style={{ borderColor: 'rgba(250,248,243,0.3)' }} />
+              <p
+                style={{
+                  fontSize: '17px',
+                  color: 'rgba(250,248,243,0.7)',
+                  marginBottom: '32px',
+                  lineHeight: 1.6,
+                }}
+              >
+                Долгосрочная аренда и операторское управление стрит-ритейлом в Москве.
+                Один договор, один оператор, понятный график платежей.
+              </p>
+            </MotionFadeUp>
+            <MotionFadeUp delay={0.15}>
+              <div className="hero-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                <Link
+                  href="/#connect"
+                  className="btn-arrow btn-primary"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '12px 24px',
+                    borderRadius: '8px',
+                    background: 'var(--accent)',
+                    color: 'var(--surface)',
+                    fontWeight: 600,
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                  }}
+                >
+                  Связаться по объекту
+                  <ArrowRight size={16} strokeWidth={1.5} />
+                </Link>
+                <Link
+                  href="/how/"
+                  className="btn-arrow"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '12px 24px',
+                    borderRadius: '8px',
+                    background: 'rgba(244,241,234,0.75)',
+                    backdropFilter: 'blur(8px)',
+                    border: '1px solid rgba(29,29,27,0.12)',
+                    color: 'var(--accent)',
+                    fontWeight: 600,
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                    transition: 'background 200ms ease',
+                  }}
+                >
+                  Как мы работаем
+                  <ArrowRight size={16} strokeWidth={1.5} />
+                </Link>
+              </div>
+            </MotionFadeUp>
+          </div>
         </div>
       </section>
 

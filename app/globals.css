@@ -511,9 +511,48 @@ h3 {
   .plan-dim-label { opacity: 1 !important; }
 }
 
+/* ─── Hero v3 content column ─── */
+/* Keeps text+buttons in the left safe zone so they never overlap the SVG plan */
+.hero-v3-content {
+  max-width: 500px;
+}
+
 /* ─── Hero v3 mobile ─── */
 @media (max-width: 767px) {
   .hero-plan-svg { display: none; }
+
+  .hero-v3-content {
+    max-width: 100%;
+  }
+
+  /* Tighter headline on small screens */
+  .hero-v3 h1 {
+    font-size: clamp(24px, 6.5vw, 36px) !important;
+    max-width: 100% !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Sub-copy full width */
+  .hero-v3 p {
+    max-width: 100% !important;
+    font-size: 15px !important;
+  }
+
+  /* Buttons: stack vertically, full width */
+  .hero-buttons {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .hero-buttons a {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  /* Reduce hero padding on mobile */
+  .hero-v3 .container-main {
+    padding-block: clamp(48px, 12vw, 72px) !important;
+  }
 }
 
 /* ─── Floating 3D objects ─── */
