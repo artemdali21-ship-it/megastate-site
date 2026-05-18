@@ -287,13 +287,13 @@ export default function HomePage() {
               </div>
               <div className="approach-img-mobile" style={{ display: 'flex', justifyContent: 'center' }}>
                 <Image
-                  src="/_images/3d-element-chart-growth-abstract.png"
+                  src="/_images/1_law.png"
                   alt=""
-                  width={340}
-                  height={340}
+                  width={440}
+                  height={294}
                   unoptimized
                   className="float-3d"
-                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 24px 48px rgba(30,51,40,0.18))' }}
+                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 24px 48px rgba(30,51,40,0.15))' }}
                 />
               </div>
             </div>
