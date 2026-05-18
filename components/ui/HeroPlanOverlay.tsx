@@ -16,8 +16,8 @@ export default function HeroPlanOverlay() {
         overflow: 'visible',
       }}
     >
-      {/* Scale 80% anchored at right-center, overall opacity 0.7 */}
-      <g transform="translate(1424, 390) scale(0.8) translate(-1424, -390)" opacity="0.7">
+      {/* Centered in right half: plan center (990,390) → screen (1080,400), scale 0.8 */}
+      <g transform="translate(1080, 400) scale(0.8) translate(-990, -390)" opacity="0.7">
 
         {/* LAYER 1 — outer rect (main perimeter) */}
         <rect
