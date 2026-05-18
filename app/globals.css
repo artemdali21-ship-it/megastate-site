@@ -389,6 +389,23 @@ h3 {
   }
 }
 
+/* ─── Hero v3 mobile ─── */
+@media (max-width: 767px) {
+  .hero-plan-svg {
+    display: none;
+  }
+  .hero-v3 {
+    min-height: 0 !important;
+    display: block !important;
+  }
+  .hero-v3 > img {
+    position: relative !important;
+    height: 50vw !important;
+    min-height: 220px !important;
+    width: 100% !important;
+  }
+}
+
 /* ─── Floating 3D objects ─── */
 @keyframes float-3d {
   0%   { transform: translateY(0px) rotate3d(0.2, 1, 0.1, 0deg); }

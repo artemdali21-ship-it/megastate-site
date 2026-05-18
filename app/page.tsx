@@ -8,7 +8,7 @@ import SectionLabel from '@/components/ui/SectionLabel';
 import FeatureCard from '@/components/ui/FeatureCard';
 import MarqueeStrip from '@/components/ui/Marquee';
 import Logo from '@/components/ui/Logo';
-import { ShaderAnimation } from '@/components/ui/ShaderAnimation';
+import HeroPlanOverlay from '@/components/ui/HeroPlanOverlay';
 import { TELEGRAM_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -31,32 +31,71 @@ const MARQUEE_ITEMS = [
 export default function HomePage() {
   return (
     <>
-      {/* ─── Hero — 1 в 1 как /contacts ─── */}
+      {/* ─── Hero v3 — фото + SVG план + текст ─── */}
       <section
+        className="hero-v3"
         style={{
-          background: 'var(--bg)',
-          borderBottom: '1px solid var(--line)',
           position: 'relative',
           overflow: 'hidden',
+          minHeight: 'clamp(520px, 80vh, 860px)',
+          display: 'flex',
+          alignItems: 'center',
+          borderBottom: '1px solid var(--line)',
         }}
-        className="grain"
       >
-        <ShaderAnimation />
+        {/* Слой 1: фото */}
+        <Image
+          src="/_images/hero_main_v2.png"
+          alt=""
+          fill
+          priority
+          unoptimized
+          style={{ objectFit: 'cover', objectPosition: 'center', zIndex: 0 }}
+        />
 
+        {/* Слой 2: tint overlay */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(180deg, rgba(244,241,234,0.45) 0%, rgba(244,241,234,0.0) 40%, rgba(29,29,27,0.3) 100%)',
+            zIndex: 1,
+          }}
+        />
+
+        {/* Слой 3: SVG архитектурные линии */}
+        <HeroPlanOverlay />
+
+        {/* Слой 4: текст */}
         <div
           className="container-main"
-          style={{ paddingBlock: 'clamp(64px, 10vw, 140px)', position: 'relative', zIndex: 1 }}
+          style={{ paddingBlock: 'clamp(64px, 10vw, 120px)', position: 'relative', zIndex: 3, width: '100%' }}
         >
-          {/* Small logo — left-aligned brand mark */}
+          {/* Small logo */}
           <div style={{ marginBottom: '28px', color: 'var(--accent)' }}>
             <Logo height={30} />
           </div>
           <MotionFadeUp>
-            <h1 style={{ maxWidth: '760px', fontSize: 'clamp(28px, 3.2vw, 48px)' }}>
+            <h1
+              style={{
+                maxWidth: '560px',
+                fontSize: 'clamp(28px, 3.2vw, 48px)',
+                color: 'var(--text)',
+                textShadow: '0 1px 16px rgba(244,241,234,0.6)',
+              }}
+            >
               Превращаем коммерческие помещения в управляемые арендные объекты
             </h1>
             <span className="hero-line" />
-            <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '560px', marginBottom: '32px' }}>
+            <p
+              style={{
+                fontSize: '18px',
+                color: 'var(--text-muted)',
+                maxWidth: '480px',
+                marginBottom: '32px',
+                textShadow: '0 1px 8px rgba(244,241,234,0.5)',
+              }}
+            >
               Долгосрочная аренда и операторское управление стрит-ритейлом в Москве.
               Один договор, один оператор, понятный график платежей.
             </p>
@@ -91,7 +130,9 @@ export default function HomePage() {
                   gap: '8px',
                   padding: '12px 24px',
                   borderRadius: '8px',
-                  border: '1px solid var(--line)',
+                  background: 'rgba(244,241,234,0.75)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(29,29,27,0.12)',
                   color: 'var(--accent)',
                   fontWeight: 600,
                   fontSize: '15px',
