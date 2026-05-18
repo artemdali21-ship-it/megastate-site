@@ -16,8 +16,8 @@ export default function HeroPlanOverlay() {
         overflow: 'visible',
       }}
     >
-      {/* Scale 80% anchored at right-center, overall opacity 0.35 */}
-      <g transform="translate(1424, 390) scale(0.8) translate(-1424, -390)" opacity="0.35">
+      {/* Scale 80% anchored at right-center, overall opacity 0.7 */}
+      <g transform="translate(1424, 390) scale(0.8) translate(-1424, -390)" opacity="0.7">
 
         {/* LAYER 1 — outer rect (main perimeter) */}
         <rect
@@ -49,22 +49,50 @@ export default function HeroPlanOverlay() {
           strokeWidth="1"
         />
 
-        {/* Glazing ticks in storefront */}
-        {[560, 775, 990, 1205].map((x, i) => {
-          const blockW = 215;
-          return [0.2, 0.4, 0.6, 0.8].map((t, j) => (
-            <line
-              key={`glaze-${i}-${j}`}
-              className={`plan-glaze plan-glaze-${i * 4 + j}`}
-              x1={x + blockW * t} y1="625"
-              x2={x + blockW * t} y2="719"
-              stroke="rgba(250,248,243,0.5)"
-              strokeWidth="0.7"
-            />
-          ));
-        })}
+        {/* LAYER 4 — dimension line top */}
+        <line
+          className="plan-dim-top"
+          x1="556" y1="27" x2="1424" y2="27"
+          stroke="rgba(250,248,243,0.7)"
+          strokeWidth="0.7"
+        />
+        <line className="plan-tick" x1="556" y1="18" x2="556" y2="36" stroke="rgba(250,248,243,0.7)" strokeWidth="0.7" />
+        <line className="plan-tick" x1="1424" y1="18" x2="1424" y2="36" stroke="rgba(250,248,243,0.7)" strokeWidth="0.7" />
+        <text
+          className="plan-dim-label"
+          x="990" y="21"
+          fill="rgba(250,248,243,0.7)"
+          fontSize="11"
+          letterSpacing="0.14em"
+          textAnchor="middle"
+          fontWeight="400"
+        >
+          56.0 М
+        </text>
 
-        {/* LAYER 4 — block labels */}
+        {/* LAYER 5 — dimension line right */}
+        <line
+          className="plan-dim-right"
+          x1="1452" y1="51" x2="1452" y2="729"
+          stroke="rgba(250,248,243,0.7)"
+          strokeWidth="0.7"
+        />
+        <line className="plan-tick" x1="1444" y1="51" x2="1460" y2="51" stroke="rgba(250,248,243,0.7)" strokeWidth="0.7" />
+        <line className="plan-tick" x1="1444" y1="729" x2="1460" y2="729" stroke="rgba(250,248,243,0.7)" strokeWidth="0.7" />
+        <text
+          className="plan-dim-label"
+          x="1472" y="390"
+          fill="rgba(250,248,243,0.7)"
+          fontSize="11"
+          letterSpacing="0.14em"
+          textAnchor="middle"
+          fontWeight="400"
+          transform="rotate(-90, 1472, 390)"
+        >
+          44.0 М
+        </text>
+
+        {/* LAYER 6 — block labels */}
         {[
           { x: 667, label: 'БЛОК A', area: '80 М²' },
           { x: 882, label: 'БЛОК B', area: '65 М²' },
@@ -74,7 +102,7 @@ export default function HeroPlanOverlay() {
           <g key={label} className={`plan-label-group plan-label-${i + 1}`}>
             <text
               x={x} y="656"
-              fill="rgba(250,248,243,0.85)"
+              fill="rgba(250,248,243,0.9)"
               fontSize="12"
               letterSpacing="0.18em"
               textAnchor="middle"
@@ -83,8 +111,8 @@ export default function HeroPlanOverlay() {
               {label}
             </text>
             <text
-              x={x} y="669"
-              fill="rgba(250,248,243,0.55)"
+              x={x} y="671"
+              fill="rgba(250,248,243,0.6)"
               fontSize="10"
               letterSpacing="0.12em"
               textAnchor="middle"
