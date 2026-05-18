@@ -387,16 +387,14 @@ h3 {
 
   /* Brand mark — fit within screen, no overflow */
   .brand-mark {
-    font-size: clamp(48px, 12vw, 80px);
+    font-size: clamp(55px, 14vw, 92px);
     overflow: hidden;
     width: 100%;
   }
 
-  /* Mobile building — show below buttons */
+  /* Mobile building — hidden */
   .cta-3d-mobile {
-    display: flex;
-    justify-content: center;
-    margin-top: 32px;
+    display: none;
   }
 
   /* Stats grid — single column on phones */
