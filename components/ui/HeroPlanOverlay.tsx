@@ -34,11 +34,15 @@ export default function HeroPlanOverlay() {
           strokeWidth="0.7"
         />
 
-        {/* LAYER 2 — block dividers */}
+        {/* LAYER 2 — block dividers
+             Widths derived from areas ÷ depth (8.0 М):
+             A=80÷8=10.0M → 257u  B=65÷8=8.1M → 208u  C=70÷8=8.75M → 225u  D=55÷8=6.9M → 178u
+             Total: 257+208+225+178=868u = outer rect width ✓
+             Dividers: 556+257=813 | 813+208=1021 | 1021+225=1246 */}
         <g stroke="rgba(250,248,243,1)" strokeWidth="1">
-          <line className="plan-vline plan-vline-1" x1="775" y1="55" x2="775" y2="725" />
-          <line className="plan-vline plan-vline-2" x1="990" y1="55" x2="990" y2="725" />
-          <line className="plan-vline plan-vline-3" x1="1205" y1="55" x2="1205" y2="725" />
+          <line className="plan-vline plan-vline-1" x1="813" y1="55" x2="813" y2="725" />
+          <line className="plan-vline plan-vline-2" x1="1021" y1="55" x2="1021" y2="725" />
+          <line className="plan-vline plan-vline-3" x1="1246" y1="55" x2="1246" y2="725" />
         </g>
 
         {/* LAYER 3 — storefront separator */}
@@ -49,7 +53,7 @@ export default function HeroPlanOverlay() {
           strokeWidth="1"
         />
 
-        {/* LAYER 4 — dimension line top */}
+        {/* LAYER 4 — dimension line top: total width 34.0 М */}
         <line
           className="plan-dim-top"
           x1="556" y1="27" x2="1424" y2="27"
@@ -67,10 +71,10 @@ export default function HeroPlanOverlay() {
           textAnchor="middle"
           fontWeight="400"
         >
-          56.0 М
+          34.0 М
         </text>
 
-        {/* LAYER 5 — dimension line right */}
+        {/* LAYER 5 — dimension line right: depth 8.0 М */}
         <line
           className="plan-dim-right"
           x1="1452" y1="51" x2="1452" y2="729"
@@ -89,15 +93,15 @@ export default function HeroPlanOverlay() {
           fontWeight="400"
           transform="rotate(-90, 1472, 390)"
         >
-          44.0 М
+          8.0 М
         </text>
 
-        {/* LAYER 6 — block labels */}
+        {/* LAYER 6 — block labels (centers of each block) */}
         {[
-          { x: 667, label: 'БЛОК A', area: '80 М²' },
-          { x: 882, label: 'БЛОК B', area: '65 М²' },
-          { x: 1097, label: 'БЛОК C', area: '70 М²' },
-          { x: 1312, label: 'БЛОК D', area: '55 М²' },
+          { x: 685,  label: 'БЛОК A', area: '80 М²' },
+          { x: 917,  label: 'БЛОК B', area: '65 М²' },
+          { x: 1134, label: 'БЛОК C', area: '70 М²' },
+          { x: 1335, label: 'БЛОК D', area: '55 М²' },
         ].map(({ x, label, area }, i) => (
           <g key={label} className={`plan-label-group plan-label-${i + 1}`}>
             <text
