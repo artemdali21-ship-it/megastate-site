@@ -16,18 +16,8 @@ export default function HeroPlanOverlay() {
         overflow: 'visible',
       }}
     >
-      {/* Scale 80% anchored at right-center, overall opacity 0.2 */}
-      <g transform="translate(1424, 390) scale(0.8) translate(-1424, -390)" opacity="0.2">
-
-        {/* LAYER 0 — construction grid, very faint */}
-        <g className="plan-grid" stroke="rgba(250,248,243,1)" strokeWidth="0.4">
-          {[145, 235, 325, 415, 505, 625].map((y, i) => (
-            <line key={`gh-${i}`} x1="560" y1={y} x2="1420" y2={y} />
-          ))}
-          {[560, 775, 990, 1205, 1420].map((x, i) => (
-            <line key={`gv-${i}`} x1={x} y1="55" x2={x} y2="725" />
-          ))}
-        </g>
+      {/* Scale 80% anchored at right-center, overall opacity 0.35 */}
+      <g transform="translate(1424, 390) scale(0.8) translate(-1424, -390)" opacity="0.35">
 
         {/* LAYER 1 — outer rect (main perimeter) */}
         <rect
