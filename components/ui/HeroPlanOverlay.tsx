@@ -16,8 +16,8 @@ export default function HeroPlanOverlay() {
         overflow: 'visible',
       }}
     >
-      {/* Scale 80% anchored at right-center, overall opacity 0.45 */}
-      <g transform="translate(1424, 390) scale(0.8) translate(-1424, -390)" opacity="0.45">
+      {/* Scale 80% anchored at right-center, overall opacity 0.2 */}
+      <g transform="translate(1424, 390) scale(0.8) translate(-1424, -390)" opacity="0.2">
 
         {/* LAYER 0 — construction grid, very faint */}
         <g className="plan-grid" stroke="rgba(250,248,243,1)" strokeWidth="0.4">

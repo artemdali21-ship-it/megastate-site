@@ -12,13 +12,14 @@ export default function ConnectCTA() {
       {/* Aurora background */}
       <div className="aurora-dark" />
 
-      {/* Building — anchored to bottom-right */}
+      {/* Building — vertically centered right side */}
       <div
         className="cta-3d-decor"
         style={{
           position: 'absolute',
           right: 'clamp(20px, 4vw, 80px)',
-          bottom: 0,
+          top: '50%',
+          transform: 'translateY(-50%)',
           zIndex: 0,
           pointerEvents: 'none',
         }}

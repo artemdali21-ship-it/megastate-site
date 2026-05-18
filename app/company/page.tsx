@@ -94,14 +94,14 @@ export default function CompanyPage() {
                   параметрах трафика, ставки и инженерии.
                 </p>
               </div>
-              <div className="media-card">
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Image
                   src="/_images/focus.png"
                   alt=""
-                  width={400}
-                  height={299}
+                  width={460}
+                  height={344}
                   unoptimized
-                  style={{ objectFit: 'contain', maxWidth: '100%', maxHeight: '100%' }}
+                  style={{ objectFit: 'contain', maxWidth: '100%' }}
                 />
               </div>
             </div>
@@ -122,14 +122,14 @@ export default function CompanyPage() {
                 alignItems: 'center',
               }}
             >
-              <div className="media-card" style={{ order: -1 }}>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: -1 }}>
                 <Image
                   src="/_images/models.png"
                   alt=""
-                  width={400}
-                  height={299}
+                  width={460}
+                  height={344}
                   unoptimized
-                  style={{ objectFit: 'contain', maxWidth: '100%', maxHeight: '100%' }}
+                  style={{ objectFit: 'contain', maxWidth: '100%' }}
                 />
               </div>
               <div>
@@ -150,23 +150,55 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      {/* ─── Принципы работы — glassmorphism 2×2 ─── */}
+      {/* ─── Принципы работы ─── */}
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
             <SectionLabel num="03" text="Принципы" />
-            <h2 style={{ marginBottom: '48px' }}>Принципы работы</h2>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '48px',
+                alignItems: 'center',
+              }}
+            >
+              <div>
+                <h2 style={{ marginBottom: '40px' }}>Принципы работы</h2>
+                {principles.map(({ num, text }, i) => (
+                  <div
+                    key={num}
+                    style={{
+                      display: 'flex',
+                      gap: '20px',
+                      paddingBlock: '20px',
+                      borderBottom: i < principles.length - 1 ? '1px solid var(--line)' : 'none',
+                    }}
+                  >
+                    <span style={{
+                      fontWeight: 600,
+                      color: 'var(--text-muted)',
+                      fontSize: '13px',
+                      letterSpacing: '0.06em',
+                      minWidth: '28px',
+                      paddingTop: '3px',
+                    }}>{num}</span>
+                    <p style={{ margin: 0, fontSize: '17px', lineHeight: 1.55 }}>{text}</p>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Image
+                  src="/_images/principles.png"
+                  alt=""
+                  width={460}
+                  height={344}
+                  unoptimized
+                  style={{ objectFit: 'contain', maxWidth: '100%' }}
+                />
+              </div>
+            </div>
           </MotionFadeUp>
-          <div className="principles-grid">
-            {principles.map(({ num, text }, i) => (
-              <MotionFadeUp key={num} delay={i * 0.08}>
-                <div className="principle-card">
-                  <span className="principle-num">{num}</span>
-                  <p className="principle-text">{text}</p>
-                </div>
-              </MotionFadeUp>
-            ))}
-          </div>
         </div>
       </section>
 
