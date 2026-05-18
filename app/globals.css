@@ -253,6 +253,9 @@ h3 {
   }
 }
 
+/* Mobile building in ConnectCTA — hidden by default, shown on mobile */
+.cta-3d-mobile { display: none; }
+
 /* ─── Brand mark in footer ─── */
 .brand-mark {
   font-size: clamp(80px, 16vw, 220px);
@@ -380,6 +383,13 @@ h3 {
   /* ConnectCTA 3D decor — hide absolute element on mobile */
   .cta-3d-decor {
     display: none;
+  }
+
+  /* Brand mark — fit within screen, no overflow */
+  .brand-mark {
+    font-size: clamp(48px, 12vw, 80px);
+    overflow: hidden;
+    width: 100%;
   }
 
   /* Mobile building — show below buttons */
@@ -525,8 +535,6 @@ h3 {
   .plan-dim-label { opacity: 1 !important; }
 }
 
-/* Mobile building in ConnectCTA hidden on desktop */
-.cta-3d-mobile { display: none; }
 
 /* ─── Hero v3 content column ─── */
 /* Keeps text+buttons in the left safe zone so they never overlap the SVG plan.
