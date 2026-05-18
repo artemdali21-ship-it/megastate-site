@@ -575,17 +575,4 @@ h3 {
   animation: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .float-3d {
-    animation: float-3d 7s ease-in-out infinite;
-    will-change: transform;
-  }
-  .float-3d-delay {
-    animation: float-3d 7s ease-in-out 1.5s infinite;
-    will-change: transform;
-  }
-  .float-3d-delay2 {
-    animation: float-3d 7s ease-in-out 3s infinite;
-    will-change: transform;
-  }
-}
+/* float-3d animation disabled — all 3D objects are fixed */

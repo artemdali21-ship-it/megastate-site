@@ -292,7 +292,6 @@ export default function HomePage() {
                   width={440}
                   height={294}
                   unoptimized
-                  className="float-3d"
                   style={{ objectFit: 'contain', filter: 'drop-shadow(0 24px 48px rgba(30,51,40,0.15))' }}
                 />
               </div>

@@ -96,13 +96,12 @@ export default function CompanyPage() {
               </div>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Image
-                  src="/_images/3d-element-location-pin-luxury.png"
+                  src="/_images/focus.png"
                   alt=""
-                  width={300}
-                  height={300}
+                  width={400}
+                  height={299}
                   unoptimized
-                  className="float-3d"
-                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 24px 48px rgba(30,51,40,0.16))' }}
+                  style={{ objectFit: 'contain' }}
                 />
               </div>
             </div>
@@ -125,13 +124,12 @@ export default function CompanyPage() {
             >
               <div style={{ display: 'flex', justifyContent: 'center', order: -1 }}>
                 <Image
-                  src="/_images/3d-element-city-block-abstract.png"
+                  src="/_images/models.png"
                   alt=""
-                  width={300}
-                  height={300}
+                  width={400}
+                  height={299}
                   unoptimized
-                  className="float-3d-delay"
-                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 24px 48px rgba(30,51,40,0.16))' }}
+                  style={{ objectFit: 'contain' }}
                 />
               </div>
               <div>
@@ -196,13 +194,12 @@ export default function CompanyPage() {
               </div>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Image
-                  src="/_images/3d-element-key-modern.png"
+                  src="/_images/principles.png"
                   alt=""
-                  width={300}
-                  height={300}
+                  width={400}
+                  height={299}
                   unoptimized
-                  className="float-3d-delay2"
-                  style={{ objectFit: 'contain', filter: 'drop-shadow(0 24px 48px rgba(30,51,40,0.16))' }}
+                  style={{ objectFit: 'contain' }}
                 />
               </div>
             </div>

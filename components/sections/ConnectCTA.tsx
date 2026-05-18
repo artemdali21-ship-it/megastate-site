@@ -31,7 +31,6 @@ export default function ConnectCTA() {
           width={500}
           height={500}
           unoptimized
-          className="float-3d"
           style={{
             objectFit: 'contain',
             filter: 'none',
