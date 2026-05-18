@@ -18,8 +18,8 @@ export default function HeroPlanOverlay() {
         overflow: 'visible',
       }}
     >
-      {/* Shift the entire plan right so it doesn't overlap the text column */}
-      <g transform="translate(140, 0)">
+      {/* Scale plan 80% anchored to right-center — smaller and flush right, clears text column */}
+      <g transform="translate(1424, 390) scale(0.8) translate(-1424, -390)">
 
       {/* ════════════════════════════════════════
           LAYER 0 — faint construction grid
