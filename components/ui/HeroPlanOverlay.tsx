@@ -18,6 +18,9 @@ export default function HeroPlanOverlay() {
         overflow: 'visible',
       }}
     >
+      {/* Shift the entire plan right so it doesn't overlap the text column */}
+      <g transform="translate(140, 0)">
+
       {/* ════════════════════════════════════════
           LAYER 0 — faint construction grid
           ════════════════════════════════════════ */}
@@ -168,6 +171,8 @@ export default function HeroPlanOverlay() {
       >
         ТОРГОВАЯ ЗОНА
       </text>
+
+      </g>{/* end translate wrapper */}
     </svg>
   );
 }

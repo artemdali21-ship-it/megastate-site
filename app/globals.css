@@ -512,9 +512,10 @@ h3 {
 }
 
 /* ─── Hero v3 content column ─── */
-/* Keeps text+buttons in the left safe zone so they never overlap the SVG plan */
+/* Keeps text+buttons in the left safe zone so they never overlap the SVG plan.
+   min() ensures it also stays within 42% on narrower desktop viewports. */
 .hero-v3-content {
-  max-width: 500px;
+  max-width: min(500px, 42%);
 }
 
 /* ─── Hero v3 mobile ─── */
