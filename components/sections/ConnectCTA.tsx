@@ -26,7 +26,7 @@ export default function ConnectCTA() {
         }}
       >
         <Image
-          src="/_images/3d-element-glass-building-abstract.png"
+          src="/_images/object_green.png"
           alt=""
           width={500}
           height={500}

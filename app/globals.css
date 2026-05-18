@@ -242,7 +242,14 @@ h3 {
     grid-template-columns: 1fr;
   }
   .split-hero-media {
-    display: none;
+    height: 280px;
+    min-height: 0 !important;
+  }
+}
+@media (max-width: 480px) {
+  .split-hero-media {
+    height: 220px;
+    min-height: 0 !important;
   }
 }
 
