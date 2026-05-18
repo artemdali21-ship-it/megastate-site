@@ -53,12 +53,15 @@ export default function HomePage() {
           style={{ objectFit: 'cover', objectPosition: 'center', zIndex: 0 }}
         />
 
-        {/* Слой 2: tint overlay */}
+        {/* Слой 2: tint overlay — тёмный слева для читаемости текста */}
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(180deg, rgba(244,241,234,0.45) 0%, rgba(244,241,234,0.0) 40%, rgba(29,29,27,0.3) 100%)',
+            background: `
+              linear-gradient(to right, rgba(20,28,22,0.82) 0%, rgba(20,28,22,0.55) 42%, rgba(20,28,22,0.0) 68%),
+              linear-gradient(to top, rgba(20,28,22,0.35) 0%, transparent 40%)
+            `,
             zIndex: 1,
           }}
         />
@@ -71,29 +74,29 @@ export default function HomePage() {
           className="container-main"
           style={{ paddingBlock: 'clamp(64px, 10vw, 120px)', position: 'relative', zIndex: 3, width: '100%' }}
         >
-          {/* Small logo */}
-          <div style={{ marginBottom: '28px', color: 'var(--accent)' }}>
+          {/* Small logo — белый на тёмном фоне */}
+          <div style={{ marginBottom: '28px', color: 'var(--surface)' }}>
             <Logo height={30} />
           </div>
           <MotionFadeUp>
             <h1
               style={{
-                maxWidth: '560px',
-                fontSize: 'clamp(28px, 3.2vw, 48px)',
-                color: 'var(--text)',
-                textShadow: '0 1px 16px rgba(244,241,234,0.6)',
+                maxWidth: '540px',
+                fontSize: 'clamp(28px, 3.2vw, 50px)',
+                color: 'var(--surface)',
+                lineHeight: 1.1,
               }}
             >
               Превращаем коммерческие помещения в управляемые арендные объекты
             </h1>
-            <span className="hero-line" />
+            <span className="hero-line" style={{ borderColor: 'rgba(250,248,243,0.3)' }} />
             <p
               style={{
-                fontSize: '18px',
-                color: 'var(--text-muted)',
-                maxWidth: '480px',
+                fontSize: '17px',
+                color: 'rgba(250,248,243,0.7)',
+                maxWidth: '460px',
                 marginBottom: '32px',
-                textShadow: '0 1px 8px rgba(244,241,234,0.5)',
+                lineHeight: 1.6,
               }}
             >
               Долгосрочная аренда и операторское управление стрит-ритейлом в Москве.

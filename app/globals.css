@@ -389,20 +389,75 @@ h3 {
   }
 }
 
+/* ─── Hero v3 plan SVG animation ─── */
+@keyframes plan-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes plan-fade-in {
+  to { opacity: 1; }
+}
+
+/* Rect: perimeter = 2*(780+620) = 2800 */
+.plan-rect {
+  stroke-dasharray: 2800;
+  stroke-dashoffset: 2800;
+}
+/* VLines: height = 620 */
+.plan-vline {
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+}
+/* HLine: width = 780 */
+.plan-hline {
+  stroke-dasharray: 780;
+  stroke-dashoffset: 780;
+}
+/* Ticks: length = 24 */
+.plan-tick {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+}
+/* Dim line: length = 720 */
+.plan-dim {
+  stroke-dasharray: 720;
+  stroke-dashoffset: 720;
+}
+/* Labels: fade from 0 */
+.plan-label {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .plan-rect {
+    animation: plan-draw 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+  }
+  .plan-tick {
+    animation: plan-draw 0.3s ease-out 1.7s forwards;
+  }
+  .plan-dim {
+    animation: plan-draw 0.8s ease-out 1.8s forwards;
+  }
+  .plan-vline-1 { animation: plan-draw 0.7s ease-out 1.6s forwards; }
+  .plan-vline-2 { animation: plan-draw 0.7s ease-out 1.75s forwards; }
+  .plan-vline-3 { animation: plan-draw 0.7s ease-out 1.9s forwards; }
+  .plan-hline   { animation: plan-draw 0.7s ease-out 2.2s forwards; }
+  .plan-label-1 { animation: plan-fade-in 0.4s ease-out 2.6s forwards; }
+  .plan-label-2 { animation: plan-fade-in 0.4s ease-out 2.7s forwards; }
+  .plan-label-3 { animation: plan-fade-in 0.4s ease-out 2.8s forwards; }
+  .plan-label-4 { animation: plan-fade-in 0.4s ease-out 2.9s forwards; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plan-rect, .plan-vline, .plan-hline, .plan-tick, .plan-dim {
+    stroke-dashoffset: 0 !important;
+  }
+  .plan-label { opacity: 1 !important; }
+}
+
 /* ─── Hero v3 mobile ─── */
 @media (max-width: 767px) {
   .hero-plan-svg {
     display: none;
-  }
-  .hero-v3 {
-    min-height: 0 !important;
-    display: block !important;
-  }
-  .hero-v3 > img {
-    position: relative !important;
-    height: 50vw !important;
-    min-height: 220px !important;
-    width: 100% !important;
   }
 }
 
