@@ -34,7 +34,7 @@ export default function ConnectCTA() {
           className="float-3d"
           style={{
             objectFit: 'contain',
-            filter: 'drop-shadow(0 32px 64px rgba(0,0,0,0.4)) brightness(1.15)',
+            filter: 'none',
           }}
         />
       </div>
