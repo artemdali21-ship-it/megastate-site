@@ -22,7 +22,7 @@ export default function ConnectCTA() {
           transform: 'translateY(-55%)',
           zIndex: 0,
           pointerEvents: 'none',
-          opacity: 0.55,
+          opacity: 1,
         }}
       >
         <Image
