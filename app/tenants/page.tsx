@@ -195,7 +195,6 @@ export default function TenantsPage() {
         </div>
       </section>
 
-      <ConnectCTA />
     </>
   );
 }

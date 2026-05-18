@@ -67,7 +67,6 @@ export default function ConnectCTA() {
               marginTop: '32px',
             }}
           >
-            {/* Primary: surface bg + accent text */}
             <a
               href={TELEGRAM_URL}
               target="_blank"
@@ -89,7 +88,6 @@ export default function ConnectCTA() {
               <Send size={16} strokeWidth={1.5} />
               Написать в Telegram
             </a>
-            {/* Secondary: transparent + surface border */}
             <a
               href={MAILTO}
               className="btn-arrow"
@@ -110,6 +108,18 @@ export default function ConnectCTA() {
               <Mail size={16} strokeWidth={1.5} />
               Написать на почту
             </a>
+          </div>
+
+          {/* Mobile-only: building image below buttons */}
+          <div className="cta-3d-mobile">
+            <Image
+              src="/_images/object_green.png"
+              alt=""
+              width={320}
+              height={320}
+              unoptimized
+              style={{ objectFit: 'contain' }}
+            />
           </div>
         </MotionFadeUp>
       </div>

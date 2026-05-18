@@ -377,9 +377,16 @@ h3 {
     display: none;
   }
 
-  /* ConnectCTA 3D decor — hide on mobile so it doesn't overlap text */
+  /* ConnectCTA 3D decor — hide absolute element on mobile */
   .cta-3d-decor {
     display: none;
+  }
+
+  /* Mobile building — show below buttons */
+  .cta-3d-mobile {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
   }
 
   /* Stats grid — single column on phones */
@@ -517,6 +524,9 @@ h3 {
   .plan-label-group,
   .plan-dim-label { opacity: 1 !important; }
 }
+
+/* Mobile building in ConnectCTA hidden on desktop */
+.cta-3d-mobile { display: none; }
 
 /* ─── Hero v3 content column ─── */
 /* Keeps text+buttons in the left safe zone so they never overlap the SVG plan.
