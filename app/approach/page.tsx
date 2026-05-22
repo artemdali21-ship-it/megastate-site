@@ -70,7 +70,7 @@ export default function ApproachPage() {
               <span className="breadcrumb-sep">/</span>
               <span>Подход</span>
             </nav>
-            <SectionLabel num="02" text="Принципы отбора" />
+            <SectionLabel num="03" text="Принципы отбора" />
             <MotionFadeUp>
               <h1 style={{ marginBottom: '0' }}>
                 Принципы, по которым решаем, входить или нет

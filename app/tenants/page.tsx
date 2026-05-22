@@ -105,7 +105,7 @@ export default function TenantsPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="01" text="Категории" />
+            <SectionLabel num="05.1" text="Категории" />
             <h2 style={{ marginBottom: '32px' }}>С кем мы работаем</h2>
           </MotionFadeUp>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -133,7 +133,7 @@ export default function TenantsPage() {
       <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="02" text="Что мы предлагаем" />
+            <SectionLabel num="05.2" text="Что мы предлагаем" />
             <h2 style={{ marginBottom: '40px' }}>Что мы предлагаем</h2>
           </MotionFadeUp>
           <div
@@ -159,7 +159,7 @@ export default function TenantsPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="03" text="Контакт" />
+            <SectionLabel num="05.3" text="Контакт" />
             <div style={{ maxWidth: '560px' }}>
               <h2 style={{ marginBottom: '20px' }}>Как написать</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '32px' }}>

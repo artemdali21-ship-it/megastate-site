@@ -87,7 +87,7 @@ export default function HowPage() {
             <span className="breadcrumb-sep">/</span>
             <span>Как мы работаем</span>
           </nav>
-          <SectionLabel num="01" text="Процесс" />
+          <SectionLabel num="02" text="Процесс" />
           <MotionFadeUp>
             <h1>Шесть шагов от помещения до управления</h1>
             <span className="hero-line" />

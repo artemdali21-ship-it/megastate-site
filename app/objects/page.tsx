@@ -38,7 +38,7 @@ export default function ObjectsPage() {
               <span className="breadcrumb-sep">/</span>
               <span>Объекты</span>
             </nav>
-            <SectionLabel num="07" text="Объекты" />
+            <SectionLabel num="06" text="Объекты" />
             <MotionFadeUp>
               <h1 style={{ marginBottom: '0' }}>Объекты МЕГАСТЕЙТ</h1>
               <span className="hero-line" />
@@ -68,7 +68,7 @@ export default function ObjectsPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="01" text="В работе" />
+            <SectionLabel num="06.1" text="В работе" />
             <div
               style={{
                 display: 'grid',
@@ -129,7 +129,7 @@ export default function ObjectsPage() {
       <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="02" text="В управлении" />
+            <SectionLabel num="06.2" text="В управлении" />
             <div
               style={{
                 display: 'grid',

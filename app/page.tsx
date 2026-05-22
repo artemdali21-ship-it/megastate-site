@@ -209,7 +209,7 @@ export default function HomePage() {
       >
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="01" text="Что делает МЕГАСТЕЙТ" />
+            <SectionLabel num="01.1" text="Что делает МЕГАСТЕЙТ" />
             <h2 style={{ marginBottom: '48px' }}>Считаем. Делим. Ведём.</h2>
           </MotionFadeUp>
 
@@ -264,7 +264,7 @@ export default function HomePage() {
       <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="02" text="Подход" />
+            <SectionLabel num="01.2" text="Подход" />
             <div
               style={{
                 display: 'grid',
@@ -304,7 +304,7 @@ export default function HomePage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="03" text="Для кого" />
+            <SectionLabel num="01.3" text="Для кого" />
           </MotionFadeUp>
           <div
             style={{

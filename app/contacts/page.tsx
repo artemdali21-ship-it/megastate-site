@@ -36,7 +36,7 @@ export default function ContactsPage() {
             <span className="breadcrumb-sep">/</span>
             <span>Контакты</span>
           </nav>
-          <SectionLabel num="07" text="Контакты" />
+          <SectionLabel num="08" text="Контакты" />
           <MotionFadeUp>
             <h1>Связаться с МЕГАСТЕЙТ</h1>
             <span className="hero-line" />
@@ -60,7 +60,7 @@ export default function ContactsPage() {
           >
             <MotionFadeUp>
               <div>
-                <SectionLabel num="01" text="Написать" />
+                <SectionLabel num="08.1" text="Написать" />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px' }}>
                   <a
                     href={TELEGRAM_URL}
@@ -109,7 +109,7 @@ export default function ContactsPage() {
 
             <MotionFadeUp delay={0.1}>
               <div>
-                <SectionLabel num="02" text="Реквизиты" />
+                <SectionLabel num="08.2" text="Реквизиты" />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                     <Phone size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />

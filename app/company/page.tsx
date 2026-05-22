@@ -44,7 +44,7 @@ export default function CompanyPage() {
               <span className="breadcrumb-sep">/</span>
               <span>Компания</span>
             </nav>
-            <SectionLabel num="06" text="О компании" />
+            <SectionLabel num="07" text="О компании" />
             <MotionFadeUp>
               <h1 style={{ marginBottom: '0' }}>О МЕГАСТЕЙТ</h1>
               <span className="hero-line" />
@@ -77,7 +77,7 @@ export default function CompanyPage() {
       <section className="split-section" style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="01" text="Фокус" />
+            <SectionLabel num="07.1" text="Фокус" />
             <div
               style={{
                 display: 'grid',
@@ -113,7 +113,7 @@ export default function CompanyPage() {
       <section className="split-section" style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="02" text="Модель" />
+            <SectionLabel num="07.2" text="Модель" />
             <div
               style={{
                 display: 'grid',
@@ -154,7 +154,7 @@ export default function CompanyPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="03" text="Принципы" />
+            <SectionLabel num="07.3" text="Принципы" />
             <div
               style={{
                 display: 'grid',
