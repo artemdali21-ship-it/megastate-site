@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
@@ -35,32 +36,52 @@ const statusColors: Record<string, string> = {
 export default function ObjectsPage() {
   return (
     <>
-      {/* ─── Hero ─── */}
+      {/* ─── Hero (split grid) ─── */}
       <section
         style={{ background: 'var(--bg)', position: 'relative', overflow: 'hidden' }}
         className="grain"
       >
-        <div
-          className="container-main"
-          style={{
-            paddingTop: 'clamp(64px, 10vw, 120px)',
-            paddingBottom: 'clamp(48px, 8vw, 96px)',
-          }}
-        >
-          <nav className="breadcrumb">
-            <Link href="/">Главная</Link>
-            <span className="breadcrumb-sep">/</span>
-            <span>Объекты</span>
-          </nav>
-          <SectionLabel num="07" text="Объекты" />
-          <MotionFadeUp>
-            <h1 style={{ marginBottom: '0' }}>Объекты МЕГАСТЕЙТ</h1>
-            <span className="hero-line" />
-            <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '600px' }}>
-              Помещения, которые проходят расчёт, подготовку и заселение, а также
-              объекты, запущенные и находящиеся в операторском управлении компании.
-            </p>
-          </MotionFadeUp>
+        <div className="split-hero">
+          <div
+            className="container-main"
+            style={{
+              paddingTop: 'clamp(48px, 8vw, 100px)',
+              paddingBottom: 'clamp(48px, 8vw, 100px)',
+              position: 'relative',
+              zIndex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            <nav className="breadcrumb">
+              <Link href="/">Главная</Link>
+              <span className="breadcrumb-sep">/</span>
+              <span>Объекты</span>
+            </nav>
+            <SectionLabel num="07" text="Объекты" />
+            <MotionFadeUp>
+              <h1 style={{ marginBottom: '0' }}>Объекты МЕГАСТЕЙТ</h1>
+              <span className="hero-line" />
+              <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '480px' }}>
+                Помещения, которые проходят расчёт, подготовку и заселение, а также
+                объекты, запущенные и находящиеся в операторском управлении компании.
+              </p>
+            </MotionFadeUp>
+          </div>
+
+          <div
+            className="split-hero-media img-tint"
+            style={{ position: 'relative', overflow: 'hidden', minHeight: '420px' }}
+          >
+            <Image
+              src="/_images/objects_hero.png"
+              alt=""
+              fill
+              unoptimized
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
+          </div>
         </div>
       </section>
 
