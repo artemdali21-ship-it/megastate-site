@@ -45,7 +45,7 @@ export default function HomePage() {
       >
         {/* Слой 1: фото */}
         <Image
-          src="/_images/hero_main_v2.png"
+          src="/_images/hero_main.png"
           alt=""
           fill
           priority

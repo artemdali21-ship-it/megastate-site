@@ -12,6 +12,7 @@ export const NAV_LINKS = [
   { href: '/approach/', label: 'Подход' },
   { href: '/owners/', label: 'Собственникам' },
   { href: '/tenants/', label: 'Арендаторам' },
+  { href: '/objects/', label: 'Объекты' },
   { href: '/company/', label: 'Компания' },
   { href: '/contacts/', label: 'Контакты' },
 ];
