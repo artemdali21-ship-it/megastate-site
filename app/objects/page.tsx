@@ -12,27 +12,6 @@ export const metadata: Metadata = {
     'Объекты МЕГАСТЕЙТ в работе и в управлении. Помещения на стадии подготовки и заселения, а также запущенные объекты под операторским управлением.',
 };
 
-const objectsInProgress = [
-  {
-    id: 'nizhnie-mnevniki',
-    address: 'Нижние Мневники, Москва',
-    area: null,
-    status: 'В заселении',
-    format: 'Стрит-ритейл',
-    description:
-      'Объект проходит стадию деления, согласования условий и заселения арендаторами с взаимно дополняющими видами деятельности.',
-    presentationUrl: 'https://megastate.group/moskva-nizhnie-mnevniki-7',
-  },
-];
-
-const statusColors: Record<string, string> = {
-  'На расчёте': '#8A876E',
-  'В переговорах': '#8A876E',
-  'В подготовке': '#8A876E',
-  'В заселении': '#1E3328',
-  'В тестовой эксплуатации': '#1E3328',
-};
-
 export default function ObjectsPage() {
   return (
     <>
@@ -90,44 +69,59 @@ export default function ObjectsPage() {
         <div className="container-main section-gap">
           <MotionFadeUp>
             <SectionLabel num="01" text="В работе" />
-            <h2 style={{ marginBottom: '12px' }}>Объекты в работе</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '48px', maxWidth: '560px' }}>
-              Помещения на стадии расчёта, подготовки, деления, заселения или
-              тестовой эксплуатации.
-            </p>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '48px',
+                alignItems: 'center',
+              }}
+            >
+              <div>
+                <h2 style={{ marginBottom: '24px' }}>Объекты в работе</h2>
+                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>
+                  Помещения на стадии расчёта, переговоров, подготовки, деления,
+                  заселения или тестовой эксплуатации.
+                </p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '32px' }}>
+                  По каждому объекту мы готовим подробную презентацию: локация,
+                  параметры помещения, формат деления, статус и условия
+                  для потенциальных арендаторов.
+                </p>
+                <a
+                  href="https://megastate.group/moskva-nizhnie-mnevniki-7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-arrow btn-primary"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '12px 24px',
+                    borderRadius: '8px',
+                    background: 'var(--accent)',
+                    color: 'var(--surface)',
+                    fontWeight: 600,
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                  }}
+                >
+                  <ExternalLink size={15} strokeWidth={1.5} />
+                  Смотреть объекты в работе
+                </a>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Image
+                  src="/_images/focus.png"
+                  alt=""
+                  width={460}
+                  height={344}
+                  unoptimized
+                  style={{ objectFit: 'contain', maxWidth: '100%' }}
+                />
+              </div>
+            </div>
           </MotionFadeUp>
-
-          <div className="objects-grid">
-            {objectsInProgress.map((obj, i) => (
-              <MotionFadeUp key={obj.id} delay={i * 0.08}>
-                <div className="object-card">
-                  <div className="object-card-top">
-                    <span
-                      className="object-status"
-                      style={{ background: statusColors[obj.status] ?? 'var(--accent)' }}
-                    >
-                      {obj.status}
-                    </span>
-                    <span className="object-format">{obj.format}</span>
-                  </div>
-                  <h3 className="object-address">{obj.address}</h3>
-                  {obj.area && (
-                    <p className="object-area">{obj.area}</p>
-                  )}
-                  <p className="object-desc">{obj.description}</p>
-                  <a
-                    href={obj.presentationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="object-link btn-arrow"
-                  >
-                    <ExternalLink size={14} strokeWidth={1.5} />
-                    Открыть презентацию
-                  </a>
-                </div>
-              </MotionFadeUp>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -136,27 +130,56 @@ export default function ObjectsPage() {
         <div className="container-main section-gap">
           <MotionFadeUp>
             <SectionLabel num="02" text="В управлении" />
-            <h2 style={{ marginBottom: '12px' }}>Объекты в управлении</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '48px', maxWidth: '560px' }}>
-              Запущенные объекты, которые находятся в операторском управлении МЕГАСТЕЙТ.
-            </p>
-          </MotionFadeUp>
-
-          {/* Placeholder — заполним когда Олег даст данные */}
-          <MotionFadeUp>
             <div
               style={{
-                border: '1px solid var(--line)',
-                borderRadius: '16px',
-                padding: 'clamp(40px, 6vw, 80px)',
-                textAlign: 'center',
-                background: 'var(--surface)',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '48px',
+                alignItems: 'center',
               }}
             >
-              <p style={{ color: 'var(--text-muted)', fontSize: '17px', margin: 0 }}>
-                Информация об объектах в управлении готовится.<br />
-                Свяжитесь с нами, чтобы узнать подробнее.
-              </p>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: -1 }}>
+                <Image
+                  src="/_images/object_green.png"
+                  alt=""
+                  width={460}
+                  height={460}
+                  unoptimized
+                  style={{ objectFit: 'contain', maxWidth: '100%' }}
+                />
+              </div>
+              <div>
+                <h2 style={{ marginBottom: '24px' }}>Объекты в управлении</h2>
+                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>
+                  Запущенные объекты, которые находятся в операторском управлении
+                  МЕГАСТЕЙТ: заселены арендаторами, работают в штатном режиме.
+                </p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '32px' }}>
+                  Презентации действующих объектов доступны по запросу для
+                  собственников, рассматривающих сотрудничество.
+                </p>
+                <a
+                  href="https://megastate.group/moskva-nizhnie-mnevniki-7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-arrow"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '12px 24px',
+                    borderRadius: '8px',
+                    border: '1px solid var(--line)',
+                    color: 'var(--accent)',
+                    fontWeight: 600,
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                  }}
+                >
+                  <ExternalLink size={15} strokeWidth={1.5} />
+                  Смотреть пример объекта
+                </a>
+              </div>
             </div>
           </MotionFadeUp>
         </div>

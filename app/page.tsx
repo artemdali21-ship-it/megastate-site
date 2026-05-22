@@ -153,7 +153,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── Marquee strip ─── */}
-      <MarqueeStrip items={MARQUEE_ITEMS} duration={60} />
+      <MarqueeStrip items={MARQUEE_ITEMS} duration={30} />
 
       {/* ─── Stats row ─── */}
       <section style={{ background: 'var(--bg)', borderBottom: '1px solid var(--line)' }}>
@@ -167,7 +167,7 @@ export default function HomePage() {
             }}
           >
             {[
-              { num: '7–10 лет', label: 'срок основного договора' },
+              { num: '7–15 лет', label: 'срок основного договора аренды' },
               { num: '4 сегмента', label: 'эконом · комфорт · бизнес · премиум' },
               { num: '23 категории', label: 'анализируем при отборе арендаторов' },
             ].map((stat, i) => (

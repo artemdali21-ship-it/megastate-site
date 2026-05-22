@@ -11,6 +11,7 @@ const NAV_COL1 = [
 const NAV_COL2 = [
   { href: '/owners/', label: 'Собственникам' },
   { href: '/tenants/', label: 'Арендаторам' },
+  { href: '/objects/', label: 'Объекты' },
   { href: '/company/', label: 'Компания' },
 ];
 
@@ -52,9 +53,9 @@ export default function Footer() {
                 lineHeight: 1.55,
               }}
             >
-              Оператор коммерческих помещений
+              Оператор помещений формата стрит-ритейл
               <br />
-              в Москве и ближнем Подмосковье
+              Анализ · Заселение · Операционное ведение
             </p>
             <p style={{ marginTop: '16px', fontSize: '13px', color: 'rgba(250,248,243,0.35)' }}>
               {ADDRESS_SHORT}
