@@ -11,33 +11,25 @@ import { TELEGRAM_URL, MAILTO } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Арендаторам',
   description:
-    'Готовые блоки в проходных локациях Москвы и ближнего Подмосковья. Аптеки, продуктовый ретейл, медицина, услуги.',
+    'Оптимальные блоки в проходных локациях Москвы и ближнего Подмосковья. Аптеки, продуктовый ритейл, медицина, услуги. Shell & core, white box или под ключ.',
 };
 
 const categories = [
   'Аптеки',
   'Продуктовая розница',
-  'Пункты выдачи заказов',
-  'Медицинские кабинеты',
-  'Стоматологии',
-  'Ветеринарные клиники',
-  'Детские развивающие центры',
-  'Фитнес и спортивные секции',
-  'Барбершопы и парикмахерские',
-  'Салоны красоты и маникюр',
-  'Кафе и столовые',
-  'Кофейни',
-  'Пекарни и кондитерские',
-  'Бытовые мастерские',
-  'Ремонт одежды и ателье',
-  'Ремонт обуви',
-  'Химчистки и прачечные',
-  'Зоотовары и зоосалоны',
-  'Бытовая химия и товары для дома',
+  'ПВЗ маркетплейсов',
+  'Франшизные сети',
+  'Кафе / кофейни / столовые / кондитерские',
+  'Бытовые услуги для местных жителей',
   'Цветочные магазины',
-  'Языковые курсы и образование',
-  'Юридические и нотариальные услуги',
-  'Финансовые и страховые услуги',
+  'Зоомагазины',
+  'Бьюти-услуги',
+  'Развивающие и образовательные занятия для детей и взрослых',
+  'Фитнес / йога / пилатес студии',
+  'Медицинские центры / анализы / стоматологии',
+  'Офисы турагентств',
+  'Студии интерьера / мебели / штор',
+  'и другие',
 ];
 
 const offers = [
@@ -76,13 +68,11 @@ export default function TenantsPage() {
             <SectionLabel num="05" text="Для арендаторов" />
             <MotionFadeUp>
               <h1 style={{ marginBottom: '0' }}>
-                Готовые блоки в проходных локациях
+                Оптимальный размер площади в подходящей локации
               </h1>
               <span className="hero-line" />
               <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '480px' }}>
-                Если вы развиваете сеть, открываете точку или ищете помещение
-                под существующий бизнес, мы можем предложить блоки в
-                подготовленных объектах с понятной экономикой.
+                Если вы развиваете сеть, открываете первую точку или ищете помещения для переезда действующего бизнеса, мы можем предложить блоки в подготовленных объектах с понятной экономикой.
               </p>
             </MotionFadeUp>
           </div>
@@ -105,8 +95,8 @@ export default function TenantsPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="05.1" text="Категории" />
-            <h2 style={{ marginBottom: '32px' }}>С кем мы работаем</h2>
+            <SectionLabel num="05.1" text="Категории арендаторов" />
+            <h2 style={{ marginBottom: '32px' }}>С какими категориями работаем</h2>
           </MotionFadeUp>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {categories.map((cat, i) => (
@@ -114,12 +104,13 @@ export default function TenantsPage() {
                 <span
                   style={{
                     display: 'inline-block',
-                    padding: '6px 14px',
+                    padding: '8px 16px',
                     border: '1px solid var(--line)',
-                    borderRadius: '6px',
+                    borderRadius: '999px',
                     fontSize: '14px',
-                    color: 'var(--text)',
+                    color: 'var(--text-muted)',
                     background: 'var(--surface)',
+                    whiteSpace: 'nowrap',
                   }}
                 >
                   {cat}
@@ -133,7 +124,19 @@ export default function TenantsPage() {
       <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="05.2" text="Что мы предлагаем" />
+            <SectionLabel num="05.2" text="Состояние помещения" />
+            <h2 style={{ marginBottom: '24px' }}>Состояние помещения</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '17px', maxWidth: '560px', lineHeight: 1.7 }}>
+              Shell &amp; core, черновая отделка, white box или «под ключ» — в соответствии с вашим брендбуком.
+            </p>
+          </MotionFadeUp>
+        </div>
+      </section>
+
+      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
+        <div className="container-main section-gap">
+          <MotionFadeUp>
+            <SectionLabel num="05.3" text="Что мы предлагаем" />
             <h2 style={{ marginBottom: '40px' }}>Что мы предлагаем</h2>
           </MotionFadeUp>
           <div
@@ -159,7 +162,7 @@ export default function TenantsPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="05.3" text="Контакт" />
+            <SectionLabel num="05.4" text="Контакт" />
             <div style={{ maxWidth: '560px' }}>
               <h2 style={{ marginBottom: '20px' }}>Как написать</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '32px' }}>

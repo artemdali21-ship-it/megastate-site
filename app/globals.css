@@ -13,7 +13,20 @@
   --accent: #1E3328;
   --accent-hover: #142420;
   --accent-soft: #8A876E;
+  --logo-mark: var(--accent);
   --line: #DDD7CB;
+}
+
+[data-theme="navy"] {
+  --bg: #F2F4F7;
+  --surface: #FBFBFC;
+  --surface-muted: #E8EBF0;
+  --text: #0A0E14;
+  --text-muted: #5A6376;
+  --accent: #0F2F4F;
+  --accent-hover: #081E36;
+  --accent-soft: #4A7BA8;
+  --line: #D5DBE3;
 }
 
 html {

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Logo from '@/components/ui/Logo';
-import { EMAIL, ADDRESS_SHORT } from '@/lib/constants';
+import { EMAIL } from '@/lib/constants';
 
 const NAV_COL1 = [
   { href: '/', label: 'Главная' },
@@ -56,9 +56,6 @@ export default function Footer() {
               Оператор помещений формата стрит-ритейл
               <br />
               Анализ · Заселение · Операционное ведение
-            </p>
-            <p style={{ marginTop: '16px', fontSize: '13px', color: 'rgba(250,248,243,0.35)' }}>
-              {ADDRESS_SHORT}
             </p>
             <a
               href={`mailto:${EMAIL}`}

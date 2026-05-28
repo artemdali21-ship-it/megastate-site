@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={manrope.variable}>
+    <html lang="ru" data-theme="navy" className={manrope.variable}>
       <body style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <a
           href="#main"

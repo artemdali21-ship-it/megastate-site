@@ -4,7 +4,7 @@ import { Send, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 import SectionLabel from '@/components/ui/SectionLabel';
 import { ShaderAnimation } from '@/components/ui/ShaderAnimation';
-import { TELEGRAM_URL, MAILTO, EMAIL, PHONE, PHONE_TEL, ADDRESS } from '@/lib/constants';
+import { TELEGRAM_URL, MAILTO, EMAIL, PHONE, PHONE_TEL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Контакты',
@@ -125,7 +125,7 @@ export default function ContactsPage() {
                   </div>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                     <MapPin size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />
-                    <p style={{ color: 'var(--text-muted)', fontSize: '16px', lineHeight: 1.5 }}>{ADDRESS}</p>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '16px', lineHeight: 1.5 }}>Москва</p>
                   </div>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                     <Clock size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />
