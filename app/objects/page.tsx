@@ -15,22 +15,51 @@ export const metadata: Metadata = {
 export default function ObjectsPage() {
   return (
     <>
-      {/* ─── Hero ─── */}
-      <section style={{ background: 'var(--bg)', borderBottom: '1px solid var(--line)' }} className="grain">
-        <div className="container-main" style={{ paddingTop: 'clamp(48px, 8vw, 100px)', paddingBottom: 'clamp(48px, 8vw, 100px)' }}>
-          <nav className="breadcrumb">
-            <Link href="/">Главная</Link>
-            <span className="breadcrumb-sep">/</span>
-            <span>Объекты</span>
-          </nav>
-          <SectionLabel num="06" text="Объекты" />
-          <MotionFadeUp>
-            <h1 style={{ marginBottom: '0' }}>Объекты</h1>
-            <span className="hero-line" />
-            <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '560px' }}>
-              Помещения на стадии расчёта, переговоров, подготовки, деления, заселения или тестовой эксплуатации, а также объекты, запущенные и находящиеся в операторском управлении компании.
-            </p>
-          </MotionFadeUp>
+      {/* ─── Hero (split grid) ─── */}
+      <section
+        style={{ background: 'var(--bg)', position: 'relative', overflow: 'hidden' }}
+        className="grain"
+      >
+        <div className="split-hero">
+          <div
+            className="container-main"
+            style={{
+              paddingTop: 'clamp(48px, 8vw, 100px)',
+              paddingBottom: 'clamp(48px, 8vw, 100px)',
+              position: 'relative',
+              zIndex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            <nav className="breadcrumb">
+              <Link href="/">Главная</Link>
+              <span className="breadcrumb-sep">/</span>
+              <span>Объекты</span>
+            </nav>
+            <SectionLabel num="06" text="Объекты" />
+            <MotionFadeUp>
+              <h1 style={{ marginBottom: '0' }}>Объекты</h1>
+              <span className="hero-line" />
+              <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '480px' }}>
+                Помещения на стадии расчёта, переговоров, подготовки, деления, заселения или тестовой эксплуатации, а также объекты, запущенные и находящиеся в операторском управлении компании.
+              </p>
+            </MotionFadeUp>
+          </div>
+
+          <div
+            className="split-hero-media img-tint"
+            style={{ position: 'relative', overflow: 'hidden', minHeight: '420px' }}
+          >
+            <Image
+              src="/_images/objects_hero.png"
+              alt=""
+              fill
+              unoptimized
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            />
+          </div>
         </div>
       </section>
 
