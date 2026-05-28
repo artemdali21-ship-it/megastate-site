@@ -6,7 +6,7 @@ import ConnectCTA from '@/components/sections/ConnectCTA';
 import SectionLabel from '@/components/ui/SectionLabel';
 
 export const metadata: Metadata = {
-  title: 'Компания',
+  title: 'МЕГАСТЕЙТ — оператор объектов типа стрит-ритейл',
   description:
     'МЕГАСТЕЙТ — независимый оператор объектов типа стрит-ритейл в Москве и ближнем Подмосковье. Берём помещения в долгосрочную аренду, делим, заселяем, управляем.',
 };
@@ -73,7 +73,6 @@ export default function CompanyPage() {
       <section className="split-section" style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="07.1" text="Фокус" />
             <div
               style={{
                 display: 'grid',
@@ -109,7 +108,6 @@ export default function CompanyPage() {
       <section className="split-section" style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="07.2" text="Модель" />
             <div
               style={{
                 display: 'grid',
@@ -150,7 +148,6 @@ export default function CompanyPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="07.3" text="Принципы" />
             <div
               style={{
                 display: 'grid',

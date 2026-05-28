@@ -86,7 +86,6 @@ export default function OwnersPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="04.1" text="Что вы получаете" />
             <h2 style={{ marginBottom: '40px' }}>Что вы получаете</h2>
           </MotionFadeUp>
 
@@ -114,7 +113,6 @@ export default function OwnersPage() {
       <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="04.2" text="С какими помещениями" />
             <h2 style={{ marginBottom: '32px' }}>С какими помещениями работаем</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0', maxWidth: '680px' }}>
               {[
@@ -157,7 +155,6 @@ export default function OwnersPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="04.3" text="Первый контакт" />
             <div style={{ maxWidth: '640px' }}>
               <h2 style={{ marginBottom: '24px' }}>Как происходит первый разговор</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '24px' }}>

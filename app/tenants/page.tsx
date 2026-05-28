@@ -95,7 +95,6 @@ export default function TenantsPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="05.1" text="Категории арендаторов" />
             <h2 style={{ marginBottom: '32px' }}>С какими категориями работаем</h2>
           </MotionFadeUp>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -124,7 +123,6 @@ export default function TenantsPage() {
       <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="05.2" text="Состояние помещения" />
             <h2 style={{ marginBottom: '24px' }}>Состояние помещения</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '17px', maxWidth: '560px', lineHeight: 1.7 }}>
               Shell &amp; core, черновая отделка, white box или «под ключ» — в соответствии с вашим брендбуком.
@@ -136,7 +134,6 @@ export default function TenantsPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="05.3" text="Что мы предлагаем" />
             <h2 style={{ marginBottom: '40px' }}>Что мы предлагаем</h2>
           </MotionFadeUp>
           <div
@@ -162,7 +159,6 @@ export default function TenantsPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="05.4" text="Контакт" />
             <div style={{ maxWidth: '560px' }}>
               <h2 style={{ marginBottom: '20px' }}>Как написать</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '32px' }}>

@@ -67,7 +67,6 @@ export default function ObjectsPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="06.1" text="В работе" />
             <div
               style={{
                 display: 'grid',
@@ -125,7 +124,6 @@ export default function ObjectsPage() {
       <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <SectionLabel num="06.2" text="В управлении" />
             <div
               style={{
                 display: 'grid',
