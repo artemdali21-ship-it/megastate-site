@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image-navy.png',
         width: 1200,
         height: 630,
         alt: 'МЕГАСТЕЙТ — оператор коммерческих помещений в Москве',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/og-image.png'],
+    images: ['/og-image-navy.png'],
   },
   robots: { index: true, follow: true },
 };
