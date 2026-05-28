@@ -6,7 +6,7 @@ import ConnectCTA from '@/components/sections/ConnectCTA';
 import SectionLabel from '@/components/ui/SectionLabel';
 
 export const metadata: Metadata = {
-  title: 'Шесть шагов от квадратных метров до ГАБа — МЕГАСТЕЙТ',
+  title: 'Шесть шагов от квадратных метров до ГАБа',
   description:
     'Шесть шагов МЕГАСТЕЙТ от квадратных метров до Готового Арендного Бизнеса. От первичного анализа до запуска объекта — 2–10 месяцев.',
 };

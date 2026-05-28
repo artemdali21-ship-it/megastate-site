@@ -6,7 +6,7 @@ import ConnectCTA from '@/components/sections/ConnectCTA';
 import SectionLabel from '@/components/ui/SectionLabel';
 
 export const metadata: Metadata = {
-  title: 'МЕГАСТЕЙТ — оператор объектов типа стрит-ритейл',
+  title: 'Оператор объектов типа стрит-ритейл',
   description:
     'МЕГАСТЕЙТ — независимый оператор объектов типа стрит-ритейл в Москве и ближнем Подмосковье. Берём помещения в долгосрочную аренду, делим, заселяем, управляем.',
 };
