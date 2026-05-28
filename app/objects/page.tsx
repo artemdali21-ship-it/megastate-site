@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Send, Mail, ExternalLink } from 'lucide-react';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
@@ -38,34 +39,55 @@ export default function ObjectsPage() {
         <div className="container-main section-gap">
           <MotionFadeUp>
             <SectionLabel num="06.1" text="В работе" />
-            <h2 style={{ marginBottom: '24px' }}>Объекты в работе</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px', maxWidth: '640px' }}>
-              Помещения на стадии расчёта, переговоров, подготовки, деления, заселения или тестовой эксплуатации.
-            </p>
-            <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '32px', maxWidth: '640px' }}>
-              По каждому объекту мы готовим подробную презентацию: локация, параметры помещения, формат деления, статус и условия для потенциальных арендаторов.
-            </p>
-            <a
-              href="https://megastate.group/moskva-nizhnie-mnevniki-7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-arrow btn-primary"
+            <div
               style={{
-                display: 'inline-flex',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '48px',
                 alignItems: 'center',
-                gap: '8px',
-                padding: '12px 24px',
-                borderRadius: '8px',
-                background: 'var(--accent)',
-                color: 'var(--surface)',
-                fontWeight: 600,
-                fontSize: '15px',
-                textDecoration: 'none',
               }}
             >
-              <ExternalLink size={15} strokeWidth={1.5} />
-              Смотреть объекты в работе
-            </a>
+              <div>
+                <h2 style={{ marginBottom: '24px' }}>Объекты в работе</h2>
+                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>
+                  Помещения на стадии расчёта, переговоров, подготовки, деления, заселения или тестовой эксплуатации.
+                </p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '32px' }}>
+                  По каждому объекту мы готовим подробную презентацию: локация, параметры помещения, формат деления, статус и условия для потенциальных арендаторов.
+                </p>
+                <a
+                  href="https://megastate.group/moskva-nizhnie-mnevniki-7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-arrow btn-primary"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '12px 24px',
+                    borderRadius: '8px',
+                    background: 'var(--accent)',
+                    color: 'var(--surface)',
+                    fontWeight: 600,
+                    fontSize: '15px',
+                    textDecoration: 'none',
+                  }}
+                >
+                  <ExternalLink size={15} strokeWidth={1.5} />
+                  Смотреть объекты в работе
+                </a>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Image
+                  src="/_images/focus.png"
+                  alt=""
+                  width={460}
+                  height={344}
+                  unoptimized
+                  style={{ objectFit: 'contain', maxWidth: '100%' }}
+                />
+              </div>
+            </div>
           </MotionFadeUp>
         </div>
       </section>
@@ -75,66 +97,86 @@ export default function ObjectsPage() {
         <div className="container-main section-gap">
           <MotionFadeUp>
             <SectionLabel num="06.2" text="В управлении" />
-            <h2 style={{ marginBottom: '24px' }}>Объекты в управлении</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px', maxWidth: '640px' }}>
-              Действующие объекты под операторским управлением МЕГАСТЕЙТ.
-            </p>
-            <p
+            <div
               style={{
-                marginBottom: '32px',
-                padding: '24px 28px',
-                background: 'var(--surface)',
-                borderRadius: '12px',
-                color: 'var(--text-muted)',
-                fontSize: '16px',
-                maxWidth: '640px',
-                borderLeft: '2px solid var(--accent-soft)',
-                lineHeight: 1.7,
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '48px',
+                alignItems: 'center',
               }}
             >
-              Первые объекты появятся здесь по мере запуска. Если вы рассматриваете передачу своего помещения под операторское управление — напишите нам в Telegram или на почту.
-            </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-              <a
-                href={TELEGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-arrow btn-primary"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 24px',
-                  borderRadius: '8px',
-                  background: 'var(--accent)',
-                  color: 'var(--surface)',
-                  fontWeight: 600,
-                  fontSize: '15px',
-                  textDecoration: 'none',
-                }}
-              >
-                <Send size={16} strokeWidth={1.5} />
-                Написать в Telegram
-              </a>
-              <a
-                href={MAILTO}
-                className="btn-arrow"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 24px',
-                  borderRadius: '8px',
-                  border: '1px solid var(--line)',
-                  color: 'var(--accent)',
-                  fontWeight: 600,
-                  fontSize: '15px',
-                  textDecoration: 'none',
-                }}
-              >
-                <Mail size={16} strokeWidth={1.5} />
-                Написать на почту
-              </a>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: -1 }}>
+                <Image
+                  src="/_images/object_green.png"
+                  alt=""
+                  width={460}
+                  height={460}
+                  unoptimized
+                  style={{ objectFit: 'contain', maxWidth: '100%' }}
+                />
+              </div>
+              <div>
+                <h2 style={{ marginBottom: '24px' }}>Объекты в управлении</h2>
+                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>
+                  Действующие объекты под операторским управлением МЕГАСТЕЙТ.
+                </p>
+                <p
+                  style={{
+                    marginBottom: '32px',
+                    padding: '24px 28px',
+                    background: 'var(--surface)',
+                    borderRadius: '12px',
+                    color: 'var(--text-muted)',
+                    fontSize: '16px',
+                    borderLeft: '2px solid var(--accent-soft)',
+                    lineHeight: 1.7,
+                  }}
+                >
+                  Первые объекты появятся здесь по мере запуска. Если вы рассматриваете передачу своего помещения под операторское управление — напишите нам в Telegram или на почту.
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                  <a
+                    href={TELEGRAM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-arrow btn-primary"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 24px',
+                      borderRadius: '8px',
+                      background: 'var(--accent)',
+                      color: 'var(--surface)',
+                      fontWeight: 600,
+                      fontSize: '15px',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <Send size={16} strokeWidth={1.5} />
+                    Написать в Telegram
+                  </a>
+                  <a
+                    href={MAILTO}
+                    className="btn-arrow"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '12px 24px',
+                      borderRadius: '8px',
+                      border: '1px solid var(--line)',
+                      color: 'var(--accent)',
+                      fontWeight: 600,
+                      fontSize: '15px',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <Mail size={16} strokeWidth={1.5} />
+                    Написать на почту
+                  </a>
+                </div>
+              </div>
             </div>
           </MotionFadeUp>
         </div>
