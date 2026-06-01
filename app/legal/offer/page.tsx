@@ -3,7 +3,7 @@ import Link from 'next/link';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 
 export const metadata: Metadata = {
-  title: 'Публичная оферта — МЕГАСТЕЙТ',
+  title: 'Публичная оферта',
   description: 'Публичная оферта ООО «МЕГАСТЕЙТ» на оказание услуг по управлению объектами стрит-ритейла.',
 };
 
@@ -21,7 +21,7 @@ export default function OfferPage() {
           <nav className="breadcrumb">
             <Link href="/">Главная</Link>
             <span className="breadcrumb-sep">/</span>
-            <Link href="/legal/">Реквизиты</Link>
+            <Link href="/legal/">Юридическая информация</Link>
             <span className="breadcrumb-sep">/</span>
             <span>Публичная оферта</span>
           </nav>
@@ -130,7 +130,7 @@ export default function OfferPage() {
                 ООО «МЕГАСТЕЙТ»<br />
                 ИНН 9710153625 · КПП 771001001<br />
                 127006, Москва, улица Садовая-Триумфальная, 16, строение 3, помещение 2А/1<br />
-                E-mail: <a href="mailto:r.rakhmanova@megastate.group">r.rakhmanova@megastate.group</a><br />
+                E-mail: <a href="mailto:info@megastate.group">info@megastate.group</a><br />
                 Телефон: <a href="tel:+79912773363">+7 991 277 33 63</a>
               </p>
 

@@ -8,7 +8,7 @@ import SectionLabel from '@/components/ui/SectionLabel';
 import { TELEGRAM_URL, MAILTO } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Объекты — МЕГАСТЕЙТ',
+  title: 'Объекты',
   description: 'Объекты МЕГАСТЕЙТ в работе и в управлении: помещения на стадии расчёта, переговоров, подготовки, заселения и действующие объекты.',
 };
 

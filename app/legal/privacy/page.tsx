@@ -3,7 +3,7 @@ import Link from 'next/link';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 
 export const metadata: Metadata = {
-  title: 'Политика обработки персональных данных — МЕГАСТЕЙТ',
+  title: 'Политика обработки персональных данных',
   description: 'Политика ООО «МЕГАСТЕЙТ» в отношении обработки персональных данных.',
 };
 
@@ -21,7 +21,7 @@ export default function PrivacyPage() {
           <nav className="breadcrumb">
             <Link href="/">Главная</Link>
             <span className="breadcrumb-sep">/</span>
-            <Link href="/legal/">Реквизиты</Link>
+            <Link href="/legal/">Юридическая информация</Link>
             <span className="breadcrumb-sep">/</span>
             <span>Политика персональных данных</span>
           </nav>
@@ -109,7 +109,7 @@ export default function PrivacyPage() {
               <h2>8. Контактные данные</h2>
               <p>
                 По вопросам обработки персональных данных обращайтесь по электронной почте:{' '}
-                <a href="mailto:r.rakhmanova@megastate.group">r.rakhmanova@megastate.group</a>.
+                <a href="mailto:info@megastate.group">info@megastate.group</a>.
                 Срок ответа — 10 рабочих дней.
               </p>
 

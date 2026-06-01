@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 export const dynamic = 'force-static';
 
-const BASE_URL = 'https://megastate.vercel.app';
+const BASE_URL = 'https://megastate.group';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 
 export const metadata: Metadata = {
-  title: 'Политика использования Cookie — МЕГАСТЕЙТ',
+  title: 'Политика использования Cookie',
   description: 'Политика использования файлов cookie на сайте megastate.group.',
 };
 
@@ -21,7 +21,7 @@ export default function CookiePage() {
           <nav className="breadcrumb">
             <Link href="/">Главная</Link>
             <span className="breadcrumb-sep">/</span>
-            <Link href="/legal/">Реквизиты</Link>
+            <Link href="/legal/">Юридическая информация</Link>
             <span className="breadcrumb-sep">/</span>
             <span>Cookie</span>
           </nav>
@@ -89,7 +89,7 @@ export default function CookiePage() {
               <h2>7. Контакты</h2>
               <p>
                 Вопросы по использованию cookie направляйте по адресу:{' '}
-                <a href="mailto:r.rakhmanova@megastate.group">r.rakhmanova@megastate.group</a>.
+                <a href="mailto:info@megastate.group">info@megastate.group</a>.
               </p>
 
             </article>

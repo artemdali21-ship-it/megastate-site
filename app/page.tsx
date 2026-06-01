@@ -12,7 +12,7 @@ import HeroPlanOverlay from '@/components/ui/HeroPlanOverlay';
 import { TELEGRAM_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Превращаем пустое помещение в доходный объект — МЕГАСТЕЙТ',
+  title: { absolute: 'Превращаем пустое помещение в доходный объект — МЕГАСТЕЙТ' },
   description:
     'МЕГАСТЕЙТ превращает пустое коммерческое помещение в доходный объект. Долгосрочная аренда в формате ГАБ на 7–20 лет в Москве.',
 };
