@@ -102,7 +102,7 @@ export default function ObjectsPage() {
                   }}
                 >
                   <ExternalLink size={15} strokeWidth={1.5} />
-                  Смотреть объекты в работе
+                  Москва, Н.Мнёвники, д.7, ЖК ОСТРОВ
                 </a>
               </div>
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
