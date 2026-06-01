@@ -159,7 +159,7 @@ export default function OwnersPage() {
               <h2 style={{ marginBottom: '24px' }}>Как происходит первый разговор</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '24px' }}>
                 Один созвон. Один выезд на объект. Расчёт по нашей модели.
-                Если объект подходит, письменное предложение со ставкой и
+                Если объект подходит — письменное предложение со ставкой и
                 условиями. Без затягивания и без избыточного давления.
               </p>
               <p style={{ color: 'var(--text-muted)', fontSize: '17px', marginBottom: '32px' }}>

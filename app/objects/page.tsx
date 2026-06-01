@@ -147,6 +147,24 @@ export default function ObjectsPage() {
                 <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>
                   Действующие объекты под операторским управлением МЕГАСТЕЙТ.
                 </p>
+                <div style={{ marginBottom: '20px' }}>
+                  <span style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '5px 12px',
+                    borderRadius: '999px',
+                    background: 'var(--surface-muted)',
+                    border: '1px solid var(--line)',
+                    fontSize: '13px',
+                    fontWeight: 600,
+                    color: 'var(--text-muted)',
+                    letterSpacing: '0.04em',
+                  }}>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-soft)', display: 'inline-block' }} />
+                    В разработке
+                  </span>
+                </div>
                 <p
                   style={{
                     marginBottom: '32px',

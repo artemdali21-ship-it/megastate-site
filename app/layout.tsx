@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image-navy.png',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'МЕГАСТЕЙТ — оператор коммерческих помещений в Москве',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/og-image-navy.png'],
+    images: ['/og-image.png'],
   },
   robots: { index: true, follow: true },
 };
@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" data-theme="navy" className={manrope.variable}>
+    <html lang="ru" className={manrope.variable}>
       <body style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <a
           href="#main"
