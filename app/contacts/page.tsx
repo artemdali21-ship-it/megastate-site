@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Send, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Send, Mail, Phone, Clock } from 'lucide-react';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 import SectionLabel from '@/components/ui/SectionLabel';
 import { ShaderAnimation } from '@/components/ui/ShaderAnimation';
-import { TELEGRAM_URL, MAILTO, EMAIL, PHONE, PHONE_TEL, ADDRESS_SHORT } from '@/lib/constants';
+import { TELEGRAM_URL, MAILTO, EMAIL, PHONE, PHONE_TEL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Контакты',
@@ -108,7 +108,7 @@ export default function ContactsPage() {
 
             <MotionFadeUp delay={0.1}>
               <div>
-                <SectionLabel num="08.2" text="Координаты" />
+                <SectionLabel num="08.2" text="Контакты" />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                     <Phone size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />
@@ -121,10 +121,6 @@ export default function ContactsPage() {
                     <a href={MAILTO} style={{ color: 'var(--text)', textDecoration: 'none', fontSize: '16px' }}>
                       {EMAIL}
                     </a>
-                  </div>
-                  <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <MapPin size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />
-                    <p style={{ color: 'var(--text-muted)', fontSize: '16px', lineHeight: 1.5 }}>{ADDRESS_SHORT}</p>
                   </div>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                     <Clock size={16} strokeWidth={1.5} style={{ color: 'var(--accent-soft)', marginTop: '3px', flexShrink: 0 }} />
