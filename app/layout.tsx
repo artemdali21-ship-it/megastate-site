@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://cdn.jsdelivr.net/gh/artemdali21-ship-it/megastate-site@main/public/og-megastate.png',
+        url: 'https://cdn.jsdelivr.net/gh/artemdali21-ship-it/megastate-site@main/public/og-megastate.jpg',
         width: 1200,
         height: 630,
         alt: 'МЕГАСТЕЙТ — оператор коммерческих помещений в Москве',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['https://cdn.jsdelivr.net/gh/artemdali21-ship-it/megastate-site@main/public/og-megastate.png'],
+    images: ['https://cdn.jsdelivr.net/gh/artemdali21-ship-it/megastate-site@main/public/og-megastate.jpg'],
   },
   robots: { index: true, follow: true },
 };
