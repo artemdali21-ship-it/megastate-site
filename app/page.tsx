@@ -76,9 +76,21 @@ export default function HomePage() {
         >
           {/* Content column — capped width so it never overlaps the SVG plan */}
           <div className="hero-v3-content">
-            {/* Small logo — белый на тёмном фоне */}
+            {/* Small logo + tagline — белый на тёмном фоне */}
             <div style={{ marginBottom: '28px', color: 'var(--surface)' }}>
               <Logo height={30} />
+              <p
+                style={{
+                  marginTop: '7px',
+                  fontSize: '10px',
+                  letterSpacing: '0.18em',
+                  color: 'rgba(250,248,243,0.45)',
+                  textTransform: 'uppercase',
+                  fontWeight: 500,
+                }}
+              >
+                ИЗ ПРОСТРАНСТВА ДЕЛАЕМ АКТИВ
+              </p>
             </div>
             <MotionFadeUp>
               <h1
