@@ -88,7 +88,7 @@ export default function HomePage() {
                   lineHeight: 1.1,
                 }}
               >
-                Из пространства делаем актив
+                ИЗ ПРОСТРАНСТВА ДЕЛАЕМ АКТИВ
               </h1>
               <span className="hero-line" style={{ borderColor: 'rgba(250,248,243,0.3)' }} />
               <p
