@@ -43,19 +43,31 @@ export default function Footer() {
           {/* Brand col */}
           <div style={{ gridColumn: 'span 1' }}>
             <div style={{ color: 'var(--surface)' }}>
-              <Logo height={20} />
+              <Logo height={22} />
             </div>
             <p
               style={{
+                marginTop: '8px',
+                fontSize: '10px',
+                letterSpacing: '0.16em',
+                color: 'rgba(250,248,243,0.45)',
+                textTransform: 'uppercase',
+                fontWeight: 500,
+              }}
+            >
+              ИЗ ПРОСТРАНСТВА ДЕЛАЕМ АКТИВ
+            </p>
+            <p
+              style={{
                 marginTop: '12px',
-                fontSize: '14px',
-                color: 'rgba(250,248,243,0.5)',
+                fontSize: '13px',
+                color: 'rgba(250,248,243,0.4)',
                 lineHeight: 1.55,
               }}
             >
-              Оператор помещений формата стрит-ритейл
+              Оператор коммерческой недвижимости.
               <br />
-              Анализ · Заселение · Операционное ведение
+              Долгосрочная аренда ГАБ · Москва
             </p>
             <a
               href={`mailto:${EMAIL}`}

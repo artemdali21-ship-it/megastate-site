@@ -1,21 +1,44 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Send, Mail, ExternalLink } from 'lucide-react';
+import { FileText, MapPin, Calendar, Maximize2, Users } from 'lucide-react';
 import MotionFadeUp from '@/components/ui/MotionFadeUp';
 import ConnectCTA from '@/components/sections/ConnectCTA';
 import SectionLabel from '@/components/ui/SectionLabel';
-import { TELEGRAM_URL, MAILTO } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Объекты',
   description: 'Объекты МЕГАСТЕЙТ в работе и в управлении: помещения на стадии расчёта, переговоров, подготовки, заселения и действующие объекты.',
 };
 
+const OBJECTS_IN_WORK = [
+  {
+    id: 'mnevniki',
+    address: 'Москва, Нижние Мневники, 7',
+    complex: 'ЖК ОСТРОВ',
+    pdf: '/presentations/ostrov-mnevniki.pdf',
+    status: 'В работе',
+  },
+  {
+    id: 'lobanovskiy',
+    address: 'Москва, Лобановский Лес, 9',
+    complex: 'ЖК ПРОКШИНО',
+    pdf: '/presentations/prokshino-lobanovskiy.pdf',
+    status: 'В работе',
+  },
+  {
+    id: 'rublevo',
+    address: 'Москва, Рублёвское шоссе, 101',
+    complex: 'ЖК ВАНДЕР ПАРК',
+    pdf: '/presentations/wander-park-rublevo.pdf',
+    status: 'В работе',
+  },
+];
+
 export default function ObjectsPage() {
   return (
     <>
-      {/* ─── Hero (split grid) ─── */}
+      {/* ─── Hero ─── */}
       <section
         style={{ background: 'var(--bg)', position: 'relative', overflow: 'hidden' }}
         className="grain"
@@ -43,7 +66,7 @@ export default function ObjectsPage() {
               <h1 style={{ marginBottom: '0' }}>Объекты</h1>
               <span className="hero-line" />
               <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '480px' }}>
-                Помещения на стадии расчёта, переговоров, подготовки, деления, заселения или тестовой эксплуатации, а также объекты, запущенные и находящиеся в операторском управлении компании.
+                Помещения на стадии расчёта, переговоров, подготовки, деления, заселения или тестовой эксплуатации, а также объекты в операторском управлении компании.
               </p>
             </MotionFadeUp>
           </div>
@@ -67,56 +90,112 @@ export default function ObjectsPage() {
       <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                gap: '48px',
-                alignItems: 'center',
-              }}
-            >
-              <div>
-                <h2 style={{ marginBottom: '24px' }}>Объекты в работе</h2>
-                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>
-                  Помещения на стадии расчёта, переговоров, подготовки, деления, заселения или тестовой эксплуатации.
-                </p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '32px' }}>
-                  По каждому объекту мы готовим подробную презентацию: локация, параметры помещения, формат деления, статус и условия для потенциальных арендаторов.
-                </p>
-                <a
-                  href="https://megastate.group/moskva-nizhnie-mnevniki-7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-arrow btn-primary"
+            <h2 style={{ marginBottom: '8px' }}>Объекты в работе</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '40px', maxWidth: '620px' }}>
+              Помещения на стадии расчёта, переговоров, подготовки, деления, заселения или тестовой эксплуатации. По каждому объекту подготовлена презентация с параметрами и условиями.
+            </p>
+          </MotionFadeUp>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '20px',
+            }}
+          >
+            {OBJECTS_IN_WORK.map((obj) => (
+              <MotionFadeUp key={obj.id}>
+                <div
                   style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '12px 24px',
-                    borderRadius: '8px',
-                    background: 'var(--accent)',
-                    color: 'var(--surface)',
-                    fontWeight: 600,
-                    fontSize: '15px',
-                    textDecoration: 'none',
+                    border: '1px solid var(--line)',
+                    borderRadius: '12px',
+                    padding: '28px',
+                    background: 'var(--bg)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '16px',
+                    height: '100%',
                   }}
                 >
-                  <ExternalLink size={15} strokeWidth={1.5} />
-                  Москва, Н.Мнёвники, д.7, ЖК ОСТРОВ
-                </a>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Image
-                  src="/_images/focus.png"
-                  alt=""
-                  width={460}
-                  height={344}
-                  unoptimized
-                  style={{ objectFit: 'contain', maxWidth: '100%' }}
-                />
-              </div>
-            </div>
-          </MotionFadeUp>
+                  <div>
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '5px',
+                        padding: '3px 10px',
+                        borderRadius: '999px',
+                        background: 'rgba(30,51,40,0.08)',
+                        fontSize: '11px',
+                        fontWeight: 600,
+                        color: 'var(--accent)',
+                        letterSpacing: '0.06em',
+                        textTransform: 'uppercase',
+                        marginBottom: '12px',
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: '5px',
+                          height: '5px',
+                          borderRadius: '50%',
+                          background: 'var(--accent)',
+                          display: 'inline-block',
+                        }}
+                      />
+                      {obj.status}
+                    </span>
+                    <p
+                      style={{
+                        fontSize: '12px',
+                        fontWeight: 600,
+                        color: 'var(--accent)',
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                        marginBottom: '4px',
+                      }}
+                    >
+                      {obj.complex}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: '16px',
+                        fontWeight: 500,
+                        color: 'var(--text)',
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {obj.address}
+                    </p>
+                  </div>
+
+                  <div style={{ marginTop: 'auto' }}>
+                    <a
+                      href={obj.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        padding: '10px 20px',
+                        borderRadius: '8px',
+                        background: 'var(--accent)',
+                        color: 'var(--surface)',
+                        fontWeight: 600,
+                        fontSize: '14px',
+                        textDecoration: 'none',
+                        transition: 'opacity 150ms ease',
+                      }}
+                    >
+                      <FileText size={15} strokeWidth={1.5} />
+                      Открыть презентацию
+                    </a>
+                  </div>
+                </div>
+              </MotionFadeUp>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -124,102 +203,146 @@ export default function ObjectsPage() {
       <section style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)' }}>
         <div className="container-main section-gap">
           <MotionFadeUp>
+            <h2 style={{ marginBottom: '8px' }}>Объекты в управлении</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '48px', maxWidth: '620px' }}>
+              Действующие объекты под операторским управлением МЕГАСТЕЙТ.
+            </p>
+          </MotionFadeUp>
+
+          {/* ── Ривер Парк ── */}
+          <MotionFadeUp>
             <div
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                gap: '48px',
-                alignItems: 'center',
+                border: '1px solid var(--line)',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                background: 'var(--surface)',
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: -1 }}>
-                <Image
-                  src="/_images/object_green.png"
-                  alt=""
-                  width={460}
-                  height={460}
-                  unoptimized
-                  style={{ objectFit: 'contain', maxWidth: '100%' }}
-                />
-              </div>
-              <div>
-                <h2 style={{ marginBottom: '24px' }}>Объекты в управлении</h2>
-                <p style={{ color: 'var(--text-muted)', fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>
-                  Действующие объекты под операторским управлением МЕГАСТЕЙТ.
-                </p>
-                <div style={{ marginBottom: '20px' }}>
-                  <span style={{
+              {/* Header */}
+              <div
+                style={{
+                  background: 'var(--accent)',
+                  padding: '24px 32px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '12px',
+                }}
+              >
+                <div>
+                  <p
+                    style={{
+                      fontSize: '11px',
+                      fontWeight: 700,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      color: 'rgba(250,248,243,0.6)',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    В управлении
+                  </p>
+                  <h3 style={{ color: 'var(--surface)', margin: 0, fontSize: 'clamp(18px, 2.5vw, 22px)' }}>
+                    ЖК РИВЕР ПАРК
+                  </h3>
+                </div>
+                <span
+                  style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    padding: '5px 12px',
+                    padding: '6px 14px',
                     borderRadius: '999px',
-                    background: 'var(--surface-muted)',
-                    border: '1px solid var(--line)',
-                    fontSize: '13px',
+                    background: 'rgba(250,248,243,0.15)',
+                    fontSize: '12px',
                     fontWeight: 600,
-                    color: 'var(--text-muted)',
+                    color: 'var(--surface)',
                     letterSpacing: '0.04em',
-                  }}>
-                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-soft)', display: 'inline-block' }} />
-                    В разработке
-                  </span>
-                </div>
-                <p
-                  style={{
-                    marginBottom: '32px',
-                    padding: '24px 28px',
-                    background: 'var(--surface)',
-                    borderRadius: '12px',
-                    color: 'var(--text-muted)',
-                    fontSize: '16px',
-                    borderLeft: '2px solid var(--accent-soft)',
-                    lineHeight: 1.7,
                   }}
                 >
-                  Первые объекты появятся здесь по мере запуска. Если вы рассматриваете передачу своего помещения под операторское управление — напишите нам в Telegram или на почту.
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-                  <a
-                    href={TELEGRAM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-arrow btn-primary"
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#6fcf97', display: 'inline-block' }} />
+                  Активный объект
+                </span>
+              </div>
+
+              <div style={{ padding: '32px' }}>
+                {/* Stats row */}
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                    gap: '20px',
+                    marginBottom: '32px',
+                    paddingBottom: '32px',
+                    borderBottom: '1px solid var(--line)',
+                  }}
+                >
+                  <StatCard
+                    icon={<MapPin size={16} strokeWidth={1.5} />}
+                    label="Адрес"
+                    value="Москва, Корабельная, 1"
+                  />
+                  <StatCard
+                    icon={<Calendar size={16} strokeWidth={1.5} />}
+                    label="Дата создания"
+                    value="— (уточняется)"
+                  />
+                  <StatCard
+                    icon={<Maximize2 size={16} strokeWidth={1.5} />}
+                    label="Общая площадь"
+                    value="— м²"
+                  />
+                  <StatCard
+                    icon={<Users size={16} strokeWidth={1.5} />}
+                    label="Занятая площадь"
+                    value="— м²"
+                  />
+                </div>
+
+                {/* Subtenant activity */}
+                <div style={{ marginBottom: '32px' }}>
+                  <h4 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                    Субарендная активность
+                  </h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '15px', lineHeight: 1.7 }}>
+                    Данные по субарендаторам и загрузке площадей уточняются.
+                  </p>
+                </div>
+
+                {/* Photos placeholder */}
+                <div>
+                  <h4 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '16px' }}>
+                    Фотографии объекта
+                  </h4>
+                  <div
                     style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(3, 1fr)',
                       gap: '8px',
-                      padding: '12px 24px',
-                      borderRadius: '8px',
-                      background: 'var(--accent)',
-                      color: 'var(--surface)',
-                      fontWeight: 600,
-                      fontSize: '15px',
-                      textDecoration: 'none',
+                      aspectRatio: '3 / 1',
                     }}
                   >
-                    <Send size={16} strokeWidth={1.5} />
-                    Написать в Telegram
-                  </a>
-                  <a
-                    href={MAILTO}
-                    className="btn-arrow"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      padding: '12px 24px',
-                      borderRadius: '8px',
-                      border: '1px solid var(--line)',
-                      color: 'var(--accent)',
-                      fontWeight: 600,
-                      fontSize: '15px',
-                      textDecoration: 'none',
-                    }}
-                  >
-                    <Mail size={16} strokeWidth={1.5} />
-                    Написать на почту
-                  </a>
+                    {[1, 2, 3].map((i) => (
+                      <div
+                        key={i}
+                        style={{
+                          background: 'var(--surface-muted, #f0ede6)',
+                          borderRadius: '8px',
+                          border: '1px dashed var(--line)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          minHeight: '140px',
+                        }}
+                      >
+                        <span style={{ fontSize: '12px', color: 'var(--text-muted)', opacity: 0.5 }}>
+                          Фото {i}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -229,5 +352,39 @@ export default function ObjectsPage() {
 
       <ConnectCTA />
     </>
+  );
+}
+
+function StatCard({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}) {
+  return (
+    <div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px',
+          color: 'var(--text-muted)',
+          fontSize: '12px',
+          fontWeight: 600,
+          textTransform: 'uppercase',
+          letterSpacing: '0.06em',
+          marginBottom: '4px',
+        }}
+      >
+        {icon}
+        {label}
+      </div>
+      <p style={{ fontSize: '17px', fontWeight: 500, color: 'var(--text)', margin: 0 }}>
+        {value}
+      </p>
+    </div>
   );
 }
